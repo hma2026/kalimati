@@ -830,3 +830,80 @@ img, svg { max-width: 100%; }
 /* child illustration in practice stage (asset, not emoji) */
 .practice__char-img { width: 92px; height: 92px; object-fit: contain; display: block; }
 @media (min-width: 768px) { .practice__char-img { width: 120px; height: 120px; } }
+
+/* ============================================================
+   v0.4.6 — Final Visual Matching (iPad-first 1024×1366, mobile 390×844)
+   مطابقة بصرية للتصاميم المعتمدة: padding، ترويسة، بطاقات، بئر الصورة،
+   وأزرار التدريب (حبّات فاتحة + أيقونة دائرية ملوّنة + نص داكن).
+   ============================================================ */
+
+/* 4.الصفحة — padding عام */
+.screen { padding: 24px; gap: 16px; }
+@media (max-width: 767px) { .screen { padding: 14px; gap: 12px; } }
+
+/* 4.الترويسة — ارتفاع ووضوح */
+.level-bar, .appbar { min-height: 96px; }
+@media (max-width: 767px) { .level-bar, .appbar { min-height: 70px; } }
+
+/* 4.البطاقات — حواف/ارتفاع/حشو/تباعد */
+.wcard, .pcard { border-radius: 24px; padding: 16px; min-height: 168px; }
+.card-grid { gap: 16px; }
+@media (max-width: 767px) {
+  .wcard, .pcard { border-radius: 20px; padding: 12px; min-height: 138px; }
+  .card-grid { gap: 12px !important; }
+}
+
+/* 4.بئر الصورة — أكبر، يملأ، خلفية ناعمة + ظل داخلي */
+.wcard__media, .pcard__visual {
+  width: 96px; height: 96px; border-radius: 22px;
+  background: var(--surface-2);
+  box-shadow: inset 0 2px 6px rgba(16, 24, 40, .08);
+}
+.wcard__media img, .pcard__visual > img, .pcard__visual > svg { padding: 6%; }
+.pcard--big .pcard__visual { width: 100px; height: 100px; }
+@media (max-width: 767px) {
+  .wcard__media, .pcard__visual { width: 72px; height: 72px; border-radius: 18px; }
+  .pcard--big .pcard__visual { width: 76px; height: 76px; }
+}
+
+/* 4.أزرار التدريب — حبّة فاتحة + أيقونة دائرية ملوّنة + نص داكن (كالمرجع) */
+.practice__row { display: flex; gap: 10px; flex-wrap: wrap; }
+.practice__row .pbtn-line { flex: 1 1 160px !important; }
+.pbtn-line {
+  background: var(--surface); color: var(--ink);
+  border: 2px solid var(--line); border-radius: 18px;
+  display: flex; align-items: center; gap: 12px; justify-content: flex-start;
+  min-height: 56px; padding: 8px 16px; font-weight: 800; font-size: 1.05rem;
+}
+.pbtn-line > svg {
+  width: 22px; height: 22px; padding: 9px; border-radius: 50%;
+  color: #fff; box-sizing: content-box; flex: 0 0 auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .12);
+}
+.pbtn--listen > svg { background: var(--primary); }
+.pbtn--rec > svg { background: #ef4444; }
+.pbtn--play > svg { background: var(--blue); }
+.pbtn--ok { background: #EAF7EE; border-color: #BFE6CB; color: #166534; }
+.pbtn--ok > svg { background: var(--green); }
+.pbtn--redo { background: #FFF2E6; border-color: #FFD7B0; color: #9A4B00; }
+.pbtn--redo > svg { background: #f97316; }
+.pbtn-line.is-rec { background: #FDE8E8; border-color: #F5B5B5; color: #b91c1c; }
+.pbtn-line.is-rec > svg { background: #b91c1c; }
+.pbtn-line:disabled { opacity: .45; }
+@media (max-width: 767px) { .pbtn-line { min-height: 48px; border-radius: 16px; font-size: 1rem; } }
+
+/* أزرار النسخة المختصرة (المستوى السادس) — نفس لغة الأيقونة الملوّنة، أصغر */
+.pbtn > svg {
+  width: 20px; height: 20px; padding: 8px; border-radius: 50%;
+  color: #fff; box-sizing: content-box; box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
+.pbtn.pbtn--listen > svg { background: var(--primary); }
+.pbtn.pbtn--rec > svg { background: #ef4444; }
+.pbtn.pbtn--play > svg { background: var(--blue); }
+.pbtn.pbtn--ok > svg { background: var(--green); }
+.pbtn.pbtn--redo > svg { background: #f97316; }
+.pbtn.is-rec > svg { background: #b91c1c; }
+.pbtn { background: var(--surface) !important; color: var(--ink) !important; border: 2px solid var(--line) !important; }
+
+/* 4.التبويبات — لمسة لون ناعمة حتى غير المفعّلة */
+.ctab { background: var(--surface-2); }
