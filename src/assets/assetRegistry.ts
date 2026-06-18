@@ -5,39 +5,52 @@
  * الداخلي (اسم الملف بدون الامتداد). فقط ضع الملف وسيُستخدم فوراً في الدرس
  * واللعبة معاً — بدون تعديل أي شاشة.
  *
- *   src/assets/images/animals/cat.png   →  getAsset('cat')
- *   src/assets/images/colors/red.webp   →  getAsset('red')
- *   src/assets/images/shapes/circle.svg →  getAsset('circle')
+ *   src/assets/images/animals/cat.svg    →  getAsset('cat')
+ *   src/assets/images/drinks/water.png   →  getAsset('water')
+ *   src/assets/images/shapes/circle.svg  →  getAsset('circle')
  *
- * الصيغ المدعومة: png / webp / svg / jpg.
- * إن لم توجد صورة لمفتاح ما، يرجع null ويستخدم النظام بديلاً مؤقتاً
- * (رمز تعبيري / بقعة لون / شكل) عبر mediaVisual.
+ * الصيغ المدعومة: svg / png / webp / jpg.
+ * مجلدا `ui/` و `avatars/` لا يدخلان خريطة مفاتيح البطاقات (أصول واجهة/شخصيات
+ * تُعرض في design-handoff فقط)، حتى لا يتضارب مفتاح مثل play/star.
  */
 
-// Vite يحوّل هذا وقت البناء إلى روابط فعلية للأصول.
 const modules = import.meta.glob('/src/assets/images/**/*.{png,webp,svg,jpg,jpeg}', {
   eager: true,
   query: '?url',
   import: 'default',
 }) as Record<string, string>
 
-/** key (filename without extension) -> resolved asset URL */
+/** key (filename without extension) -> resolved asset URL (يستثني ui/ و avatars/) */
 const REGISTRY: Record<string, string> = {}
 for (const path in modules) {
+  if (path.includes('/ui/') || path.includes('/avatars/')) continue
   const file = path.split('/').pop() ?? ''
   const key = file.replace(/\.(png|webp|svg|jpe?g)$/i, '')
   if (key) REGISTRY[key] = modules[path]
 }
 
-/** المجلدات المتوقّعة لكل نوع (للتوثيق وأدوات الإدارة المستقبلية). */
+/** كل الأصول (بما فيها ui/avatars) بالمسار النسبي — لأدوات التسليم. */
+export const ALL_ASSET_PATHS: Record<string, string> = {}
+for (const path in modules) {
+  const rel = path.replace('/src/assets/images/', '')
+  ALL_ASSET_PATHS[rel] = modules[path]
+}
+
+/** المجلدات المعتمدة لكل تصنيف. */
 export const ASSET_DIRS: Record<string, string> = {
-  animal: 'src/assets/images/animals',
-  color: 'src/assets/images/colors',
-  shape: 'src/assets/images/shapes',
-  word: 'src/assets/images/foods',
-  emotion: 'src/assets/images/emotions',
-  daily: 'src/assets/images/daily-phrases',
-  character: 'src/assets/images/characters',
+  drinks: 'src/assets/images/drinks',
+  food: 'src/assets/images/food',
+  actions: 'src/assets/images/actions',
+  people: 'src/assets/images/people',
+  emotions: 'src/assets/images/emotions',
+  pain: 'src/assets/images/pain',
+  sensory: 'src/assets/images/sensory',
+  colors: 'src/assets/images/colors',
+  shapes: 'src/assets/images/shapes',
+  daily: 'src/assets/images/daily',
+  animals: 'src/assets/images/animals',
+  ui: 'src/assets/images/ui',
+  avatars: 'src/assets/images/avatars',
 }
 
 /** يرجع رابط الصورة الفعلية للمفتاح، أو null إن لم تتوفّر بعد. */

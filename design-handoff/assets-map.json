@@ -1,0 +1,1427 @@
+[
+  {
+    "itemKey": "bathroom",
+    "fileName": "bathroom.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/bathroom.svg"
+  },
+  {
+    "itemKey": "car",
+    "fileName": "car.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/car.svg"
+  },
+  {
+    "itemKey": "cold",
+    "fileName": "cold.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/cold.svg"
+  },
+  {
+    "itemKey": "come",
+    "fileName": "come.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/come.svg"
+  },
+  {
+    "itemKey": "eat",
+    "fileName": "eat.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/eat.svg"
+  },
+  {
+    "itemKey": "goOut",
+    "fileName": "goOut.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/goOut.svg"
+  },
+  {
+    "itemKey": "help",
+    "fileName": "help.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/help.svg"
+  },
+  {
+    "itemKey": "open",
+    "fileName": "open.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/open.svg"
+  },
+  {
+    "itemKey": "play",
+    "fileName": "play.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/play.svg"
+  },
+  {
+    "itemKey": "sleep",
+    "fileName": "sleep.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/sleep.svg"
+  },
+  {
+    "itemKey": "stop",
+    "fileName": "stop.svg",
+    "category": "actions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3"
+    ],
+    "required": true,
+    "path": "assets/actions/stop.svg"
+  },
+  {
+    "itemKey": "bird",
+    "fileName": "bird.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/bird.svg"
+  },
+  {
+    "itemKey": "cat",
+    "fileName": "cat.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/cat.svg"
+  },
+  {
+    "itemKey": "chicken",
+    "fileName": "chicken.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/chicken.svg"
+  },
+  {
+    "itemKey": "cow",
+    "fileName": "cow.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/cow.svg"
+  },
+  {
+    "itemKey": "dog",
+    "fileName": "dog.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/dog.svg"
+  },
+  {
+    "itemKey": "duck",
+    "fileName": "duck.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/duck.svg"
+  },
+  {
+    "itemKey": "elephant",
+    "fileName": "elephant.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/elephant.svg"
+  },
+  {
+    "itemKey": "horse",
+    "fileName": "horse.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/horse.svg"
+  },
+  {
+    "itemKey": "lion",
+    "fileName": "lion.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/lion.svg"
+  },
+  {
+    "itemKey": "sheep",
+    "fileName": "sheep.svg",
+    "category": "animals",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "animals",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/animals/sheep.svg"
+  },
+  {
+    "itemKey": "child_boy_01",
+    "fileName": "child_boy_01.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/child_boy_01.svg"
+  },
+  {
+    "itemKey": "child_girl_01",
+    "fileName": "child_girl_01.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/child_girl_01.svg"
+  },
+  {
+    "itemKey": "helper_character_01",
+    "fileName": "helper_character_01.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/helper_character_01.svg"
+  },
+  {
+    "itemKey": "helper_character_02",
+    "fileName": "helper_character_02.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/helper_character_02.svg"
+  },
+  {
+    "itemKey": "reward_boy",
+    "fileName": "reward_boy.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/reward_boy.svg"
+  },
+  {
+    "itemKey": "reward_girl",
+    "fileName": "reward_girl.svg",
+    "category": "avatars",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "onboarding",
+      "rewards"
+    ],
+    "required": true,
+    "path": "assets/avatars/reward_girl.svg"
+  },
+  {
+    "itemKey": "black",
+    "fileName": "black.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/black.svg"
+  },
+  {
+    "itemKey": "blue",
+    "fileName": "blue.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/blue.svg"
+  },
+  {
+    "itemKey": "brown",
+    "fileName": "brown.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/brown.svg"
+  },
+  {
+    "itemKey": "green",
+    "fileName": "green.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/green.svg"
+  },
+  {
+    "itemKey": "orange",
+    "fileName": "orange.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/orange.svg"
+  },
+  {
+    "itemKey": "pink",
+    "fileName": "pink.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/pink.svg"
+  },
+  {
+    "itemKey": "purple",
+    "fileName": "purple.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/purple.svg"
+  },
+  {
+    "itemKey": "red",
+    "fileName": "red.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/red.svg"
+  },
+  {
+    "itemKey": "white",
+    "fileName": "white.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/white.svg"
+  },
+  {
+    "itemKey": "yellow",
+    "fileName": "yellow.svg",
+    "category": "colors",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/colors/yellow.svg"
+  },
+  {
+    "itemKey": "ahlan",
+    "fileName": "ahlan.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/ahlan.svg"
+  },
+  {
+    "itemKey": "alhamdulillah",
+    "fileName": "alhamdulillah.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/alhamdulillah.svg"
+  },
+  {
+    "itemKey": "bismillah",
+    "fileName": "bismillah.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/bismillah.svg"
+  },
+  {
+    "itemKey": "bye",
+    "fileName": "bye.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/bye.svg"
+  },
+  {
+    "itemKey": "byeBye",
+    "fileName": "byeBye.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/byeBye.svg"
+  },
+  {
+    "itemKey": "byebye",
+    "fileName": "byebye.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/byebye.svg"
+  },
+  {
+    "itemKey": "enough",
+    "fileName": "enough.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/enough.svg"
+  },
+  {
+    "itemKey": "finished",
+    "fileName": "finished.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/finished.svg"
+  },
+  {
+    "itemKey": "goodbye",
+    "fileName": "goodbye.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/goodbye.svg"
+  },
+  {
+    "itemKey": "hello",
+    "fileName": "hello.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/hello.svg"
+  },
+  {
+    "itemKey": "hi",
+    "fileName": "hi.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/hi.svg"
+  },
+  {
+    "itemKey": "khalas",
+    "fileName": "khalas.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/khalas.svg"
+  },
+  {
+    "itemKey": "lala",
+    "fileName": "lala.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/lala.svg"
+  },
+  {
+    "itemKey": "maa_salama",
+    "fileName": "maa_salama.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/maa_salama.svg"
+  },
+  {
+    "itemKey": "no",
+    "fileName": "no.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/no.svg"
+  },
+  {
+    "itemKey": "okay",
+    "fileName": "okay.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/okay.svg"
+  },
+  {
+    "itemKey": "request_word",
+    "fileName": "request_word.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/request_word.svg"
+  },
+  {
+    "itemKey": "salam",
+    "fileName": "salam.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/salam.svg"
+  },
+  {
+    "itemKey": "salam_alaykum",
+    "fileName": "salam_alaykum.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/salam_alaykum.svg"
+  },
+  {
+    "itemKey": "tayeb",
+    "fileName": "tayeb.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/tayeb.svg"
+  },
+  {
+    "itemKey": "thanks",
+    "fileName": "thanks.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/thanks.svg"
+  },
+  {
+    "itemKey": "yes",
+    "fileName": "yes.svg",
+    "category": "daily",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level6"
+    ],
+    "required": true,
+    "path": "assets/daily/yes.svg"
+  },
+  {
+    "itemKey": "juice",
+    "fileName": "juice.svg",
+    "category": "drinks",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3",
+      "games"
+    ],
+    "required": true,
+    "path": "assets/drinks/juice.svg"
+  },
+  {
+    "itemKey": "milk",
+    "fileName": "milk.svg",
+    "category": "drinks",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3",
+      "games"
+    ],
+    "required": true,
+    "path": "assets/drinks/milk.svg"
+  },
+  {
+    "itemKey": "water",
+    "fileName": "water.svg",
+    "category": "drinks",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level2",
+      "level3",
+      "games"
+    ],
+    "required": true,
+    "path": "assets/drinks/water.svg"
+  },
+  {
+    "itemKey": "angry",
+    "fileName": "angry.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/angry.svg"
+  },
+  {
+    "itemKey": "bored",
+    "fileName": "bored.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/bored.svg"
+  },
+  {
+    "itemKey": "happy",
+    "fileName": "happy.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/happy.svg"
+  },
+  {
+    "itemKey": "sad",
+    "fileName": "sad.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/sad.svg"
+  },
+  {
+    "itemKey": "scared",
+    "fileName": "scared.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/scared.svg"
+  },
+  {
+    "itemKey": "tired",
+    "fileName": "tired.svg",
+    "category": "emotions",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/emotions/tired.svg"
+  },
+  {
+    "itemKey": "bread",
+    "fileName": "bread.svg",
+    "category": "food",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level1",
+      "level2"
+    ],
+    "required": true,
+    "path": "assets/food/bread.svg"
+  },
+  {
+    "itemKey": "candy",
+    "fileName": "candy.svg",
+    "category": "food",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level1",
+      "level2"
+    ],
+    "required": true,
+    "path": "assets/food/candy.svg"
+  },
+  {
+    "itemKey": "chips",
+    "fileName": "chips.svg",
+    "category": "food",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level1",
+      "level2"
+    ],
+    "required": true,
+    "path": "assets/food/chips.svg"
+  },
+  {
+    "itemKey": "earPain",
+    "fileName": "earPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/earPain.svg"
+  },
+  {
+    "itemKey": "handPain",
+    "fileName": "handPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/handPain.svg"
+  },
+  {
+    "itemKey": "headPain",
+    "fileName": "headPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/headPain.svg"
+  },
+  {
+    "itemKey": "legPain",
+    "fileName": "legPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/legPain.svg"
+  },
+  {
+    "itemKey": "stomachPain",
+    "fileName": "stomachPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/stomachPain.svg"
+  },
+  {
+    "itemKey": "toothPain",
+    "fileName": "toothPain.svg",
+    "category": "pain",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/pain/toothPain.svg"
+  },
+  {
+    "itemKey": "boy",
+    "fileName": "boy.svg",
+    "category": "people",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/people/boy.svg"
+  },
+  {
+    "itemKey": "father",
+    "fileName": "father.svg",
+    "category": "people",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/people/father.svg"
+  },
+  {
+    "itemKey": "girl",
+    "fileName": "girl.svg",
+    "category": "people",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/people/girl.svg"
+  },
+  {
+    "itemKey": "mother",
+    "fileName": "mother.svg",
+    "category": "people",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/people/mother.svg"
+  },
+  {
+    "itemKey": "teacher",
+    "fileName": "teacher.svg",
+    "category": "people",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level3",
+      "level4"
+    ],
+    "required": true,
+    "path": "assets/people/teacher.svg"
+  },
+  {
+    "itemKey": "calm",
+    "fileName": "calm.svg",
+    "category": "sensory",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4",
+      "calm"
+    ],
+    "required": true,
+    "path": "assets/sensory/calm.svg"
+  },
+  {
+    "itemKey": "doNotTouch",
+    "fileName": "doNotTouch.svg",
+    "category": "sensory",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4",
+      "calm"
+    ],
+    "required": true,
+    "path": "assets/sensory/doNotTouch.svg"
+  },
+  {
+    "itemKey": "loudSound",
+    "fileName": "loudSound.svg",
+    "category": "sensory",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4",
+      "calm"
+    ],
+    "required": true,
+    "path": "assets/sensory/loudSound.svg"
+  },
+  {
+    "itemKey": "quietPlace",
+    "fileName": "quietPlace.svg",
+    "category": "sensory",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4",
+      "calm"
+    ],
+    "required": true,
+    "path": "assets/sensory/quietPlace.svg"
+  },
+  {
+    "itemKey": "rest",
+    "fileName": "rest.svg",
+    "category": "sensory",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level4",
+      "calm"
+    ],
+    "required": true,
+    "path": "assets/sensory/rest.svg"
+  },
+  {
+    "itemKey": "arrow",
+    "fileName": "arrow.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/arrow.svg"
+  },
+  {
+    "itemKey": "circle",
+    "fileName": "circle.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/circle.svg"
+  },
+  {
+    "itemKey": "heart",
+    "fileName": "heart.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/heart.svg"
+  },
+  {
+    "itemKey": "line",
+    "fileName": "line.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/line.svg"
+  },
+  {
+    "itemKey": "rectangle",
+    "fileName": "rectangle.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/rectangle.svg"
+  },
+  {
+    "itemKey": "square",
+    "fileName": "square.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/square.svg"
+  },
+  {
+    "itemKey": "star",
+    "fileName": "star.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/star.svg"
+  },
+  {
+    "itemKey": "triangle",
+    "fileName": "triangle.svg",
+    "category": "shapes",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "level5",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/shapes/triangle.svg"
+  },
+  {
+    "itemKey": "back",
+    "fileName": "back.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/back.svg"
+  },
+  {
+    "itemKey": "clap",
+    "fileName": "clap.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/clap.svg"
+  },
+  {
+    "itemKey": "close",
+    "fileName": "close.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/close.svg"
+  },
+  {
+    "itemKey": "correct",
+    "fileName": "correct.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/correct.svg"
+  },
+  {
+    "itemKey": "home",
+    "fileName": "home.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/home.svg"
+  },
+  {
+    "itemKey": "menu",
+    "fileName": "menu.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/menu.svg"
+  },
+  {
+    "itemKey": "mic",
+    "fileName": "mic.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/mic.svg"
+  },
+  {
+    "itemKey": "next",
+    "fileName": "next.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/next.svg"
+  },
+  {
+    "itemKey": "play",
+    "fileName": "play.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/play.svg"
+  },
+  {
+    "itemKey": "report",
+    "fileName": "report.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/report.svg"
+  },
+  {
+    "itemKey": "retry",
+    "fileName": "retry.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/retry.svg"
+  },
+  {
+    "itemKey": "reward",
+    "fileName": "reward.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/reward.svg"
+  },
+  {
+    "itemKey": "settings",
+    "fileName": "settings.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/settings.svg"
+  },
+  {
+    "itemKey": "speaker",
+    "fileName": "speaker.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/speaker.svg"
+  },
+  {
+    "itemKey": "star",
+    "fileName": "star.svg",
+    "category": "ui",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "navigation",
+      "practicePanel"
+    ],
+    "required": true,
+    "path": "assets/ui/star.svg"
+  }
+]
