@@ -8,6 +8,7 @@ import { LevelNav } from '@/components/LevelNav'
 import { CategoryTabs } from '@/components/CategoryTabs'
 import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
+import { AssetIcon } from '@/components/AssetIcon'
 import { mediaVisual } from '@/components/Media'
 import { Disclaimer } from '@/components/Disclaimer'
 import { levelById } from '@/data/levelMeta'
@@ -111,7 +112,7 @@ export function LevelFiveScreen() {
                   <span className="phrase-card__fav" role="button" tabIndex={0} aria-label="استمع"
                         onClick={(e) => { e.stopPropagation(); speak(text) }}
                         onKeyDown={(e) => { if (e.key === 'Enter') { e.stopPropagation(); speak(text) } }}>
-                    🔊
+                    <AssetIcon refKey="ui/speaker" size={20} />
                   </span>
                   <span className="phrase-card__text">{text}</span>
                   <span className="phrase-card__img" aria-hidden>{visual}</span>
@@ -127,7 +128,6 @@ export function LevelFiveScreen() {
             text={sel.text}
             accent={level.accent}
             visual={sel.visual}
-            character="🧒"
           />
         )}
       </div>

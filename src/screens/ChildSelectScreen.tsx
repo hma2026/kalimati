@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNav } from '@/store/useNavStore'
 import { useChildren } from '@/store/useChildrenStore'
 import { AddChildModal } from '@/components/AddChildModal'
+import { assetByRef } from '@/data/assetManifest'
 import { TeacherGate } from '@/components/TeacherGate'
 import { InstallPrompt } from '@/components/InstallPrompt'
 import { PlusIcon, SettingsIcon } from '@/lib/icons'
@@ -36,7 +37,7 @@ export function ChildSelectScreen() {
         {children.map((c) => (
           <button key={c.id} className="child" onClick={() => choose(c.id)}>
             <span className="child__avatar">
-              {isUrl(c.avatar) ? <img src={c.avatar} alt="" /> : <span aria-hidden>{c.avatar}</span>}
+              {assetByRef(c.avatar) ? <img src={assetByRef(c.avatar)!} alt="" /> : isUrl(c.avatar) ? <img src={c.avatar} alt="" /> : <span aria-hidden>{c.avatar}</span>}
             </span>
             <span className="child__name">{c.name}</span>
           </button>

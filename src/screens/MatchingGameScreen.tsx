@@ -7,6 +7,7 @@ import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
 import { playSuccessChime } from '@/lib/sound'
 import { mediaVisual } from '@/components/Media'
+import { AssetIcon } from '@/components/AssetIcon'
 import { Disclaimer } from '@/components/Disclaimer'
 import { HomeIcon, ChevLeft, StarIcon, VolumeIcon, RefreshIcon } from '@/lib/icons'
 import { ANIMALS } from '@/data/animals'
@@ -167,7 +168,7 @@ export function MatchingGameScreen() {
               <button key={d.id} className={`diff-card${difficulty === d.id ? ' is-on' : ''}`}
                 style={difficulty === d.id ? { borderColor: d.color, boxShadow: `0 0 0 3px ${d.color}33` } : undefined}
                 onClick={() => setDifficulty(d.id)}>
-                <span style={{ color: d.color }}>{'★'.repeat(d.stars)}</span>
+                <span style={{ display: 'inline-flex', gap: 2 }}>{Array.from({ length: d.stars }).map((_, i) => <StarIcon key={i} size={16} style={{ color: d.color }} />)}</span>
                 <strong>{d.label}</strong>
                 <span className="muted-note">{CARD_COUNT[d.id]} كروت</span>
               </button>
@@ -209,19 +210,19 @@ export function MatchingGameScreen() {
                   aria-label={show ? labelFor(card.key) : 'كرت مقلوب'}
                 >
                   {show ? <span className="match-card__face">{visualFor(card.key, isAnimal ? 46 : 52)}</span>
-                    : <span className="match-card__back" aria-hidden>{isAnimal ? '🐾' : '★'}</span>}
+                    : <span className="match-card__back" aria-hidden><AssetIcon refKey={isAnimal ? 'rewards/star_burst' : 'rewards/star'} size={40} /></span>}
                 </button>
               )
             })}
           </div>
 
-          {tryMsg && <div className="try-msg">حاول 🙂</div>}
+          {tryMsg && <div className="try-msg">حاول</div>}
         </div>
       )}
 
       {phase === 'done' && (
         <div className="screen__scroll stack" style={{ alignItems: 'center', textAlign: 'center' }}>
-          <div style={{ fontSize: '3.4rem' }} aria-hidden>🎉</div>
+          <div aria-hidden><AssetIcon refKey="rewards/confetti" size={84} /></div>
           <h2 style={{ color: ACCENT }}>أحسنت! أكملت اللعبة</h2>
           <div className="stats" style={{ width: '100%' }}>
             <div className="stat"><div className="stat__num stat__num--g">{matches}</div><div className="stat__lbl">أزواج</div></div>

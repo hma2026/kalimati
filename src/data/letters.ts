@@ -8,10 +8,10 @@ export const letters: Letter[] = [
     sound: 'ششش',
     say: 'شِين',
     examples: [
-      { id: 'lx_sun', label: 'شمس', image: '☀️' },
-      { id: 'lx_tea', label: 'شاي', image: '🍵' },
-      { id: 'lx_chips', label: 'شبس', image: '🍟' },
-      { id: 'lx_candle', label: 'شمعة', image: '🕯️' },
+      { id: 'lx_sun', label: 'شمس', image: '', media: 'sun' },
+      { id: 'lx_tea', label: 'شاي', image: '', media: 'tea' },
+      { id: 'lx_chips', label: 'شبس', image: '', media: 'chips' },
+      { id: 'lx_candle', label: 'شمعة', image: '', media: 'candle' },
     ],
   },
   // قابل للتوسع: س، ص، ر، ل، ك، ق، ج ...

@@ -24,7 +24,7 @@ export function ProgressCard({ percent, mastered, inTraining, lastSession, accen
         </div>
       </div>
       <div className="panel" style={{ marginTop: 10 }}>
-        <div className="panel__title">📅 آخر جلسة</div>
+        <div className="panel__title">آخر جلسة</div>
         <div className="panel__body">{lastSession}</div>
       </div>
     </div>

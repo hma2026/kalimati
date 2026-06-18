@@ -262,6 +262,8 @@ def main():
     L+=emit_extra("rewardAssets", REWARDS, "rewards", 256, 256, USED["rewards"])
     L+=["// كل الأصول (بطاقات + واجهة + شخصيات + مكافآت) مربوطة بـ itemKey",
         "export const allAssets: Record<string, AssetEntry> = { ...assetManifest, ...uiAssets, ...avatarAssets, ...rewardAssets }","",
+        "/** يحلّ أصلاً بمساره الكامل داخل images، مثل: assetByRef(\"ui/speaker\") أو assetByRef(\"animals/cat\"). */",
+        "export const assetByRef = (ref: string): string | null => ALL_ASSET_PATHS[ref.endsWith('.svg') ? ref : ref + '.svg'] ?? null".replace("'", '"'),"",
         "export const getAssetUrl = (key: string): string | null => assetManifest[key]?.imageUrl ?? getAsset(key)",
         "export const hasManifestAsset = (key: string): boolean => key in assetManifest",
         "export const manifestKeys = (): string[] => Object.keys(assetManifest)",""]
@@ -376,6 +378,16 @@ AVATARS = {
 }
 
 def write_ui_avatars(img_root):
+    # أصول أمثلة الحرف (شمس/شاي/شمعة) — تُستخدم في شاشة الحرف بدل emoji
+    letters = {
+        "sun": '<circle cx="128" cy="128" r="54" fill="#FFC83D"/>' + "".join(
+            f'<path d="M{128+72*__import__("math").cos(__import__("math").radians(a)):.0f} {128+72*__import__("math").sin(__import__("math").radians(a)):.0f} L{128+98*__import__("math").cos(__import__("math").radians(a)):.0f} {128+98*__import__("math").sin(__import__("math").radians(a)):.0f}" stroke="#F6A93B" stroke-width="10"/>' for a in range(0,360,45)),
+        "tea": '<path d="M70 110 h96 v40 a48 48 0 0 1 -48 48 h0 a48 48 0 0 1 -48 -48 Z" fill="#EAF0F6"/><path d="M166 120 q34 0 34 26 q0 24 -34 24" fill="none"/><rect x="62" y="196" width="116" height="16" rx="8" fill="#C68A4E"/><path d="M100 78 q-8 -16 6 -28 M128 78 q-8 -16 6 -28" stroke="#A9B2BD" fill="none" stroke-width="6"/>',
+        "candle": '<rect x="104" y="96" width="48" height="108" rx="8" fill="#F4D7E0"/><rect x="96" y="196" width="64" height="16" rx="6" fill="#C68A4E"/><path d="M128 58 q18 22 0 38 q-18 -16 0 -38 Z" fill="#FFB020"/><path d="M128 96 v-4" stroke="#37306B"/>',
+    }
+    d = os.path.join(img_root, "letters"); os.makedirs(d, exist_ok=True)
+    for name, body in letters.items():
+        open(os.path.join(d, f"{name}.svg"), "w", encoding="utf-8").write(wrap(body))
     for sub, table in (("ui", UI_ICONS), ("avatars", AVATARS), ("rewards", REWARDS)):
         d = os.path.join(img_root, sub); os.makedirs(d, exist_ok=True)
         for name, body in table.items():

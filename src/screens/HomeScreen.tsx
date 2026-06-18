@@ -7,6 +7,7 @@ import { TeacherGate } from '@/components/TeacherGate'
 import { categories } from '@/data/categories'
 import type { Category } from '@/types'
 import { HeartIcon, StarIcon } from '@/lib/icons'
+import { AssetIcon } from '@/components/AssetIcon'
 
 export function HomeScreen() {
   const nav = useNav()
@@ -32,7 +33,7 @@ export function HomeScreen() {
     <div className="screen">
       <header className="appbar">
         <button className="iconbtn" aria-label="تبديل الطفل" onClick={() => nav.reset('children')}>
-          <span style={{ fontSize: '1.6rem' }} aria-hidden>{child?.avatar ?? '🧒'}</span>
+          <AssetIcon refKey={child?.avatar ?? 'avatars/child_boy_01'} size={34} />
         </button>
         <h1 className="appbar__title">{child ? `أهلاً ${child.name}` : 'كلمتي'}</h1>
         <span className="appbar__stars"><StarIcon size={18} style={{ color: 'var(--star)' }} /> {stats.stars}</span>
@@ -58,7 +59,7 @@ export function HomeScreen() {
           return (
             <button key={cat.id} className={`tile${cat.available ? '' : ' tile--soon'}`} onClick={() => openTile(cat)} aria-disabled={!cat.available}>
               {!cat.available && <span className="badge-soon">قريباً</span>}
-              <span className="tile__icon" aria-hidden>{cat.icon}</span>
+              {cat.icon.includes('/') ? <AssetIcon refKey={cat.icon} size={52} className="tile__img" /> : <span className="tile__icon" aria-hidden>{cat.icon}</span>}
               <span className="tile__label">{cat.label}</span>
             </button>
           )

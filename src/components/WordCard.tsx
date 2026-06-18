@@ -1,4 +1,5 @@
 import type { WordCard as Card } from '@/types'
+import { mediaVisual } from '@/components/Media'
 
 interface Props {
   card: Card
@@ -26,11 +27,11 @@ export function WordCard({ card, selected, mastered, onClick }: Props) {
               boxShadow: card.color === '#ffffff' ? 'inset 0 0 0 2px var(--line)' : 'none',
             }}
           />
+        ) : card.media ? (
+          mediaVisual(card.media, 72)
         ) : isUrl(card.image) ? (
           <img src={card.image} alt="" />
-        ) : (
-          <span aria-hidden>{card.image}</span>
-        )}
+        ) : null}
       </span>
       <span className="wcard__label">{card.label}</span>
       {selected && (

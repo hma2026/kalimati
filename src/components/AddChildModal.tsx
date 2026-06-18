@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useChildren } from '@/store/useChildrenStore'
 import { useSettings } from '@/store/useSettingsStore'
 import { AVATAR_CHOICES } from '@/data/children'
+import { AssetIcon } from '@/components/AssetIcon'
 import { DIALECTS } from '@/data/dialects'
 import { CloseIcon } from '@/lib/icons'
 import type { DialectId, Gender } from '@/types'
@@ -66,7 +67,7 @@ export function AddChildModal({ onClose, onAdded }: Props) {
           <div className="avatar-pick">
             {AVATAR_CHOICES.map((a) => (
               <button key={a} className={a === avatar ? 'is-on' : ''} onClick={() => setAvatar(a)} aria-label="اختيار صورة">
-                {a}
+                <AssetIcon refKey={a} size={40} />
               </button>
             ))}
           </div>

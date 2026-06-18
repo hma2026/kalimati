@@ -141,7 +141,7 @@ export function buildColorSentence(kind: ColorSentenceKind, ref: string, p: Chil
 export interface DailyPhrase {
   key: string
   cat: 'greet' | 'bye' | 'eat' | 'request' | 'reply'
-  image: string
+  image?: string
   difficulty: Difficulty
   religious?: boolean
   /** fixed text, or a builder for dialect-aware items (e.g. the request word) */
@@ -150,40 +150,40 @@ export interface DailyPhrase {
 }
 
 export const DAILY_CATS: { id: DailyPhrase['cat']; label: string; icon: string }[] = [
-  { id: 'greet', label: 'تحية', icon: '👋' },
-  { id: 'bye', label: 'وداع', icon: '🖐️' },
-  { id: 'eat', label: 'أكل', icon: '🍴' },
-  { id: 'request', label: 'طلب', icon: '✋' },
-  { id: 'reply', label: 'ردود', icon: '💬' },
+  { id: 'greet', label: 'تحية', icon: '' },
+  { id: 'bye', label: 'وداع', icon: '' },
+  { id: 'eat', label: 'أكل', icon: '' },
+  { id: 'request', label: 'طلب', icon: '' },
+  { id: 'reply', label: 'ردود', icon: '' },
 ]
 
 export const DAILY: DailyPhrase[] = [
-  { key: 'salam', cat: 'greet', text: 'سلام', image: '👋', difficulty: 'very_easy' },
-  { key: 'ahlan', cat: 'greet', text: 'أهلًا', image: '🙋', difficulty: 'easy' },
-  { key: 'hi', cat: 'greet', text: 'هاي', image: '✋', difficulty: 'very_easy' },
-  { key: 'salam_alaykum', cat: 'greet', text: 'السلام عليكم', image: '🧎', difficulty: 'medium', religious: true },
+  { key: 'salam', cat: 'greet', text: 'سلام', difficulty: 'very_easy' },
+  { key: 'ahlan', cat: 'greet', text: 'أهلًا', difficulty: 'easy' },
+  { key: 'hi', cat: 'greet', text: 'هاي', difficulty: 'very_easy' },
+  { key: 'salam_alaykum', cat: 'greet', text: 'السلام عليكم', difficulty: 'medium', religious: true },
 
-  { key: 'bye', cat: 'bye', text: 'باي', image: '👋', difficulty: 'very_easy' },
-  { key: 'byebye', cat: 'bye', text: 'باي باي', image: '🖐️', difficulty: 'easy' },
-  { key: 'maa_salama', cat: 'bye', text: 'مع السلامة', image: '🤚', difficulty: 'easy' },
+  { key: 'bye', cat: 'bye', text: 'باي', difficulty: 'very_easy' },
+  { key: 'byebye', cat: 'bye', text: 'باي باي', difficulty: 'easy' },
+  { key: 'maa_salama', cat: 'bye', text: 'مع السلامة', difficulty: 'easy' },
 
-  { key: 'bismillah', cat: 'eat', text: 'بسم الله', image: '🤲', difficulty: 'easy', religious: true },
-  { key: 'alhamdulillah', cat: 'eat', text: 'الحمد لله', image: '🙏', difficulty: 'easy', religious: true },
-  { key: 'finished', cat: 'eat', text: 'خلصت', image: '🍽️', difficulty: 'very_easy' },
-  { key: 'enough', cat: 'eat', text: 'كفاية', image: '✋', difficulty: 'very_easy' },
-  { key: 'water', cat: 'eat', build: (p) => getWordLabel('water', p), image: '💧', difficulty: 'very_easy' },
+  { key: 'bismillah', cat: 'eat', text: 'بسم الله', difficulty: 'easy', religious: true },
+  { key: 'alhamdulillah', cat: 'eat', text: 'الحمد لله', difficulty: 'easy', religious: true },
+  { key: 'finished', cat: 'eat', text: 'خلصت', difficulty: 'very_easy' },
+  { key: 'enough', cat: 'eat', text: 'كفاية', difficulty: 'very_easy' },
+  { key: 'water', cat: 'eat', build: (p) => getWordLabel('water', p), difficulty: 'very_easy' },
 
-  { key: 'request_word', cat: 'request', build: (p) => getRequestWord(p), image: '🙋', difficulty: 'very_easy' },
-  { key: 'help', cat: 'request', text: 'ساعدني', image: '🆘', difficulty: 'easy' },
-  { key: 'come', cat: 'request', text: 'تعال', image: '👈', difficulty: 'very_easy' },
-  { key: 'open', cat: 'request', text: 'افتح', image: '🔓', difficulty: 'easy' },
+  { key: 'request_word', cat: 'request', build: (p) => getRequestWord(p), difficulty: 'very_easy' },
+  { key: 'help', cat: 'request', text: 'ساعدني', difficulty: 'easy' },
+  { key: 'come', cat: 'request', text: 'تعال', difficulty: 'very_easy' },
+  { key: 'open', cat: 'request', text: 'افتح', difficulty: 'easy' },
 
-  { key: 'yes', cat: 'reply', text: 'نعم', image: '✅', difficulty: 'very_easy' },
-  { key: 'no', cat: 'reply', text: 'لا', image: '❌', difficulty: 'very_easy' },
-  { key: 'thanks', cat: 'reply', text: 'شكرًا', image: '🙏', difficulty: 'very_easy' },
-  { key: 'khalas', cat: 'reply', text: 'خلاص', image: '🛑', difficulty: 'easy' },
-  { key: 'tayeb', cat: 'reply', text: 'طيب', image: '👌', difficulty: 'easy' },
-  { key: 'lala', cat: 'reply', text: 'لا لا', image: '🙅', difficulty: 'very_easy' },
+  { key: 'yes', cat: 'reply', text: 'نعم', difficulty: 'very_easy' },
+  { key: 'no', cat: 'reply', text: 'لا', difficulty: 'very_easy' },
+  { key: 'thanks', cat: 'reply', text: 'شكرًا', difficulty: 'very_easy' },
+  { key: 'khalas', cat: 'reply', text: 'خلاص', difficulty: 'easy' },
+  { key: 'tayeb', cat: 'reply', text: 'طيب', difficulty: 'easy' },
+  { key: 'lala', cat: 'reply', text: 'لا لا', difficulty: 'very_easy' },
 ]
 
 export const DIFF_RANK: Record<Difficulty, number> = { very_easy: 0, easy: 1, medium: 2 }

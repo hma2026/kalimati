@@ -61,8 +61,8 @@ export function ReportScreen() {
           </div>
         </div>
 
-        <div className="panel"><div className="panel__title">📅 آخر جلسة</div><div className="panel__body">{formatSession(prog?.lastSessionAt ?? null)}</div></div>
-        <div className="panel"><div className="panel__title">⭐ مجموع النجوم</div><div className="panel__body">{stats.stars} نجمة</div></div>
+        <div className="panel"><div className="panel__title">آخر جلسة</div><div className="panel__body">{formatSession(prog?.lastSessionAt ?? null)}</div></div>
+        <div className="panel"><div className="panel__title">مجموع النجوم</div><div className="panel__body">{stats.stars} نجمة</div></div>
 
         <div>
           <h3 className="settings-h" style={{ marginInline: 0 }}>تقدّم المستويات</h3>

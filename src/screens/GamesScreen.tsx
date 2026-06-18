@@ -4,6 +4,7 @@ import { useHaptics } from '@/hooks/useHaptics'
 import { SectionHeader } from '@/components/SectionHeader'
 import { LevelNav } from '@/components/LevelNav'
 import { ColorBlob } from '@/components/Glyphs'
+import { AssetIcon } from '@/components/AssetIcon'
 import { Disclaimer } from '@/components/Disclaimer'
 import { ChevLeft } from '@/lib/icons'
 
@@ -36,7 +37,7 @@ export function GamesScreen() {
 
         <button className="game-card" onClick={() => open('animal')}>
           <span className="game-card__chev"><ChevLeft size={26} /></span>
-          <span className="game-card__visuals" aria-hidden style={{ fontSize: '2rem' }}>🐱🐶🐮🐑</span>
+          <span className="game-card__visuals" aria-hidden><AssetIcon refKey="animals/cat" size={38} /><AssetIcon refKey="animals/dog" size={38} /><AssetIcon refKey="animals/cow" size={38} /><AssetIcon refKey="animals/sheep" size={38} /></span>
           <span className="game-card__txt">
             <strong>مطابقة الحيوانات</strong>
             <span>طابِق كرتين من نفس الحيوان</span>
@@ -46,12 +47,12 @@ export function GamesScreen() {
         <div className="soon-grid">
           <div className="game-card game-card--soon">
             <span className="badge-soon">قريباً</span>
-            <span className="game-card__visuals" aria-hidden style={{ fontSize: '1.8rem' }}>🐱 = قط</span>
+            <span className="game-card__visuals" aria-hidden><AssetIcon refKey="animals/cat" size={34} /> = قط</span>
             <span className="game-card__txt"><strong>مطابقة صورة وكلمة</strong></span>
           </div>
           <div className="game-card game-card--soon">
             <span className="badge-soon">قريباً</span>
-            <span className="game-card__visuals" aria-hidden style={{ fontSize: '1.8rem' }}>🔊 → 🐱</span>
+            <span className="game-card__visuals" aria-hidden><AssetIcon refKey="ui/speaker" size={30} /> <AssetIcon refKey="animals/cat" size={34} /></span>
             <span className="game-card__txt"><strong>مطابقة صوت بصورة</strong></span>
           </div>
         </div>

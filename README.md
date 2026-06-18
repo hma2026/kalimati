@@ -309,3 +309,17 @@ red: { imageUrl: "/assets/cards/colors/red.png",  category: "colors",  sourceTyp
 - لوحة التدريب: أزرار «اسمع/سجل/استمع» صفوف كاملة العرض، وزرّا «صحيح/إعادة» جنباً إلى جنب (كالمرجع).
 - رسمة الطفل في لوحة التدريب أصبحت **أصل SVG** (`avatars/child_boy_01`) بدل أي رمز.
 - مع ما سبق في v0.4.3 (آبار الصور تمتلئ، ألوان الدرس/الأشكال SVG، أبعاد iPad-first). المنطق واللهجات والتسجيل والتقارير دون تغيير.
+
+---
+
+## v0.4.5 — Remove UI Emoji + Real Screen Matching
+
+أُزيل **كل emoji ظاهر** من واجهة الطفل واستُبدل بأصول SVG حقيقية. الـ emoji لم يعد أساس التصميم.
+
+- **مُحلّل أصول جديد** `assetByRef('ui/speaker')` + مكوّن مشترك `<AssetIcon refKey="…" />` يقرأ الأصل من المسار الكامل (بلا لبس). أُضيفت 3 أصول لأمثلة الحرف (شمس/شاي/شمعة) → **123 SVG**.
+- **categories.ts**: أيقونات الرئيسية صارت مفاتيح أصول (`food/bread`, `ui/speaker`, `animals/cat`, `rewards/star_burst`, `sensory/calm`, `ui/report`, `ui/settings`). الحروف/المستويات تبقى نصاً (ش، ٢…٦).
+- **WordCard** يعرض `mediaVisual(card.media)` — كل كروت الكلمات/المشاعر/الاحتياجات/الأشكال (33 مفتاحاً) مربوطة بأصول؛ لا emoji.
+- **الشاشات**: HomeScreen (أفاتار + أيقونات بلاطات)، SplashScreen (طفل + كلام)، ChildSelect + AddChildModal (أفاتار من الأصول)، GamesScreen (حيوانات/مكافآت)، MatchingGame (ظهر الكرت/الصعوبة/الفوز)، Settings (10 أيقونات صفوف)، Report/ProgressCard، المستويات 2/4/5/6 (إزالة الشخصية الرمزية، 🔊→`ui/speaker`، 💡 محذوف، ★→أيقونة SVG).
+- **رسائل المديح** جُرّدت من الرموز (نص فقط). **Glyphs** (نجمة/قلب/سهم) و**Media fallback** صارت SVG داخلي بدل رموز.
+- **بيانات**: جُرّد emoji من words/letters/levelContent/dialects (الحقول الزخرفية فقط؛ محرّك اللهجات/النصوص لم يُمَس). `media.ts` تبقى خريطة احتياط داخلية لا تُعرض.
+- **فحص جديد** `npm run check:no-emoji-ui` (مدموج في `check:assets`) **يفشل** إذا ظهر emoji في `src/screens` أو `src/components` أو `src/data` (يستثني `media.ts` و`fallbackEmoji`).

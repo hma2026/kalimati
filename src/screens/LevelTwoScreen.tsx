@@ -8,6 +8,7 @@ import { StepIndicator } from '@/components/StepIndicator'
 import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
 import { mediaVisual } from '@/components/Media'
+import { AssetIcon } from '@/components/AssetIcon'
 import { Disclaimer } from '@/components/Disclaimer'
 import { levelById } from '@/data/levelMeta'
 import { L2_ITEMS, buildL2 } from '@/data/levelContent'
@@ -62,12 +63,11 @@ export function LevelTwoScreen() {
               text={buildL2(sel, profile)}
               accent={level.accent}
               visual={mediaVisual(sel, 64)}
-              character="🧒"
             />
           ) : (
             <div className="empty-stage">
               <span className="bubble" style={{ background: level.soft, color: level.accent }}>{requestWord}…</span>
-              <span className="practice__char" aria-hidden>🧒</span>
+              <span className="practice__char" aria-hidden><AssetIcon refKey="avatars/child_boy_01" size={88} /></span>
               <p className="muted-note">اختر بطاقة من اليمين لتكوين الجملة</p>
             </div>
           )}

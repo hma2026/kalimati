@@ -21,7 +21,7 @@ function fallbackNode(key: string, size: number, colorMode: ColorDisplayMode): R
     return <ColorBlob hex={hex} size={size} />
   }
   if (m?.kind === 'shape') return <ShapeGlyph type={key} size={size} />
-  return <span style={{ fontSize: Math.round(size * 0.92), lineHeight: 1 }} aria-hidden>{m?.emoji ?? '🧩'}</span>
+  return <span style={{ fontSize: Math.round(size * 0.92), lineHeight: 1 }} aria-hidden>{m?.emoji ?? ''}</span>
 }
 
 /**

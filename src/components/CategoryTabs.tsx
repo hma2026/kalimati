@@ -1,3 +1,5 @@
+import { AssetIcon } from '@/components/AssetIcon'
+
 interface Tab { id: string; label: string; icon?: string }
 
 interface Props {
@@ -22,7 +24,7 @@ export function CategoryTabs({ tabs, active, accent, onChange }: Props) {
             style={on ? { background: accent, color: '#fff', borderColor: accent } : undefined}
             onClick={() => onChange(t.id)}
           >
-            {t.icon && <span aria-hidden>{t.icon}</span>} {t.label}
+            {t.icon && t.icon.includes('/') ? <AssetIcon refKey={t.icon} size={18} /> : null} {t.label}
           </button>
         )
       })}

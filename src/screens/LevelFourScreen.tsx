@@ -63,7 +63,6 @@ export function LevelFourScreen() {
             <PictureCard
               key={c.key}
               visual={mediaVisual(c.media, 52)}
-              badge={'badge' in c ? c.badge : undefined}
               label={build(c.key)}
               selected={sel === c.key}
               accent={level.accent}
@@ -79,7 +78,7 @@ export function LevelFourScreen() {
             text={build(sel)}
             accent={level.accent}
             visual={mediaVisual(cards.find((c) => c.key === sel)?.media ?? sel, 64)}
-            character="🧒"
+
             calm={tab === 'calm'}
           />
         )}

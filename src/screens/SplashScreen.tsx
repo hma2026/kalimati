@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { useNav } from '@/store/useNavStore'
 import { TeacherGate } from '@/components/TeacherGate'
 import { SparkleIcon, SettingsIcon } from '@/lib/icons'
+import { AssetIcon } from '@/components/AssetIcon'
 
 export function SplashScreen() {
   const nav = useNav()
   const [gate, setGate] = useState(false)
   return (
     <div className="screen" style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', gap: 20 }}>
-      <div style={{ fontSize: '5.5rem', lineHeight: 1 }} aria-hidden>🧒💬</div>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'center' }} aria-hidden><AssetIcon refKey="avatars/child_boy_01" size={104} /><AssetIcon refKey="ui/speaker" size={76} /></div>
       <div>
         <h1 style={{ fontSize: '2.6rem', color: 'var(--primary-600)' }}>كلمتي</h1>
         <p style={{ color: 'var(--ink-soft)', fontWeight: 700, marginTop: 6, fontSize: '1.1rem' }}>

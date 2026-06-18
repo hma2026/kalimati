@@ -31,11 +31,11 @@ export function ShapeGlyph({ type, size = 56 }: { type: string; size?: number })
         <span aria-hidden style={{ width: 0, height: 0, borderInlineStart: `${s / 2}px solid transparent`, borderInlineEnd: `${s / 2}px solid transparent`, borderBottom: `${s}px solid #ef4444`, display: 'inline-block' }} />
       )
     case 'star':
-      return <span aria-hidden style={{ fontSize: s, color: '#7c3aed', lineHeight: 1 }}>★</span>
+      return <svg aria-hidden width={s} height={s} viewBox="0 0 24 24" fill="#7c3aed"><path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 18.9 5.7 21l1.3-6.7-5-4.6 6.8-.8z"/></svg>
     case 'heart':
-      return <span aria-hidden style={{ fontSize: s, color: '#ec4899', lineHeight: 1 }}>♥</span>
+      return <svg aria-hidden width={s} height={s} viewBox="0 0 24 24" fill="#ec4899"><path d="M12 21s-7-4.6-9.3-9C1.3 9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.6.8-1.3 2-2.6 4-2.6 3.4 0 4.7 3.5 3.3 6.5C19 16.4 12 21 12 21z"/></svg>
     case 'arrow':
-      return <span aria-hidden style={{ fontSize: s, color: '#f97316', lineHeight: 1 }}>➜</span>
+      return <svg aria-hidden width={s} height={s} viewBox="0 0 24 24" fill="#f97316"><path d="M4 10h9V6l7 6-7 6v-4H4z"/></svg>
     case 'line':
       return <span aria-hidden style={{ width: s, height: 8, background: '#1f2937', borderRadius: 6, display: 'inline-block' }} />
     default:

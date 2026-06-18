@@ -11,8 +11,8 @@ interface Props {
 }
 
 const PRAISE: Record<Exclude<Rating, 'retry'>, string> = {
-  great: 'ممتاز! نطق رائع 🎉',
-  good: 'جيد جداً! استمر 👍',
+  great: 'ممتاز! نطق رائع',
+  good: 'جيد جداً! استمر',
 }
 
 export function RecordPanel({ itemId }: Props) {

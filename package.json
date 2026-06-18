@@ -1,6 +1,6 @@
 {
   "name": "kalimati",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "private": true,
   "type": "module",
   "description": "كلمتي — أداة مساعدة للتواصل والتدريب على النطق (PWA). لا تغني عن المختصين.",
@@ -9,7 +9,8 @@
     "build": "tsc -p tsconfig.json && vite build",
     "preview": "vite preview --host",
     "typecheck": "tsc -p tsconfig.json",
-    "check:assets": "node tools/extract-assets/coverage_check.mjs"
+    "check:assets": "node tools/extract-assets/coverage_check.mjs && node tools/extract-assets/check_no_emoji_ui.mjs",
+    "check:no-emoji-ui": "node tools/extract-assets/check_no_emoji_ui.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

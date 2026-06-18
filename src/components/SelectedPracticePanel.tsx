@@ -66,7 +66,7 @@ export function SelectedPracticePanel({
   const correct = () => {
     recordAttempt(itemId, 'great')
     haptic('success')
-    if (calm) setPraise('أحسنت 👏')
+    if (calm) setPraise('أحسنت')
     else { setPraise('أحسنت يا بطل!'); setReward(true) }
   }
   const redo = () => { recordAttempt(itemId, 'retry'); setPraise(null); rec.reset() }

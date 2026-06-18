@@ -10,6 +10,7 @@ import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
 import { mediaVisual } from '@/components/Media'
 import { Disclaimer } from '@/components/Disclaimer'
+import { StarIcon } from '@/lib/icons'
 import { levelById } from '@/data/levelMeta'
 import {
   DAILY, DAILY_CATS, DIFF_RANK, buildDailyPhrase, profileOf, type DailyPhrase,
@@ -81,8 +82,7 @@ export function LevelSixScreen() {
               text={buildDailyPhrase(selPhrase, profile)}
               accent={level.accent}
               visual={mediaVisual(selPhrase.key, 60)}
-              character="🧒"
-              variant="compact"
+                variant="compact"
               instruction="اسمع، وقل العبارة مثل الصورة"
             />
           ) : (
@@ -90,11 +90,11 @@ export function LevelSixScreen() {
           )}
 
           <aside className="card guide-card">
-            <div className="guide-card__title">💡 إرشادات مستوى الصعوبة</div>
+            <div className="guide-card__title">إرشادات مستوى الصعوبة</div>
             {GUIDANCE.map((g) => (
               <div className="guide-row" key={g.label}>
                 <span className="guide-row__ex">{g.examples}</span>
-                <span className="guide-row__lvl" style={{ color: g.color }}>★ {g.label}</span>
+                <span className="guide-row__lvl" style={{ color: g.color, display: 'inline-flex', alignItems: 'center', gap: 4 }}><StarIcon size={14} style={{ color: g.color }} /> {g.label}</span>
               </div>
             ))}
           </aside>

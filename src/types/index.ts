@@ -6,6 +6,8 @@ export interface WordCard {
   label: string
   /** Emoji placeholder OR an image URL (data URL for parent-uploaded photos). */
   image: string
+  /** مفتاح أصل من assetRegistry (يُعرض عبر mediaVisual بدل image). */
+  media?: string
   /** Optional override speech text (defaults to label). */
   say?: string
   /** Optional CSS color (used by color cards). */

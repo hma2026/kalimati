@@ -142,6 +142,9 @@ export const rewardAssets: Record<string, AssetEntry> = {
 // كل الأصول (بطاقات + واجهة + شخصيات + مكافآت) مربوطة بـ itemKey
 export const allAssets: Record<string, AssetEntry> = { ...assetManifest, ...uiAssets, ...avatarAssets, ...rewardAssets }
 
+/** يحلّ أصلاً بمساره الكامل داخل images، مثل: assetByRef("ui/speaker") أو assetByRef("animals/cat"). */
+export const assetByRef = (ref: string): string | null => ALL_ASSET_PATHS[ref.endsWith(".svg") ? ref : ref + ".svg"] ?? null
+
 export const getAssetUrl = (key: string): string | null => assetManifest[key]?.imageUrl ?? getAsset(key)
 export const hasManifestAsset = (key: string): boolean => key in assetManifest
 export const manifestKeys = (): string[] => Object.keys(assetManifest)

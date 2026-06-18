@@ -11,6 +11,7 @@ import {
   VolumeIcon, VibrateIcon, SparkleIcon, TypeIcon, GridIcon, GlobeIcon, LockIcon,
   HeartIcon, DownloadIcon, UploadIcon, TrashIcon, RefreshIcon, SettingsIcon,
 } from '@/lib/icons'
+import { AssetIcon } from '@/components/AssetIcon'
 import type { CardsPerPage, FontScale, HapticLevel, SensoryMode } from '@/types'
 
 function Toggle({ on, onChange, label }: { on: boolean; onChange: (v: boolean) => void; label: string }) {
@@ -163,7 +164,7 @@ export function SettingsScreen() {
           <div className="card rows">
             {activeChild ? (
               <>
-                <Row icon={<span aria-hidden>🗣️</span>} label="اللهجة" hint={`الطفل الحالي: ${activeChild.name}`}>
+                <Row icon={<AssetIcon refKey="ui/speaker" size={20} />} label="اللهجة" hint={`الطفل الحالي: ${activeChild.name}`}>
                   <select
                     value={activeChild.dialectId ?? s.selectedDialect}
                     onChange={(e) => updateChild(activeChild.id, { dialectId: e.target.value as DialectId })}
@@ -171,7 +172,7 @@ export function SettingsScreen() {
                     {DIALECTS.map((d) => <option key={d.id} value={d.id}>{d.label}</option>)}
                   </select>
                 </Row>
-                <Row icon={<span aria-hidden>🧒</span>} label="الجنس">
+                <Row icon={<AssetIcon refKey="avatars/child_boy_01" size={20} />} label="الجنس">
                   <Choices<Gender>
                     value={activeChild.gender ?? 'boy'}
                     onChange={(v) => updateChild(activeChild.id, { gender: v })}
@@ -182,7 +183,7 @@ export function SettingsScreen() {
             ) : (
               <div className="row"><span className="row__hint">اختر طفلاً أولاً لضبط اللهجة والجنس.</span></div>
             )}
-            <Row icon={<span aria-hidden>🌐</span>} label="اللهجة الافتراضية" hint="تُستخدم للأطفال الجدد">
+            <Row icon={<AssetIcon refKey="ui/settings" size={20} />} label="اللهجة الافتراضية" hint="تُستخدم للأطفال الجدد">
               <select value={s.selectedDialect} onChange={(e) => s.update('selectedDialect', e.target.value as DialectId)}>
                 {DIALECTS.map((d) => <option key={d.id} value={d.id}>{d.label}</option>)}
               </select>
@@ -191,41 +192,41 @@ export function SettingsScreen() {
 
           <h3 className="settings-h">العبارات اليومية</h3>
           <div className="card rows">
-            <Row icon={<span aria-hidden>📊</span>} label="مستوى الصعوبة">
+            <Row icon={<AssetIcon refKey="ui/report" size={20} />} label="مستوى الصعوبة">
               <Choices<Difficulty>
                 value={s.dailyPhrasesDifficulty}
                 onChange={(v) => s.update('dailyPhrasesDifficulty', v)}
                 options={[{ v: 'very_easy', label: 'سهل جدًا' }, { v: 'easy', label: 'سهل' }, { v: 'medium', label: 'متوسط' }]}
               />
             </Row>
-            <Row icon={<span aria-hidden>🕌</span>} label="العبارات الدينية" hint="بسم الله، الحمد لله، السلام عليكم">
+            <Row icon={<AssetIcon refKey="ui/settings" size={20} />} label="العبارات الدينية" hint="بسم الله، الحمد لله، السلام عليكم">
               <Toggle on={s.religiousPhrasesEnabled} onChange={(v) => s.update('religiousPhrasesEnabled', v)} label="العبارات الدينية" />
             </Row>
           </div>
 
           <h3 className="settings-h">الألعاب التعليمية</h3>
           <div className="card rows">
-            <Row icon={<span aria-hidden>🧩</span>} label="تشغيل الألعاب">
+            <Row icon={<AssetIcon refKey="rewards/star_burst" size={20} />} label="تشغيل الألعاب">
               <Toggle on={s.gamesEnabled} onChange={(v) => s.update('gamesEnabled', v)} label="تشغيل الألعاب" />
             </Row>
-            <Row icon={<span aria-hidden>🐾</span>} label="أصوات الحيوانات">
+            <Row icon={<AssetIcon refKey="animals/cat" size={20} />} label="أصوات الحيوانات">
               <Toggle on={s.animalSoundsEnabled} onChange={(v) => s.update('animalSoundsEnabled', v)} label="أصوات الحيوانات" />
             </Row>
-            <Row icon={<span aria-hidden>🃏</span>} label="عدد الكروت الافتراضي">
+            <Row icon={<AssetIcon refKey="ui/report" size={20} />} label="عدد الكروت الافتراضي">
               <Choices<GameCardCount>
                 value={s.gameCardCount}
                 onChange={(v) => s.update('gameCardCount', v)}
                 options={[{ v: 4, label: '4' }, { v: 6, label: '6' }, { v: 8, label: '8' }, { v: 12, label: '12' }]}
               />
             </Row>
-            <Row icon={<span aria-hidden>⏱️</span>} label="مدة ظهور الكروت">
+            <Row icon={<AssetIcon refKey="ui/retry" size={20} />} label="مدة ظهور الكروت">
               <Choices<PreviewSeconds>
                 value={s.gamePreviewSeconds}
                 onChange={(v) => s.update('gamePreviewSeconds', v)}
                 options={[{ v: 2, label: '٢ث' }, { v: 4, label: '٤ث' }, { v: 6, label: '٦ث' }]}
               />
             </Row>
-            <Row icon={<span aria-hidden>🎨</span>} label="طريقة عرض الألوان" hint="نفس صورة الدرس افتراضياً">
+            <Row icon={<AssetIcon refKey="colors/red" size={20} />} label="طريقة عرض الألوان" hint="نفس صورة الدرس افتراضياً">
               <Choices<ColorDisplayMode>
                 value={s.colorDisplayMode}
                 onChange={(v) => s.update('colorDisplayMode', v)}

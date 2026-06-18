@@ -9,15 +9,15 @@ import * as D from './dialects'
 // ===== المستوى الثاني: أبغى + كلمة =====
 export interface L2Item { key: string; image: string }
 export const L2_ITEMS: L2Item[] = [
-  { key: 'water', image: '💧' },
-  { key: 'milk', image: '🥛' },
-  { key: 'juice', image: '🧃' },
-  { key: 'bathroom', image: '🚽' },
-  { key: 'eat', image: '🍽️' },
-  { key: 'play', image: '🧸' },
-  { key: 'sleep', image: '🛏️' },
-  { key: 'goOut', image: '🚪' },
-  { key: 'chips', image: '🍟' },
+  { key: 'water', image: '' },
+  { key: 'milk', image: '' },
+  { key: 'juice', image: '' },
+  { key: 'bathroom', image: '' },
+  { key: 'eat', image: '' },
+  { key: 'play', image: '' },
+  { key: 'sleep', image: '' },
+  { key: 'goOut', image: '' },
+  { key: 'chips', image: '' },
 ]
 export const buildL2 = (key: string, p: ChildProfile) => D.buildRequestPhrase(key, p)
 
@@ -39,12 +39,12 @@ export const L3_PHRASES: L3Item[] = [
 // media = مفتاح الصورة في assetManifest. badge يبقى زخرفة صغيرة اختيارية.
 export interface L4Card { key: string; media: string; badge?: string }
 export const L4_FEELINGS: L4Card[] = [
-  { key: 'happy', media: 'happy', badge: '😊' },
-  { key: 'sad', media: 'sad', badge: '☹️' },
-  { key: 'scared', media: 'scared', badge: '👻' },
-  { key: 'angry', media: 'angry', badge: '😡' },
-  { key: 'tired', media: 'tired', badge: '🔋' },
-  { key: 'bored', media: 'bored', badge: '💭' },
+  { key: 'happy', media: 'happy' },
+  { key: 'sad', media: 'sad' },
+  { key: 'scared', media: 'scared' },
+  { key: 'angry', media: 'angry' },
+  { key: 'tired', media: 'tired' },
+  { key: 'bored', media: 'bored' },
 ]
 export const L4_PAIN: L4Card[] = [
   { key: 'tummy', media: 'stomachPain' },

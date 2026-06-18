@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react'
+import { AssetIcon } from '@/components/AssetIcon'
 import { useSettings } from '@/store/useSettingsStore'
 import { useHaptics } from '@/hooks/useHaptics'
 import { playSuccessChime } from '@/lib/sound'
@@ -61,7 +62,7 @@ export function RewardOverlay({ show, text = 'أحسنت يا بطل!', onDone }
       )}
       <div className="reward" role="status" aria-live="polite" onClick={onDone}>
         <div className="reward__card">
-          <div className="reward__star" aria-hidden>⭐</div>
+          <div className="reward__star" aria-hidden><AssetIcon refKey="rewards/star" size={64} /></div>
           <div className="reward__text">{text}</div>
         </div>
       </div>
