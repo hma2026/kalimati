@@ -12,7 +12,7 @@ import { VolumeIcon } from '@/lib/icons'
 import { ANIMALS } from '@/data/animals'
 import { getAnimalLabel, getAnimalSound, profileOf } from '@/data/dialects'
 
-const ACCENT = '#7C3AED'
+const ACCENT = '#7B3FF2'
 
 export function AnimalsScreen() {
   const child = useChildren((s) => s.children.find((c) => c.id === s.activeId) ?? null)
@@ -29,7 +29,7 @@ export function AnimalsScreen() {
   const sayName = (key: string) => { haptic('tap'); speak(getAnimalLabel(key, profile)) }
 
   return (
-    <div className="screen level" style={{ ['--accent' as string]: ACCENT, background: '#F5F3FF' }}>
+    <div className="screen level" style={{ ['--accent' as string]: ACCENT, background: '#F5F2FF' }}>
       <SectionHeader title="حيوانات وأصوات" desc="تعلم أسماء الحيوانات وأصواتها" accent={ACCENT} stars={stars} />
 
       <div className="screen__scroll stack">

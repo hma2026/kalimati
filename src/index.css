@@ -6,7 +6,7 @@
 
 :root {
   /* Surfaces & background */
-  --bg: #f5f3ff;
+  --bg: #f5f2ff;
   --bg-2: #ece8fb;
   --surface: #ffffff;
   --surface-2: #faf9ff;
@@ -742,3 +742,33 @@ html[dir='rtl'] .switch input:checked + .switch__track .switch__thumb { transfor
 }
 .tile { box-shadow: 0 4px 14px rgba(16, 24, 40, .06); }
 .tile--level { box-shadow: 0 8px 20px rgba(16, 24, 40, .14); }
+
+/* ===== v0.4.0 tablet-first responsive + overflow safety ===== */
+html, body { overflow-x: hidden; }
+img, svg { max-width: 100%; }
+.screen { width: 100%; max-width: var(--content-max); margin-inline: auto; }
+
+/* Tablet / iPad primary */
+@media (min-width: 768px) {
+  .screen { padding: 24px 24px 28px; gap: 20px; }
+  .tiles { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .pcard { min-height: 152px; padding: 16px; border-radius: var(--card-radius); }
+  .pcard__visual { width: 88px; height: 88px; }
+  .pcard__label { font-size: 1.3rem; }
+  .pcard--big .pcard__visual { width: 132px; height: 132px; }
+  .phrase-card { padding: 16px 18px; border-radius: var(--card-radius); }
+  .phrase-card__img { width: 72px; height: 72px; }
+  .phrase-card__text { font-size: 1.35rem; }
+  .btn { min-height: 56px; font-size: 1.1rem; border-radius: var(--button-radius); }
+  .practice__text { font-size: clamp(2rem, 4vw, 2.6rem); }
+}
+
+/* Large tablet / desktop */
+@media (min-width: 1100px) {
+  .pcard__label { font-size: 1.35rem; }
+}
+
+/* Mobile: keep grids tidy, no overflow */
+@media (max-width: 560px) {
+  .card-grid[data-cols] { grid-template-columns: repeat(2, 1fr) !important; }
+}

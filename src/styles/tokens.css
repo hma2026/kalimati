@@ -1,0 +1,15 @@
+/* Kalimati design tokens (handoff v2) — tablet-first */
+:root {
+  /* level colors */
+  --level2: #7B3FF2; --level3: #2F9B5F; --level4: #E84C68; --level5: #2F78EA; --level6: #D99A1E;
+  --color-bg: #F5F2FF; --color-card: #FFFFFF; --color-text: #16162F; --color-muted: #6C6780;
+  /* radius */
+  --page-card-radius: 28px; --card-radius: 24px; --button-radius: 18px; --icon-well-radius: 20px;
+  /* shadows */
+  --soft-shadow: 0 12px 28px rgba(35, 25, 80, 0.10);
+  --selected-shadow: 0 0 0 4px rgba(123, 63, 242, 0.14);
+  /* spacing */
+  --page-pad-tablet: 24px; --page-pad-mobile: 14px; --grid-gap: 16px; --section-gap: 22px;
+  /* layout */
+  --content-max: 1180px; --header-h: 96px;
+}
