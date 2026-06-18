@@ -286,3 +286,17 @@ red: { imageUrl: "/assets/cards/colors/red.png",  category: "colors",  sourceTyp
 - **`assetManifest.ts`**: `assetManifest` (بطاقات عبر `getAsset`) + `uiAssets` + `avatarAssets` + `rewardAssets` + `allAssets` — كل أصل مربوط بـ `itemKey`. المقاسات: البطاقات 256×256، الشخصيات 512×512، أيقونات الواجهة 64×64، الألوان/الأشكال SVG.
 - **`design-handoff/`**: `index.html` (يعرض كل أصل: المفتاح + اسم الملف + المقاس + التصنيف + أماكن الاستخدام، إضافة إلى الشاشات المرجعية) + `assets-map.json` + `assets-map.csv` + `assets/` + `screens/`.
 - إعادة التوليد: `python3 tools/extract-assets/generate_svg_assets.py` ثم `python3 tools/extract-assets/build_handoff.py`.
+
+---
+
+## v0.4.3 — UI Layout Matching (مرحلة مطابقة الواجهات)
+
+تطبيق التصميم على البطاقات باستخدام الأصول (لا emoji ولا placeholder)، بأبعاد iPad-first، دون لمس المنطق:
+
+- **الصورة تملأ «بئر الصورة»**: كل أصل يُعرض داخل بئر بخلفية ناعمة وحواف دائرية وظل داخلي، ويملأ البئر (لم يعد يظهر صغيراً وسط فراغ).
+- **الألوان (وضع الدرس) والأشكال تستخدم أصول SVG النظيفة** من السجل (`colors/red.svg`, `shapes/circle.svg`)؛ ويبقى وضعا «مربّع/دائرة» للألوان كإعداد.
+- أبعاد iPad: بطاقة min-height 160، بئر 90px، أزرار التدريب 56px، فجوة الشبكة 16، حشو الصفحة 24، حواف 24. الجوال: بطاقة 130، بئر 66px، أزرار 48px، عمودان.
+- بوّابة فحص: `npm run check:assets` (تتحقق من وجود الأصول، لا emoji نهائي، لا placeholder رمادي، لا صورة مكسورة، لا مفتاح ناقص، ولا تضارب play/star).
+- `design-handoff/preview.html`: معاينة ثابتة لعيّنات الشاشات بالأصول الفعلية (المستوى الثاني/الرابع/الخامس + الحيوانات) للمراجعة قبل النشر.
+
+المنطق دون تغيير: التسجيل، النجوم، LocalStorage، التقارير، PWA، الحساسية، اللهجات، الألعاب، أصوات الحيوانات.

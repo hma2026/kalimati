@@ -772,3 +772,33 @@ img, svg { max-width: 100%; }
 @media (max-width: 560px) {
   .card-grid[data-cols] { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* ===== v0.4.3 UI Layout Matching — asset wells fill + iPad-first sizing ===== */
+/* الصورة/الأصل يملأ بئره فلا يظهر صغيراً وسط فراغ */
+.pcard__visual, .phrase-card__img { overflow: hidden; }
+.pcard__visual > img, .pcard__visual > svg,
+.phrase-card__img > img, .phrase-card__img > svg { width: 100% !important; height: 100% !important; object-fit: contain; }
+.pcard__visual > span, .phrase-card__img > span { width: 100%; height: 100%; display: grid; place-items: center; }
+.pcard__visual > span[style*="background"], .phrase-card__img > span[style*="background"] { width: 78%; height: 78%; }
+
+/* iPad / tablet */
+@media (min-width: 768px) {
+  .card-grid { gap: 16px; }
+  .pcard { min-height: 160px; }
+  .pcard__visual { width: 90px; height: 90px; }
+  .pcard--big .pcard__visual { width: 132px; height: 132px; }
+  .phrase-card__img { width: 74px; height: 74px; }
+  .pbtn-line { min-height: 56px; font-size: 1.08rem; min-width: 150px; }
+  .panel { padding: 18px 20px; }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .screen { padding: 14px 14px 20px; gap: 16px; }
+  .card-grid { gap: 12px !important; }
+  .pcard { min-height: 130px; border-radius: 20px; padding: 12px 10px; }
+  .pcard__visual { width: 66px; height: 66px; }
+  .phrase-card__img { width: 58px; height: 58px; }
+  .pbtn-line { min-height: 48px; min-width: 44%; }
+  .btn { min-height: 48px; }
+}

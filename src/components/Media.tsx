@@ -33,7 +33,11 @@ function fallbackNode(key: string, size: number, colorMode: ColorDisplayMode): R
 function MediaImg({ k, size, colorMode }: { k: string; size: number; colorMode: ColorDisplayMode }) {
   const [errored, setErrored] = useState(false)
   const m = getMedia(k)
-  if (m?.kind === 'color' || m?.kind === 'shape') return <>{fallbackNode(k, size, colorMode)}</>
+  // الألوان في وضع مربّع/دائرة تُرسم متّجهاً يحترم الإعداد؛ غير ذلك (وضع الدرس)
+  // والأشكال تستخدم أصل SVG النظيف من السجل.
+  if (m?.kind === 'color' && (colorMode === 'square' || colorMode === 'circle')) {
+    return <>{fallbackNode(k, size, colorMode)}</>
+  }
   const url = getAsset(k) ?? getMediaImage(k) ?? getAssetUrl(k)
   if (!url || errored) return <>{fallbackNode(k, size, colorMode)}</>
   return (
