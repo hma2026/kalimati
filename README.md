@@ -337,3 +337,11 @@ red: { imageUrl: "/assets/cards/colors/red.png",  category: "colors",  sourceTyp
 - **التبويبات**: لمسة لون ناعمة حتى غير المفعّلة؛ المفعّل بلون المستوى.
 - **ألوان المستويات** مثبّتة عبر tokens (٢ بنفسجي، ٣ أخضر، ٤ وردي، ٥ أزرق، ٦ ذهبي).
 - تحقّق: عبارات المستوى السادس قصيرة ومطابقة للمسموح (لا جمل طويلة)؛ نظام اللهجات والتسجيل والنجوم والتقارير دون تغيير.
+
+---
+
+## v0.4.7 — Exact UI Contract
+
+طُبِّقت حزمة العقد كما هي: نُسخ كامل `KALIMATI_V047_EXACT_CSS_PATCH.css` (600 سطراً) إلى آخر `src/index.css` دون تعديل أو اجتهاد. كل أصناف العقد كانت موجودة فعلاً في الـ markup (`.viewport`, `.tiles/.tile__img`, `.level-bar/.level-title`, `.pcard/.wcard`, `.l2-grid/.l2-pick/.l2-sentence`, `.steps`, `.phrase-list`, `.l3-bottom/.l6-bottom`, `.ctabs`, `.practice*`, `.pbtn-line/.pbtn`, `.match-card`) فلم يلزم أي تغيير في الـ markup.
+
+المقاسات الملتزمة (من `UI_MEASUREMENTS.json`): iPad 1024×1366 / جوال 390×844؛ الرئيسية 4 أعمدة (iPad) وعمودان (جوال)؛ بطاقة min-height 172px؛ بئر 96px (iPad)/72px (جوال)؛ أزرار التدريب 56px/48px؛ المستوى الثاني عمودان (iPad)/عمود (جوال). لا منطق/لهجات/تسجيل تغيّر.
