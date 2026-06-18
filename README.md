@@ -244,3 +244,33 @@ red: { imageUrl: "/assets/cards/colors/red.png",  category: "colors",  sourceTyp
 - ضعها في `src/assets/images/<التصنيف>/<المفتاح>.<png|webp|svg>` (الأفضل — يُلتقط وقت البناء بلا 404)، أو في `public/assets/cards/<التصنيف>/<الملف>` كما في الـ manifest.
 
 الصورة نفسها تُستخدم في الدرس واللعبة والتقارير (نفس المفتاح عبر `mediaVisual`)، والنص من `dialects.ts` حسب اللهجة. أضيف أيضاً عمق بصري خفيف للبطاقات (ظل + خلفية للصورة) دون تغيير التخطيط.
+
+---
+
+## واجهات + نظام أصول حقيقي (v0.4.0)
+
+- **أصول SVG مستقلة لكل عنصر** (83 ملفاً) في `src/assets/images/<التصنيف>/<المفتاح>.svg` — رسوم كرتونية مسطّحة بلا نص ولا رمادي ولا إيموجي كتصميم نهائي. التصنيفات: drinks, food, actions, people, emotions, pain, sensory, colors, shapes, daily, animals.
+- **`src/data/assetManifest.ts`** (مولّد آلياً) بالمخطط: itemKey, fileName, imageUrl (عبر `getAsset`), category, width, height, fallbackEmoji, usedIn, required. الإيموجي للطوارئ التطويرية فقط.
+- **`mediaVisual`** يعرض صورة المفتاح من السجل أولاً؛ الدرس واللعبة والتقرير يقرؤون نفس الصورة بنفس المفتاح. النص من `dialects.ts` حسب اللهجة.
+- **Design tokens**: `src/styles/tokens.css` (ألوان المستويات 2→6، خلفية، نصف الأقطار، الظلال، التباعد). ألوان المستويات: ٢ `#7B3FF2`، ٣ `#2F9B5F`، ٤ `#E84C68`، ٥ `#2F78EA`، ٦ `#D99A1E`.
+- **تابلت أولاً + استجابة الجوال**: حاوية بعرض 1180px، حشوات/بطاقات/أزرار أكبر للتابلت، شبكات تتقلّص لعمودين على الجوال، بلا تجاوز أفقي.
+- **`design-handoff/`**: `index.html` (معرض الشاشات + كل أصل مع الاسم/المفتاح/التصنيف/الأبعاد/الاستخدام) + `assets-map.json` + `assets-map.csv` + `screens/` + `assets/`.
+- **توليد الأصول**: `python3 tools/extract-assets/generate_svg_assets.py` (يعيد بناء كل SVG + الـ manifest). لاستبدال أي أصل بفن أدق: ضع ملفاً بنفس المفتاح في نفس المجلد.
+
+لم يتغيّر المنطق: اللهجات، التسجيل، النجوم، التقارير، الحساسية، الألعاب، الحيوانات، LocalStorage، PWA.
+
+---
+
+## v0.4.1 — Asset System Finalization (Strict Order v2)
+
+تنفيذ كامل لأمر `Kalimati_Claude_Code_Strict_Order_v2.md` مع حزمة `Kalimati_Separated_Screen_Handoff_Package`:
+
+- **110 أصل SVG مستقل** كرتوني مسطّح (256×256، شفاف، بلا نص) تحت `src/assets/images/<category>/`: drinks, food, actions, people (+boy/girl/teacher), emotions, pain, sensory (+calm/rest), colors, shapes, daily (+okay), animals، إضافة إلى **ui** (15 أيقونة) و**avatars** (6 شخصيات).
+- **لا emoji كتصميم نهائي، ولا placeholder رمادي، ولا صورة مكسورة.** `mediaVisual` يعرض أصل SVG مباشرةً لكل عنصر؛ الألوان/الأشكال متّجهات نظيفة تحترم إعداد العرض؛ الرمز التعبيري طوارئ فقط (لا يظهر لأن كل مفتاح مستخدَم له SVG — تحقّق: 77/77).
+- `assetManifest.ts` بالمخطط المطلوب: `itemKey, fileName, imageUrl, category, width, height, fallbackEmoji?, usedIn[], required`.
+- **design-handoff/** داخل المستودع: `index.html` (كل الشاشات المرجعية + كل أصل باسمه/مفتاحه/تصنيفه/أبعاده/استخدامه) + `assets-map.json` + `assets-map.csv` + `screens/` + `assets/`.
+- tokens مطابقة (`src/styles/tokens.css`): ألوان المستويات L2 #7B3FF2 / L3 #2F9B5F / L4 #E84C68 / L5 #2F78EA / L6 #D99A1E، خلفية #F5F2FF، نصف أقطار وظلال وتباعد التابلت.
+- تابلت أولاً (عرض المحتوى 1180px) مع تجاوب الجوال (شبكات تنهار لعمودين/عمود).
+- المنطق دون تغيير: اللهجات، التسجيل، النجوم، التقارير، LocalStorage، الحساسية، الألعاب، الحيوانات، PWA.
+
+استبدال أي أصل بفنّ احترافي لاحقاً: ضع ملفاً بنفس اسم المفتاح في مجلد التصنيف، مثل `src/assets/images/animals/cat.png` — يُستخدم فوراً بلا تعديل كود. ولإعادة توليد كل الأصول: `python3 tools/extract-assets/generate_svg_assets.py`.
