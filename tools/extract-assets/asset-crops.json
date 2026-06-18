@@ -1,0 +1,14 @@
+[
+  {
+    "key": "cat",
+    "sourceImage": "animals-games-sheet.png",
+    "crop": { "x": 120, "y": 240, "width": 180, "height": 160 },
+    "output": "public/assets/cards/animals/cat.png"
+  },
+  {
+    "key": "dog",
+    "sourceImage": "animals-games-sheet.png",
+    "crop": { "x": 320, "y": 240, "width": 180, "height": 160 },
+    "output": "public/assets/cards/animals/dog.png"
+  }
+]

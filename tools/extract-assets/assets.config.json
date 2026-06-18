@@ -1,0 +1,645 @@
+{
+  "size": 240,
+  "items": [
+    {
+      "key": "cat",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/cat.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "dog",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/dog.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "cow",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/cow.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "sheep",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/sheep.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "horse",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/horse.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "chicken",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/chicken.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "duck",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/duck.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bird",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/bird.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "lion",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/lion.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "elephant",
+      "category": "animals",
+      "sourceType": "animal",
+      "output": "public/assets/cards/animals/elephant.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "red",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/red.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "blue",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/blue.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "green",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/green.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "yellow",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/yellow.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "white",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/white.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "black",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/black.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "brown",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/brown.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "pink",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/pink.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "orange",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/orange.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "purple",
+      "category": "colors",
+      "sourceType": "color",
+      "output": "public/assets/cards/colors/purple.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "circle",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/circle.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "square",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/square.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "triangle",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/triangle.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "rectangle",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/rectangle.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "star",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/star.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "heart",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/heart.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "arrow",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/arrow.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "line",
+      "category": "shapes",
+      "sourceType": "shape",
+      "output": "public/assets/cards/shapes/line.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "water",
+      "category": "drinks",
+      "sourceType": "card",
+      "output": "public/assets/cards/drinks/water.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "milk",
+      "category": "drinks",
+      "sourceType": "card",
+      "output": "public/assets/cards/drinks/milk.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "juice",
+      "category": "drinks",
+      "sourceType": "card",
+      "output": "public/assets/cards/drinks/juice.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bread",
+      "category": "food",
+      "sourceType": "card",
+      "output": "public/assets/cards/food/bread.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "chips",
+      "category": "food",
+      "sourceType": "card",
+      "output": "public/assets/cards/food/chips.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "candy",
+      "category": "food",
+      "sourceType": "card",
+      "output": "public/assets/cards/food/candy.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "eat",
+      "category": "food",
+      "sourceType": "card",
+      "output": "public/assets/cards/food/eat.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bathroom",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/bathroom.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "sleep",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/sleep.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "goOut",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/go-out.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "play",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/play.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "help",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/help.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "come",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/come.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "open",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/open.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "car",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/car.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "cold",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/cold.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "stop",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/stop.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "loudSound",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/loud-sound.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "quietPlace",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/quiet-place.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "doNotTouch",
+      "category": "actions",
+      "sourceType": "card",
+      "output": "public/assets/cards/actions/do-not-touch.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "mother",
+      "category": "people",
+      "sourceType": "card",
+      "output": "public/assets/cards/people/mother.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "father",
+      "category": "people",
+      "sourceType": "card",
+      "output": "public/assets/cards/people/father.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "happy",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/happy.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "sad",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/sad.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "scared",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/scared.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "angry",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/angry.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "tired",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/tired.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bored",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/bored.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "stomachPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/stomach-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "headPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/head-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "toothPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/tooth-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "earPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/ear-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "handPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/hand-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "legPain",
+      "category": "emotions",
+      "sourceType": "card",
+      "output": "public/assets/cards/emotions/leg-pain.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "salam",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/salam.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "ahlan",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/ahlan.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "hi",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/hi.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "salam_alaykum",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/salam-alaykum.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bye",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/bye.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "byebye",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/byebye.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "maa_salama",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/maa-salama.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "bismillah",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/bismillah.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "alhamdulillah",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/alhamdulillah.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "finished",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/finished.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "enough",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/enough.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "request_word",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/request-word.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "yes",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/yes.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "no",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/no.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "thanks",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/thanks.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "khalas",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/khalas.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "tayeb",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/tayeb.png",
+      "sourceImage": null,
+      "crop": null
+    },
+    {
+      "key": "lala",
+      "category": "daily-phrases",
+      "sourceType": "card",
+      "output": "public/assets/cards/daily-phrases/lala.png",
+      "sourceImage": null,
+      "crop": null
+    }
+  ]
+}
