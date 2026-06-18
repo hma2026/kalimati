@@ -724,3 +724,21 @@ html[dir='rtl'] .switch input:checked + .switch__track .switch__thumb { transfor
 .star-pill { background: #FFF7DB; color: #8a6d00; border-radius: var(--r-pill); padding: 6px 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; }
 @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
 .no-motion .match-celebrate, .no-motion .match-card { animation: none !important; transition: none !important; }
+
+/* ===== v0.3.5 card depth polish (no layout change) ===== */
+.pcard { box-shadow: 0 4px 14px rgba(16, 24, 40, .06); }
+.pcard:hover { box-shadow: 0 8px 22px rgba(16, 24, 40, .10); }
+.pcard__visual {
+  width: 74px; height: 74px; border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #eef2f7);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .05);
+}
+.pcard--big .pcard__visual { width: 92px; height: 92px; border-radius: 24px; }
+.phrase-card { box-shadow: 0 3px 12px rgba(16, 24, 40, .05); }
+.phrase-card__img {
+  width: 58px; height: 58px; border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff, #eef2f7);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .05);
+}
+.tile { box-shadow: 0 4px 14px rgba(16, 24, 40, .06); }
+.tile--level { box-shadow: 0 8px 20px rgba(16, 24, 40, .14); }

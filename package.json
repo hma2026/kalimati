@@ -1,6 +1,6 @@
 {
   "name": "kalimati",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "type": "module",
   "description": "كلمتي — أداة مساعدة للتواصل والتدريب على النطق (PWA). لا تغني عن المختصين.",
