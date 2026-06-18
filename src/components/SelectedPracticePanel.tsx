@@ -6,6 +6,9 @@ import { useChildren } from '@/store/useChildrenStore'
 import { blobStore, recKey } from '@/lib/blobStore'
 import { RewardOverlay } from './RewardOverlay'
 import { VolumeIcon, MicIcon, StopIcon, PlayIcon, StarIcon, RefreshIcon } from '@/lib/icons'
+import { avatarAssets } from '@/data/assetManifest'
+
+const childAvatar = avatarAssets?.child_boy_01?.imageUrl ?? null
 
 interface Props {
   itemId: string
@@ -73,7 +76,11 @@ export function SelectedPracticePanel({
   return (
     <div className="practice" style={{ ['--accent' as string]: accent }}>
       <div className="practice__stage">
-        {character && <span className="practice__char" aria-hidden>{character}</span>}
+        {character
+          ? <span className="practice__char" aria-hidden>{character}</span>
+          : childAvatar
+            ? <span className="practice__char" aria-hidden><img src={childAvatar} alt="" className="practice__char-img" loading="lazy" /></span>
+            : null}
         <div className="practice__text" style={{ color: accent }}>{text}</div>
         {visual != null && (
           <span className="practice__visual" aria-hidden>

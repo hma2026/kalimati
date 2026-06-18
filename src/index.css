@@ -802,3 +802,31 @@ img, svg { max-width: 100%; }
   .pbtn-line { min-height: 48px; min-width: 44%; }
   .btn { min-height: 48px; }
 }
+
+/* ===== v0.4.4 Full UI Matching — header banner + practice button clarity ===== */
+.level-bar { align-items: stretch; gap: 12px; }
+.level-title {
+  flex: 1; border-radius: 22px; padding: 14px 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  box-shadow: 0 10px 24px rgba(35, 25, 80, .18);
+}
+.level-title strong { font-size: clamp(1.25rem, 3.4vw, 1.7rem); font-weight: 900; line-height: 1.15; }
+.level-title span { font-size: .95rem; opacity: .95; font-weight: 700; }
+.stars-badge, .home-mini {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(16, 24, 40, .06); padding: 10px 14px;
+  display: grid; place-items: center; gap: 2px; font-weight: 800;
+}
+.stars-badge small, .home-mini small { font-size: .72rem; color: var(--muted); font-weight: 700; }
+/* الأزرار الأساسية للتدريب صفّ كامل، وزرّا التقييم جنباً إلى جنب (كالمرجع) */
+.pbtn--listen, .pbtn--rec, .pbtn--play { flex-basis: 100% !important; }
+
+@media (min-width: 768px) {
+  .level-bar { gap: 14px; }
+  .level-title { padding: 16px 24px; min-height: 88px; }
+  .stars-badge, .home-mini { min-width: 92px; }
+}
+
+/* child illustration in practice stage (asset, not emoji) */
+.practice__char-img { width: 92px; height: 92px; object-fit: contain; display: block; }
+@media (min-width: 768px) { .practice__char-img { width: 120px; height: 120px; } }
