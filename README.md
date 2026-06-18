@@ -274,3 +274,15 @@ red: { imageUrl: "/assets/cards/colors/red.png",  category: "colors",  sourceTyp
 - المنطق دون تغيير: اللهجات، التسجيل، النجوم، التقارير، LocalStorage، الحساسية، الألعاب، الحيوانات، PWA.
 
 استبدال أي أصل بفنّ احترافي لاحقاً: ضع ملفاً بنفس اسم المفتاح في مجلد التصنيف، مثل `src/assets/images/animals/cat.png` — يُستخدم فوراً بلا تعديل كود. ولإعادة توليد كل الأصول: `python3 tools/extract-assets/generate_svg_assets.py`.
+
+---
+
+## v0.4.2 — UI Assets Finalization (حزمة الأصول مكتملة)
+
+مرحلة أصول فقط — **لم يُعدَّل أي Layout للشاشات.** اكتملت حزمة الأصول داخل المشروع:
+
+- **120 أصل SVG مستقل** في `src/assets/images/<category>/` و`design-handoff/assets/<category>/` عبر 14 تصنيفاً: drinks, food, actions, people, emotions, pain, sensory, colors, shapes, daily, animals, **ui**, **avatars**, **rewards** (أُضيفت rewards: star, star_burst, trophy, medal, ribbon, crown, confetti, balloon, thumbs_up, sticker_smile).
+- لا emoji كتصميم نهائي، لا placeholder رمادي، لا نص عربي داخل الصورة. الصورة ثابتة والنص من `dialects.ts` حسب اللهجة.
+- **`assetManifest.ts`**: `assetManifest` (بطاقات عبر `getAsset`) + `uiAssets` + `avatarAssets` + `rewardAssets` + `allAssets` — كل أصل مربوط بـ `itemKey`. المقاسات: البطاقات 256×256، الشخصيات 512×512، أيقونات الواجهة 64×64، الألوان/الأشكال SVG.
+- **`design-handoff/`**: `index.html` (يعرض كل أصل: المفتاح + اسم الملف + المقاس + التصنيف + أماكن الاستخدام، إضافة إلى الشاشات المرجعية) + `assets-map.json` + `assets-map.csv` + `assets/` + `screens/`.
+- إعادة التوليد: `python3 tools/extract-assets/generate_svg_assets.py` ثم `python3 tools/extract-assets/build_handoff.py`.

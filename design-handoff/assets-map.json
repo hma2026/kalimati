@@ -286,10 +286,11 @@
     "itemKey": "child_boy_01",
     "fileName": "child_boy_01.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -299,10 +300,11 @@
     "itemKey": "child_girl_01",
     "fileName": "child_girl_01.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -312,10 +314,11 @@
     "itemKey": "helper_character_01",
     "fileName": "helper_character_01.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -325,10 +328,11 @@
     "itemKey": "helper_character_02",
     "fileName": "helper_character_02.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -338,10 +342,11 @@
     "itemKey": "reward_boy",
     "fileName": "reward_boy.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -351,10 +356,11 @@
     "itemKey": "reward_girl",
     "fileName": "reward_girl.svg",
     "category": "avatars",
-    "width": 256,
-    "height": 256,
+    "width": 512,
+    "height": 512,
     "usedIn": [
       "onboarding",
+      "childSelect",
       "rewards"
     ],
     "required": true,
@@ -1061,14 +1067,153 @@
     "path": "assets/people/teacher.svg"
   },
   {
+    "itemKey": "balloon",
+    "fileName": "balloon.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/balloon.svg"
+  },
+  {
+    "itemKey": "confetti",
+    "fileName": "confetti.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/confetti.svg"
+  },
+  {
+    "itemKey": "crown",
+    "fileName": "crown.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/crown.svg"
+  },
+  {
+    "itemKey": "medal",
+    "fileName": "medal.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/medal.svg"
+  },
+  {
+    "itemKey": "ribbon",
+    "fileName": "ribbon.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/ribbon.svg"
+  },
+  {
+    "itemKey": "star",
+    "fileName": "star.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/star.svg"
+  },
+  {
+    "itemKey": "star_burst",
+    "fileName": "star_burst.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/star_burst.svg"
+  },
+  {
+    "itemKey": "sticker_smile",
+    "fileName": "sticker_smile.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/sticker_smile.svg"
+  },
+  {
+    "itemKey": "thumbs_up",
+    "fileName": "thumbs_up.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/thumbs_up.svg"
+  },
+  {
+    "itemKey": "trophy",
+    "fileName": "trophy.svg",
+    "category": "rewards",
+    "width": 256,
+    "height": 256,
+    "usedIn": [
+      "rewardOverlay",
+      "games",
+      "report"
+    ],
+    "required": true,
+    "path": "assets/rewards/trophy.svg"
+  },
+  {
     "itemKey": "calm",
     "fileName": "calm.svg",
     "category": "sensory",
     "width": 256,
     "height": 256,
     "usedIn": [
-      "level4",
-      "calm"
+      "level4"
     ],
     "required": true,
     "path": "assets/sensory/calm.svg"
@@ -1080,8 +1225,7 @@
     "width": 256,
     "height": 256,
     "usedIn": [
-      "level4",
-      "calm"
+      "level4"
     ],
     "required": true,
     "path": "assets/sensory/doNotTouch.svg"
@@ -1093,8 +1237,7 @@
     "width": 256,
     "height": 256,
     "usedIn": [
-      "level4",
-      "calm"
+      "level4"
     ],
     "required": true,
     "path": "assets/sensory/loudSound.svg"
@@ -1106,8 +1249,7 @@
     "width": 256,
     "height": 256,
     "usedIn": [
-      "level4",
-      "calm"
+      "level4"
     ],
     "required": true,
     "path": "assets/sensory/quietPlace.svg"
@@ -1119,8 +1261,7 @@
     "width": 256,
     "height": 256,
     "usedIn": [
-      "level4",
-      "calm"
+      "level4"
     ],
     "required": true,
     "path": "assets/sensory/rest.svg"
@@ -1233,8 +1374,8 @@
     "itemKey": "back",
     "fileName": "back.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1246,8 +1387,8 @@
     "itemKey": "clap",
     "fileName": "clap.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1259,8 +1400,8 @@
     "itemKey": "close",
     "fileName": "close.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1272,8 +1413,8 @@
     "itemKey": "correct",
     "fileName": "correct.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1285,8 +1426,8 @@
     "itemKey": "home",
     "fileName": "home.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1298,8 +1439,8 @@
     "itemKey": "menu",
     "fileName": "menu.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1311,8 +1452,8 @@
     "itemKey": "mic",
     "fileName": "mic.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1324,8 +1465,8 @@
     "itemKey": "next",
     "fileName": "next.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1337,8 +1478,8 @@
     "itemKey": "play",
     "fileName": "play.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1350,8 +1491,8 @@
     "itemKey": "report",
     "fileName": "report.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1363,8 +1504,8 @@
     "itemKey": "retry",
     "fileName": "retry.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1376,8 +1517,8 @@
     "itemKey": "reward",
     "fileName": "reward.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1389,8 +1530,8 @@
     "itemKey": "settings",
     "fileName": "settings.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1402,8 +1543,8 @@
     "itemKey": "speaker",
     "fileName": "speaker.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"
@@ -1415,8 +1556,8 @@
     "itemKey": "star",
     "fileName": "star.svg",
     "category": "ui",
-    "width": 256,
-    "height": 256,
+    "width": 64,
+    "height": 64,
     "usedIn": [
       "navigation",
       "practicePanel"

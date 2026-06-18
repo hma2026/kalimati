@@ -1,6 +1,6 @@
 // AUTO-GENERATED — tools/extract-assets/generate_svg_assets.py. لا تعدّله يدوياً.
 // كل عنصر له صورة SVG مستقلة. النص من dialects.ts (لا يُطبع داخل الصورة).
-import { getAsset } from '@/assets/assetRegistry'
+import { getAsset, ALL_ASSET_PATHS } from '@/assets/assetRegistry'
 
 export interface AssetEntry {
   itemKey: string; fileName: string; imageUrl: string | null; category: string;
@@ -98,6 +98,49 @@ export const assetManifest: Record<string, AssetEntry> = {
   yellow: { itemKey: "yellow", fileName: "yellow.svg", imageUrl: getAsset("yellow"), category: "colors", width: 256, height: 256, usedIn: ["level5", "games", "report"], required: true },
   yes: { itemKey: "yes", fileName: "yes.svg", imageUrl: getAsset("yes"), category: "daily", width: 256, height: 256, fallbackEmoji: "✅", usedIn: ["level6"], required: true },
 }
+
+export const uiAssets: Record<string, AssetEntry> = {
+  back: { itemKey: "back", fileName: "back.svg", imageUrl: ALL_ASSET_PATHS["ui/back.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  clap: { itemKey: "clap", fileName: "clap.svg", imageUrl: ALL_ASSET_PATHS["ui/clap.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  close: { itemKey: "close", fileName: "close.svg", imageUrl: ALL_ASSET_PATHS["ui/close.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  correct: { itemKey: "correct", fileName: "correct.svg", imageUrl: ALL_ASSET_PATHS["ui/correct.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  home: { itemKey: "home", fileName: "home.svg", imageUrl: ALL_ASSET_PATHS["ui/home.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  menu: { itemKey: "menu", fileName: "menu.svg", imageUrl: ALL_ASSET_PATHS["ui/menu.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  mic: { itemKey: "mic", fileName: "mic.svg", imageUrl: ALL_ASSET_PATHS["ui/mic.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  next: { itemKey: "next", fileName: "next.svg", imageUrl: ALL_ASSET_PATHS["ui/next.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  play: { itemKey: "play", fileName: "play.svg", imageUrl: ALL_ASSET_PATHS["ui/play.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  report: { itemKey: "report", fileName: "report.svg", imageUrl: ALL_ASSET_PATHS["ui/report.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  retry: { itemKey: "retry", fileName: "retry.svg", imageUrl: ALL_ASSET_PATHS["ui/retry.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  reward: { itemKey: "reward", fileName: "reward.svg", imageUrl: ALL_ASSET_PATHS["ui/reward.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  settings: { itemKey: "settings", fileName: "settings.svg", imageUrl: ALL_ASSET_PATHS["ui/settings.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  speaker: { itemKey: "speaker", fileName: "speaker.svg", imageUrl: ALL_ASSET_PATHS["ui/speaker.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+  star: { itemKey: "star", fileName: "star.svg", imageUrl: ALL_ASSET_PATHS["ui/star.svg"] ?? null, category: "ui", width: 64, height: 64, usedIn: ["navigation", "practicePanel"], required: true },
+}
+
+export const avatarAssets: Record<string, AssetEntry> = {
+  child_boy_01: { itemKey: "child_boy_01", fileName: "child_boy_01.svg", imageUrl: ALL_ASSET_PATHS["avatars/child_boy_01.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+  child_girl_01: { itemKey: "child_girl_01", fileName: "child_girl_01.svg", imageUrl: ALL_ASSET_PATHS["avatars/child_girl_01.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+  helper_character_01: { itemKey: "helper_character_01", fileName: "helper_character_01.svg", imageUrl: ALL_ASSET_PATHS["avatars/helper_character_01.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+  helper_character_02: { itemKey: "helper_character_02", fileName: "helper_character_02.svg", imageUrl: ALL_ASSET_PATHS["avatars/helper_character_02.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+  reward_boy: { itemKey: "reward_boy", fileName: "reward_boy.svg", imageUrl: ALL_ASSET_PATHS["avatars/reward_boy.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+  reward_girl: { itemKey: "reward_girl", fileName: "reward_girl.svg", imageUrl: ALL_ASSET_PATHS["avatars/reward_girl.svg"] ?? null, category: "avatars", width: 512, height: 512, usedIn: ["onboarding", "childSelect", "rewards"], required: true },
+}
+
+export const rewardAssets: Record<string, AssetEntry> = {
+  balloon: { itemKey: "balloon", fileName: "balloon.svg", imageUrl: ALL_ASSET_PATHS["rewards/balloon.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  confetti: { itemKey: "confetti", fileName: "confetti.svg", imageUrl: ALL_ASSET_PATHS["rewards/confetti.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  crown: { itemKey: "crown", fileName: "crown.svg", imageUrl: ALL_ASSET_PATHS["rewards/crown.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  medal: { itemKey: "medal", fileName: "medal.svg", imageUrl: ALL_ASSET_PATHS["rewards/medal.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  ribbon: { itemKey: "ribbon", fileName: "ribbon.svg", imageUrl: ALL_ASSET_PATHS["rewards/ribbon.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  star: { itemKey: "star", fileName: "star.svg", imageUrl: ALL_ASSET_PATHS["rewards/star.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  star_burst: { itemKey: "star_burst", fileName: "star_burst.svg", imageUrl: ALL_ASSET_PATHS["rewards/star_burst.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  sticker_smile: { itemKey: "sticker_smile", fileName: "sticker_smile.svg", imageUrl: ALL_ASSET_PATHS["rewards/sticker_smile.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  thumbs_up: { itemKey: "thumbs_up", fileName: "thumbs_up.svg", imageUrl: ALL_ASSET_PATHS["rewards/thumbs_up.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+  trophy: { itemKey: "trophy", fileName: "trophy.svg", imageUrl: ALL_ASSET_PATHS["rewards/trophy.svg"] ?? null, category: "rewards", width: 256, height: 256, usedIn: ["rewardOverlay", "games", "report"], required: true },
+}
+
+// كل الأصول (بطاقات + واجهة + شخصيات + مكافآت) مربوطة بـ itemKey
+export const allAssets: Record<string, AssetEntry> = { ...assetManifest, ...uiAssets, ...avatarAssets, ...rewardAssets }
 
 export const getAssetUrl = (key: string): string | null => assetManifest[key]?.imageUrl ?? getAsset(key)
 export const hasManifestAsset = (key: string): boolean => key in assetManifest

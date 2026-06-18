@@ -10,8 +10,8 @@
  *   src/assets/images/shapes/circle.svg  →  getAsset('circle')
  *
  * الصيغ المدعومة: svg / png / webp / jpg.
- * مجلدا `ui/` و `avatars/` لا يدخلان خريطة مفاتيح البطاقات (أصول واجهة/شخصيات
- * تُعرض في design-handoff فقط)، حتى لا يتضارب مفتاح مثل play/star.
+ * مجلدات `ui/` و `avatars/` و `rewards/` لا تدخل خريطة مفاتيح البطاقات (أصول
+ * واجهة/شخصيات/مكافآت تُعرض في design-handoff)، حتى لا يتضارب مفتاح مثل play/star.
  */
 
 const modules = import.meta.glob('/src/assets/images/**/*.{png,webp,svg,jpg,jpeg}', {
@@ -23,7 +23,7 @@ const modules = import.meta.glob('/src/assets/images/**/*.{png,webp,svg,jpg,jpeg
 /** key (filename without extension) -> resolved asset URL (يستثني ui/ و avatars/) */
 const REGISTRY: Record<string, string> = {}
 for (const path in modules) {
-  if (path.includes('/ui/') || path.includes('/avatars/')) continue
+  if (path.includes('/ui/') || path.includes('/avatars/') || path.includes('/rewards/')) continue
   const file = path.split('/').pop() ?? ''
   const key = file.replace(/\.(png|webp|svg|jpe?g)$/i, '')
   if (key) REGISTRY[key] = modules[path]

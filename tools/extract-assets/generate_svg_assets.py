@@ -212,7 +212,7 @@ def shape_svg(name):
     return wrap(b)
 
 EMOJI={"water":"💧","milk":"🥛","juice":"🧃","bread":"🍞","chips":"🍟","candy":"🍬","eat":"🍽️","bathroom":"🚽","sleep":"🛏️","goOut":"🚪","play":"🧸","help":"🆘","come":"👈","open":"🔓","car":"🚗","cold":"❄️","stop":"✋","loudSound":"🔊","quietPlace":"🤫","doNotTouch":"🙅","mother":"👩","father":"👨","happy":"😊","sad":"😢","scared":"😨","angry":"😡","tired":"😴","bored":"😑","stomachPain":"🤢","headPain":"🤕","toothPain":"🦷","earPain":"👂","handPain":"✋","legPain":"🦵","salam":"👋","ahlan":"🙋","hi":"✋","salam_alaykum":"🤲","bye":"👋","byebye":"🖐️","maa_salama":"🤚","bismillah":"🤲","alhamdulillah":"🙏","finished":"✅","enough":"✋","request_word":"🙋","yes":"✅","no":"❌","thanks":"🙏","khalas":"🛑","tayeb":"👌","lala":"🙅","hello":"👋","goodbye":"👋","byeBye":"👋","cat":"🐱","dog":"🐶","cow":"🐮","sheep":"🐑","horse":"🐴","chicken":"🐔","duck":"🦆","bird":"🐦","lion":"🦁","elephant":"🐘"}
-USED={"emotions":["level4"],"people":["level3","level4"],"animals":["animals","games","report"],"drinks":["level2","level3","games"],"food":["level1","level2"],"actions":["level2","level3"],"sensory":["level4"],"pain":["level3","level4"],"daily":["level6"],"colors":["level5","games","report"],"shapes":["level5","report"]}
+USED={"emotions":["level4"],"people":["level3","level4"],"animals":["animals","games","report"],"drinks":["level2","level3","games"],"food":["level1","level2"],"actions":["level2","level3"],"sensory":["level4"],"pain":["level3","level4"],"daily":["level6"],"colors":["level5","games","report"],"shapes":["level5","report"],"ui":["navigation","practicePanel"],"avatars":["onboarding","childSelect","rewards"],"rewards":["rewardOverlay","games","report"]}
 
 def kebab(k):
     o=[]
@@ -239,7 +239,7 @@ def main():
     # manifest
     L=["// AUTO-GENERATED — tools/extract-assets/generate_svg_assets.py. لا تعدّله يدوياً.",
        "// كل عنصر له صورة SVG مستقلة. النص من dialects.ts (لا يُطبع داخل الصورة).",
-       "import { getAsset } from '@/assets/assetRegistry'","",
+       "import { getAsset, ALL_ASSET_PATHS } from '@/assets/assetRegistry'","",
        "export interface AssetEntry {",
        "  itemKey: string; fileName: string; imageUrl: string | null; category: string;",
        "  width: number; height: number; fallbackEmoji?: string; usedIn: string[]; required: boolean",
@@ -250,7 +250,18 @@ def main():
         kk = k if (k.replace('_','').isalnum() and not k[0].isdigit()) else f'"{k}"'
         emo_s = f' fallbackEmoji: "{emo}",' if emo else ""
         L.append(f'  {kk}: {{ itemKey: "{k}", fileName: "{fn}.svg", imageUrl: getAsset("{k}"), category: "{cat}", width: 256, height: 256,{emo_s} usedIn: {used}, required: true }},'.replace("'",'"'))
-    L+=["}","",
+    L+=["}",""]
+    def emit_extra(var, table, cat, w, h, used):
+        out=[f"export const {var}: Record<string, AssetEntry> = {{"]
+        for name in sorted(table):
+            kk = name if (name.replace('_','').isalnum() and not name[0].isdigit()) else f'"{name}"'
+            out.append(f'  {kk}: {{ itemKey: "{name}", fileName: "{name}.svg", imageUrl: ALL_ASSET_PATHS["{cat}/{name}.svg"] ?? null, category: "{cat}", width: {w}, height: {h}, usedIn: {used}, required: true }},'.replace("'",'"'))
+        out+=["}",""]; return out
+    L+=emit_extra("uiAssets", UI_ICONS, "ui", 64, 64, USED["ui"])
+    L+=emit_extra("avatarAssets", AVATARS, "avatars", 512, 512, USED["avatars"])
+    L+=emit_extra("rewardAssets", REWARDS, "rewards", 256, 256, USED["rewards"])
+    L+=["// كل الأصول (بطاقات + واجهة + شخصيات + مكافآت) مربوطة بـ itemKey",
+        "export const allAssets: Record<string, AssetEntry> = { ...assetManifest, ...uiAssets, ...avatarAssets, ...rewardAssets }","",
         "export const getAssetUrl = (key: string): string | null => assetManifest[key]?.imageUrl ?? getAsset(key)",
         "export const hasManifestAsset = (key: string): boolean => key in assetManifest",
         "export const manifestKeys = (): string[] => Object.keys(assetManifest)",""]
@@ -365,10 +376,28 @@ AVATARS = {
 }
 
 def write_ui_avatars(img_root):
-    for sub, table in (("ui", UI_ICONS), ("avatars", AVATARS)):
+    for sub, table in (("ui", UI_ICONS), ("avatars", AVATARS), ("rewards", REWARDS)):
         d = os.path.join(img_root, sub); os.makedirs(d, exist_ok=True)
         for name, body in table.items():
             open(os.path.join(d, f"{name}.svg"), "w", encoding="utf-8").write(wrap(body))
     return len(UI_ICONS) + len(AVATARS)
+
+# ---- rewards (10) -> src/assets/images/rewards/<name>.svg ----
+def _poly_star(cx, cy, ro, ri, fill):
+    return f'<polygon points="{_star_pts(cx,cy,ro,ri)}" fill="{fill}"/>'
+REWARDS = {
+ "star":         _poly_star(128,132,86,36,"#FFC83D"),
+ "star_burst":   "".join(f'<path d="M128 128 L{128+96*_m.cos(_m.radians(a)):.0f} {128+96*_m.sin(_m.radians(a)):.0f}" stroke="#FFB020" stroke-width="6"/>' for a in range(0,360,30))+_poly_star(128,130,70,30,"#FFC83D"),
+ "trophy":       '<path d="M86 60 h84 v34 a42 42 0 0 1 -84 0 Z" fill="#FFC83D"/><path d="M86 70 q-34 0 -34 28 q0 22 30 26" fill="none"/><path d="M170 70 q34 0 34 28 q0 22 -30 26" fill="none"/><path d="M118 134 h20 v26 h-20 Z" fill="#E8A91C"/><rect x="98" y="160" width="60" height="16" rx="6" fill="#E8A91C"/><rect x="86" y="176" width="84" height="18" rx="8" fill="#C8881A"/>',
+ "medal":        '<path d="M100 60 L74 132 M156 60 L182 132" stroke-width="12"/><circle cx="128" cy="158" r="54" fill="#FFC83D"/>'+_poly_star(128,158,28,12,"#fff"),
+ "ribbon":       "".join(f'<path d="M128 128 L{128+72*_m.cos(_m.radians(a)):.0f} {128+72*_m.sin(_m.radians(a)):.0f} L{128+72*_m.cos(_m.radians(a+30)):.0f} {128+72*_m.sin(_m.radians(a+30)):.0f} Z" fill="{"#F6B43C" if (a//30)%2==0 else "#E89A1C"}"/>' for a in range(0,360,30))+'<circle cx="128" cy="128" r="34" fill="#FFD66B"/><path d="M108 156 l-12 48 l32 -20 l32 20 l-12 -48" fill="#E14B4B"/>',
+ "crown":        '<path d="M50 180 L66 92 L100 138 L128 78 L156 138 L190 92 L206 180 Z" fill="#FFC83D"/><rect x="50" y="180" width="156" height="22" rx="8" fill="#E8A91C"/><circle cx="66" cy="92" r="10" fill="#E14B4B"/><circle cx="128" cy="78" r="10" fill="#E14B4B"/><circle cx="190" cy="92" r="10" fill="#E14B4B"/>',
+ "confetti":     '<rect x="60" y="64" width="22" height="22" rx="4" fill="#7B3FF2" stroke="none"/><rect x="150" y="58" width="22" height="22" rx="4" fill="#22C55E" stroke="none" transform="rotate(20 161 69)"/><circle cx="196" cy="120" r="12" fill="#E14B4B" stroke="none"/><rect x="70" y="150" width="22" height="22" rx="4" fill="#FFC83D" stroke="none" transform="rotate(-15 81 161)"/><circle cx="120" cy="180" r="12" fill="#3B82F6" stroke="none"/><path d="M150 150 l24 24 M174 150 l-24 24" stroke="#EC4899" stroke-width="8"/><circle cx="100" cy="100" r="9" fill="#F97316" stroke="none"/>',
+ "balloon":      '<ellipse cx="128" cy="110" rx="66" ry="78" fill="#E14B4B"/><path d="M118 184 l20 0 l-10 14 Z" fill="#E14B4B"/><path d="M128 198 q14 22 -6 40" stroke-width="5" fill="none"/><path d="M104 78 q10 -22 34 -16" stroke="#fff" stroke-width="8" fill="none" opacity=".5"/>',
+ "thumbs_up":    '<rect x="52" y="120" width="40" height="84" rx="10" fill="#EFC097"/><path d="M100 204 V120 l34 -56 q8 -14 22 -6 q10 6 6 22 l-10 36 h44 q18 0 14 20 l-14 56 q-4 16 -22 16 H100 Z" fill="#F6C9A0"/>',
+ "sticker_smile":'<circle cx="128" cy="128" r="92" fill="#FFD23F"/><circle cx="100" cy="116" r="11" fill="%s" stroke="none"/><circle cx="156" cy="116" r="11" fill="%s" stroke="none"/><path d="M88 150 q40 44 80 0" fill="none" stroke-width="10"/>' % (OUT, OUT),
+}
+
+
 
 if __name__=="__main__": main()
