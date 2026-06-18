@@ -143,7 +143,7 @@ export const rewardAssets: Record<string, AssetEntry> = {
 export const allAssets: Record<string, AssetEntry> = { ...assetManifest, ...uiAssets, ...avatarAssets, ...rewardAssets }
 
 /** يحلّ أصلاً بمساره الكامل داخل images، مثل: assetByRef("ui/speaker") أو assetByRef("animals/cat"). */
-export const assetByRef = (ref: string): string | null => ALL_ASSET_PATHS[ref.endsWith(".svg") ? ref : ref + ".svg"] ?? null
+export const assetByRef = (ref: string): string | null => { const base = ref.replace(/\.(svg|png|webp|jpe?g)$/i, ''); for (const ext of ['png','webp','jpg','jpeg','svg']) { const k = base + '.' + ext; if (ALL_ASSET_PATHS[k]) return ALL_ASSET_PATHS[k] } return ALL_ASSET_PATHS[ref] ?? null }
 
 export const getAssetUrl = (key: string): string | null => assetManifest[key]?.imageUrl ?? getAsset(key)
 export const hasManifestAsset = (key: string): boolean => key in assetManifest

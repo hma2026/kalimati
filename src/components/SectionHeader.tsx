@@ -11,14 +11,14 @@ interface Props {
 export function SectionHeader({ title, desc, accent, stars }: Props) {
   const nav = useNav()
   return (
-    <header className="level-bar">
+    <header className="level-bar" style={{ ['--accent' as string]: accent }}>
       <span className="stars-badge">
         <StarIcon size={18} style={{ color: 'var(--star)' }} /> {stars}
         <small>نجوم</small>
       </span>
-      <div className="level-title" style={{ background: accent }}>
-        <strong>{title}</strong>
-        <span>{desc}</span>
+      <div className="level-title level-title--light">
+        <strong style={{ color: 'var(--color-text)' }}>{title}</strong>
+        <span style={{ color: 'var(--color-muted)' }}>{desc}</span>
       </div>
       <button className="home-mini" aria-label="الرئيسية" onClick={() => nav.reset('home')}>
         <HomeIcon size={22} />

@@ -1508,3 +1508,30 @@ img, svg { max-width: 100%; }
     border-radius: 16px !important;
   }
 }
+
+/* ============================================================
+   v0.4.8 — Visual Match (مُتحقَّق بلقطات headless مقابل المرجع)
+   ============================================================ */
+
+/* ترويسة المستويات ٤/٥/٦: نص ملوّن على خلفية فاتحة (بلا بانر مصمت) — كالمرجع.
+   المستويان ٢/٣ يبقيان بانراً مصمتاً. */
+.level-title--light {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.level-title--light strong { font-weight: 900; }
+.level-title--light span { opacity: .9; }
+
+/* آبار الصور: الصورة على بطاقة بيضاء (بلا مربع رمادي) — مطابقة لصور المرجع.
+   الاستثناء: مكعّبات الألوان تبقى بخلفية ناعمة خفيفة لإبراز اللون. */
+.wcard__media, .pcard__visual {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* الحيوانات: صورة كبيرة تملأ البطاقة */
+.pcard__emoji { display: grid; place-items: center; width: 100%; min-height: 104px; }
+.pcard__emoji > img, .pcard__emoji > svg { width: 104px; height: 104px; object-fit: contain; }
+@media (max-width: 767px) {
+  .pcard__emoji { min-height: 80px; }
+  .pcard__emoji > img, .pcard__emoji > svg { width: 80px; height: 80px; }
+}

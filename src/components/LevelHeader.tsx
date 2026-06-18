@@ -11,9 +11,12 @@ export function LevelHeader({ level, stars }: { level: LevelMeta; stars: number 
         <small>نجوم</small>
       </span>
 
-      <div className="level-title" style={{ background: level.accent }}>
-        <strong>{level.title}</strong>
-        <span>{level.desc}</span>
+      <div
+        className={`level-title${level.id === 'level4' || level.id === 'level5' || level.id === 'level6' ? ' level-title--light' : ''}`}
+        style={level.id === 'level4' || level.id === 'level5' || level.id === 'level6' ? undefined : { background: level.accent }}
+      >
+        <strong style={level.id === 'level4' || level.id === 'level5' || level.id === 'level6' ? { color: level.accent } : undefined}>{level.title}</strong>
+        <span style={level.id === 'level4' || level.id === 'level5' || level.id === 'level6' ? { color: 'var(--color-muted)' } : undefined}>{level.desc}</span>
       </div>
 
       <button className="home-mini" aria-label="الرئيسية" onClick={() => nav.reset('home')}>

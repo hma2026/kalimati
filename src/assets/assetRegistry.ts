@@ -21,12 +21,15 @@ const modules = import.meta.glob('/src/assets/images/**/*.{png,webp,svg,jpg,jpeg
 }) as Record<string, string>
 
 /** key (filename without extension) -> resolved asset URL (يستثني ui/ و avatars/) */
+const RASTER = /\.(png|webp|jpe?g)$/i
 const REGISTRY: Record<string, string> = {}
 for (const path in modules) {
   if (path.includes('/ui/') || path.includes('/avatars/') || path.includes('/rewards/')) continue
   const file = path.split('/').pop() ?? ''
   const key = file.replace(/\.(png|webp|svg|jpe?g)$/i, '')
-  if (key) REGISTRY[key] = modules[path]
+  if (!key) continue
+  // نُفضّل الصور النقطية عالية الدقة (png/webp/jpg) على svg عند وجود الاثنين بنفس المفتاح
+  if (!(key in REGISTRY) || RASTER.test(path)) REGISTRY[key] = modules[path]
 }
 
 /** كل الأصول (بما فيها ui/avatars) بالمسار النسبي — لأدوات التسليم. */
