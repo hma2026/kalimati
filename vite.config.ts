@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'node:path'
 
-// كلمتي — Vite + React + TypeScript + PWA (offline-first)
+// كلمة كلمة — Vite + React + TypeScript + PWA (offline-first)
 // Note: base is '/' for web/PWA (Vercel). For Capacitor packaging, set
 // base to './' and disable the service worker inside the native shell.
 export default defineConfig({
@@ -18,8 +18,8 @@ export default defineConfig({
       injectRegister: 'auto',
       includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
-        name: 'كلمتي — أداة تواصل ونطق',
-        short_name: 'كلمتي',
+        name: 'كلمة كلمة — أداة تواصل ونطق',
+        short_name: 'كلمة كلمة',
         description:
           'أداة مساعدة للتواصل والتدريب على النطق للأطفال. لا تغني عن المختصين.',
         lang: 'ar',

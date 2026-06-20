@@ -35,7 +35,7 @@ export function HomeScreen() {
         <button className="iconbtn" aria-label="تبديل الطفل" onClick={() => nav.reset('children')}>
           <AssetIcon refKey={child?.avatar ?? 'avatars/child_boy_01'} size={34} />
         </button>
-        <h1 className="appbar__title">{child ? `أهلاً ${child.name}` : 'كلمتي'}</h1>
+        <h1 className="appbar__title">{child ? `أهلاً ${child.name}` : 'كلمة كلمة'}</h1>
         <span className="appbar__stars"><StarIcon size={18} style={{ color: 'var(--star)' }} /> {stats.stars}</span>
       </header>
 

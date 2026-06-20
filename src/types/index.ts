@@ -1,4 +1,4 @@
-// ===== Domain types for كلمتي =====
+// ===== Domain types for كلمة كلمة =====
 
 /** A single communication card (word / emotion / need / color / shape). */
 export interface WordCard {

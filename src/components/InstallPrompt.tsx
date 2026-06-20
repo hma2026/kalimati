@@ -75,7 +75,7 @@ export function InstallPrompt() {
         </span>
       ) : (
         <>
-          <span className="install__txt">ثبّت «كلمتي» على جهازك ليعمل بدون إنترنت</span>
+          <span className="install__txt">ثبّت «كلمة كلمة» على جهازك ليعمل بدون إنترنت</span>
           <button className="btn btn--soft" onClick={install}>تثبيت</button>
         </>
       )}

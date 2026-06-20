@@ -42,7 +42,7 @@ export function importBackup(json: string): { ok: boolean; error?: string } {
   try {
     const data = JSON.parse(json) as Partial<BackupFile>
     if (data.app !== 'kalimati' || !Array.isArray(data.children)) {
-      return { ok: false, error: 'الملف غير متوافق مع كلمتي' }
+      return { ok: false, error: 'الملف غير متوافق مع كلمة كلمة' }
     }
     useChildren.getState().replaceAll({
       children: data.children,
