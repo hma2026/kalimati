@@ -140,4 +140,72 @@ export const replaceableAssets: ReplaceableAsset[] = [
   { key: 'back', label: 'ظهر', group: 'أجزاء الجسم', path: 'src/assets/images/body/back.png' },
 
   { key: 'foot', label: 'قدم', group: 'أجزاء الجسم', path: 'src/assets/images/body/foot.png' },
+
+  { key: 'happy', label: 'سعيد', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/happy.png' },
+
+  { key: 'sad', label: 'زعلان', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/sad.png' },
+
+  { key: 'scared', label: 'خايف', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/scared.png' },
+
+  { key: 'angry', label: 'معصب', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/angry.png' },
+
+  { key: 'tired', label: 'تعيان', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/tired.png' },
+
+  { key: 'bored', label: 'طفشان', group: 'المشاعر · مشاعر', path: 'src/assets/images/emotions/bored.png' },
+
+  { key: 'red', label: 'أحمر', group: 'ألوان', path: 'src/assets/images/colors/red.png' },
+
+  { key: 'blue', label: 'أزرق', group: 'ألوان', path: 'src/assets/images/colors/blue.png' },
+
+  { key: 'yellow', label: 'أصفر', group: 'ألوان', path: 'src/assets/images/colors/yellow.png' },
+
+  { key: 'green', label: 'أخضر', group: 'ألوان', path: 'src/assets/images/colors/green.png' },
+
+  { key: 'orange', label: 'برتقالي', group: 'ألوان', path: 'src/assets/images/colors/orange.png' },
+
+  { key: 'pink', label: 'وردي', group: 'ألوان', path: 'src/assets/images/colors/pink.png' },
+
+  { key: 'purple', label: 'بنفسجي', group: 'ألوان', path: 'src/assets/images/colors/purple.png' },
+
+  { key: 'white', label: 'أبيض', group: 'ألوان', path: 'src/assets/images/colors/white.png' },
+
+  { key: 'black', label: 'أسود', group: 'ألوان', path: 'src/assets/images/colors/black.png' },
+
+  { key: 'brown', label: 'بني', group: 'ألوان', path: 'src/assets/images/colors/brown.png' },
+
+  { key: 'circle', label: 'دائرة', group: 'أشكال', path: 'src/assets/images/shapes/circle.svg' },
+
+  { key: 'square', label: 'مربع', group: 'أشكال', path: 'src/assets/images/shapes/square.svg' },
+
+  { key: 'triangle', label: 'مثلث', group: 'أشكال', path: 'src/assets/images/shapes/triangle.svg' },
+
+  { key: 'rectangle', label: 'مستطيل', group: 'أشكال', path: 'src/assets/images/shapes/rectangle.svg' },
+
+  { key: 'star_shape', label: 'نجمة', group: 'أشكال', path: 'src/assets/images/shapes/star.svg' },
+
+  { key: 'heart_shape', label: 'قلب', group: 'أشكال', path: 'src/assets/images/shapes/heart.svg' },
+
+  { key: 'icon_words', label: 'كلمات مفردة', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_words.png' },
+
+  { key: 'icon_short', label: 'جمل قصيرة', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_short.png' },
+
+  { key: 'icon_ready', label: 'جمل جاهزة', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_ready.png' },
+
+  { key: 'icon_emotions', label: 'المشاعر', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_emotions.png' },
+
+  { key: 'icon_shapes', label: 'الألوان والأشكال', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_shapes.png' },
+
+  { key: 'icon_daily', label: 'العبارات اليومية', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_daily.png' },
+
+  { key: 'icon_letters', label: 'الحروف', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_letters.png' },
+
+  { key: 'icon_animals', label: 'حيوانات وأصوات', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_animals.png' },
+
+  { key: 'icon_games', label: 'ألعاب تعليمية', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_games.png' },
+
+  { key: 'icon_stories', label: 'قصص', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_stories.png' },
+
+  { key: 'icon_progress', label: 'تقرير التقدم', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_progress.png' },
+
+  { key: 'icon_settings', label: 'الإعدادات', group: 'الرئيسية · أيقونات', path: 'src/assets/images/home/icon_settings.png' },
 ]
