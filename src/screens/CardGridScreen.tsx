@@ -7,7 +7,6 @@ import { mediaVisual } from '@/components/Media'
 import { getAsset } from '@/assets/assetRegistry'
 import { VolumeIcon, StarIcon, BurstIcon } from '@/lib/icons'
 import { AssetIcon } from '@/components/AssetIcon'
-import { AppBottomNav } from '@/components/AppBottomNav'
 import { wordCategories } from '@/data/words'
 
 const COLS = 4
@@ -69,7 +68,6 @@ export function CardGridScreen() {
       </div>
 
       {/* الفوتر الموحّد */}
-      <AppBottomNav screen="deck" />
     </div>
   )
 }

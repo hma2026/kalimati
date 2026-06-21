@@ -5,7 +5,6 @@ import { useHaptics } from '@/hooks/useHaptics'
 import { mediaVisual } from '@/components/Media'
 import { AssetIcon } from '@/components/AssetIcon'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
-import { AppBottomNav } from '@/components/AppBottomNav'
 
 const COLORS = [
   { key: 'red', label: 'أحمر' }, { key: 'blue', label: 'أزرق' }, { key: 'yellow', label: 'أصفر' },
@@ -53,7 +52,6 @@ export function LevelFiveScreen() {
             </button>
           ))}</div></section>
       </div>
-      <AppBottomNav screen="level5" />
     </div>
   )
 }

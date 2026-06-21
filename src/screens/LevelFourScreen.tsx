@@ -7,7 +7,6 @@ import { PlaceholderVisual } from '@/components/PlaceholderVisual'
 import { AssetIcon } from '@/components/AssetIcon'
 import { getAsset } from '@/assets/assetRegistry'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
-import { AppBottomNav } from '@/components/AppBottomNav'
 import { L4_FEELINGS, L4_PAIN, L4_CALM } from '@/data/levelContent'
 
 const LABELS: Record<string, string> = {
@@ -56,7 +55,6 @@ export function LevelFourScreen() {
         <section className="sw__sec"><span className="sw__badge" style={{['--bt' as never]:'#34C759'}}>تهدئة</span>
           <div className="sw__grid">{L4_CALM.map((c) => card(c, '#34C759'))}</div></section>
       </div>
-      <AppBottomNav screen="level4" />
     </div>
   )
 }

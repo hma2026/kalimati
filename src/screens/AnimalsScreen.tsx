@@ -5,7 +5,6 @@ import { useHaptics } from '@/hooks/useHaptics'
 import { mediaVisual } from '@/components/Media'
 import { AssetIcon } from '@/components/AssetIcon'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
-import { AppBottomNav } from '@/components/AppBottomNav'
 import { getAnimalLabel, profileOf } from '@/data/dialects'
 import { useSettings } from '@/store/useSettingsStore'
 
@@ -50,7 +49,6 @@ export function AnimalsScreen() {
           </section>
         ))}
       </div>
-      <AppBottomNav screen="animals" />
     </div>
   )
 }

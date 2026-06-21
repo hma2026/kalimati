@@ -7,7 +7,6 @@ import { PlaceholderVisual } from '@/components/PlaceholderVisual'
 import { AssetIcon } from '@/components/AssetIcon'
 import { getAsset } from '@/assets/assetRegistry'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
-import { AppBottomNav } from '@/components/AppBottomNav'
 
 interface BodyItem { id: string; label: string; media: string; textColor: string; bgColor: string }
 
@@ -62,7 +61,6 @@ export function BodyPartsScreen() {
           })}
         </div>
       </div>
-      <AppBottomNav screen="bodyParts" />
     </div>
   )
 }

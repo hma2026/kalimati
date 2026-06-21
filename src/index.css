@@ -2129,7 +2129,7 @@ img, svg { max-width: 100%; }
   box-shadow:0 3px 10px rgba(38,52,92,.06); transition:transform .12s ease;
 }
 .wc:active{ transform:scale(.95); }
-.wc__img{ width:100%; aspect-ratio:1; display:grid; place-items:center; }
+.wc__img{ width:100%; aspect-ratio:1; display:grid; place-items:center; padding:4px; }
 .wc__img :where(img,svg){ width:100%; height:100%; object-fit:contain; }
 .wc__bot{ display:flex; align-items:center; gap:3px; justify-content:center; width:100%; }
 .wc__lbl{
@@ -2167,3 +2167,7 @@ img, svg { max-width: 100%; }
   font-family:var(--font-display); font-size:clamp(.88rem,1.6vw,1.1rem);
   padding:0 16px 4px;
 }
+
+/* v0.9.7 — شبكة الرئيسية داخل sw */
+.sw__grid--home{ grid-template-columns:repeat(4,1fr) !important; }
+@media (max-width:640px){ .sw__grid--home{ grid-template-columns:repeat(2,1fr) !important; } }
