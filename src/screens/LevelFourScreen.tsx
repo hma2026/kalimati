@@ -5,7 +5,6 @@ import { useSettings } from '@/store/useSettingsStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
 import { LevelHeader } from '@/components/LevelHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { CategoryTabs } from '@/components/CategoryTabs'
 import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
@@ -84,7 +83,6 @@ export function LevelFourScreen() {
         )}
       </div>
 
-      <LevelNav levelId="level4" accent={level.accent} />
       <Disclaimer />
     </div>
   )

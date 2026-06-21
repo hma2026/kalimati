@@ -4,7 +4,6 @@ import { useSettings } from '@/store/useSettingsStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
 import { SectionHeader } from '@/components/SectionHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { AnimalPracticePanel } from '@/components/AnimalPracticePanel'
 import { Disclaimer } from '@/components/Disclaimer'
 import { mediaVisual } from '@/components/Media'
@@ -68,7 +67,6 @@ export function AnimalsScreen() {
         )}
       </div>
 
-      <LevelNav levelId="__none__" accent={ACCENT} />
       <Disclaimer />
     </div>
   )

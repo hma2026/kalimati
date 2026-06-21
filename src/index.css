@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap');
 /* ===================================================================
    كلمة كلمة — Global styles & design tokens
    Calm palette, large touch targets, RTL, tablet-first.
@@ -47,8 +48,8 @@
   --shadow-lg: 0 16px 40px rgba(80, 50, 150, 0.18);
 
   /* Fonts */
-  --font-display: 'Cairo', system-ui, sans-serif;
-  --font-body: 'Tajawal', system-ui, sans-serif;
+  --font-display: 'Noto Kufi Arabic', system-ui, sans-serif;
+  --font-body: 'Noto Kufi Arabic', system-ui, sans-serif;
 
   /* Layout */
   --maxw: 920px; /* tablet-first container */
@@ -1680,3 +1681,142 @@ img, svg { max-width: 100%; }
 @media (max-width: 480px) {
   .cs-grid { gap: clamp(18px, 6vw, 30px) clamp(16px, 6vw, 28px); max-width: 430px; }
 }
+
+/* ===================================================================
+   v0.6.0 — أنماط الهيكل الموحّد (Style 1)
+   الشريط السفلي العائم + الشِّل التعليمي + البطاقة التعليمية + الشاشات
+   التشغيلية + حاوية الشاشة. (المكوّنات كانت موجودة بلا CSS — هذه تُكملها.)
+=================================================================== */
+
+/* حاوية الشاشة: تملأ المساحة ليثبت الشريط السفلي أسفلها بلا تداخل */
+.screen-host { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.screen-host > * { flex: 1; min-height: 0; }
+
+/* ---------- الشريط السفلي الموحّد (عائم، أبيض، حواف مستديرة) ---------- */
+.appnav {
+  flex: 0 0 auto;
+  display: grid; grid-template-columns: repeat(5, 1fr); align-items: stretch; gap: 2px;
+  margin: 6px clamp(10px, 2.6vw, 18px) calc(8px + var(--safe-bottom));
+  padding: 8px 6px; background: #fff; border-radius: 22px;
+  box-shadow: 0 -2px 10px rgba(42, 36, 64, .04), 0 10px 30px rgba(42, 36, 64, .12);
+}
+.appnav__btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  border: none; background: transparent; cursor: pointer; padding: 6px 2px; border-radius: 16px;
+  color: var(--muted); transition: color .14s ease, background .14s ease, transform .12s ease;
+}
+.appnav__btn:active { transform: scale(.94); }
+.appnav__ic { display: grid; place-items: center; }
+.appnav__lbl { font-family: var(--font-display); font-weight: 700; font-size: .82rem; line-height: 1; }
+.appnav__btn.is-active { color: var(--primary); background: var(--primary-50); }
+.appnav__btn.is-active .appnav__ic { color: var(--primary); }
+
+/* ---------- الشِّل التعليمي (Style 1) ---------- */
+.screen.edu { gap: 12px; }
+.edu-head { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; padding: 2px 0 4px; }
+.edu-head__btn {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  border: none; cursor: pointer; background: #fff; color: var(--ink);
+  box-shadow: 0 4px 14px rgba(42, 36, 64, .10); transition: transform .12s ease, box-shadow .12s;
+}
+.edu-head__btn:active { transform: scale(.92); }
+.edu-head__mid { flex: 1; min-width: 0; text-align: center; }
+.edu-title {
+  font-family: var(--font-display); font-weight: 900; line-height: 1.15;
+  font-size: clamp(1.5rem, 4.4vw, 2.05rem); color: var(--accent, var(--primary));
+}
+.edu-sub { font-family: var(--font-body); font-weight: 600; font-size: .98rem; color: var(--ink-soft); margin-top: 2px; }
+.edu-head__side { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.edu-stars {
+  display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-display);
+  font-weight: 800; font-size: 1rem; color: var(--ink); background: #fff; border-radius: 999px;
+  padding: 7px 13px; box-shadow: 0 4px 14px rgba(42, 36, 64, .08);
+}
+.edu-scroll { padding: 6px 2px 10px; }
+
+/* ---------- شبكة البطاقات التعليمية ---------- */
+.educard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.6vw, 22px); }
+@media (min-width: 700px)  { .educard-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .educard-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- البطاقة التعليمية ---------- */
+.educard {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: clamp(14px, 2.4vw, 20px) 12px 16px; background: #fff; border: 2px solid transparent;
+  border-radius: 22px; box-shadow: var(--soft-shadow); cursor: pointer; width: 100%;
+  transition: transform .14s ease, box-shadow .14s, border-color .14s;
+}
+.educard:active { transform: scale(.97); }
+.educard:hover { box-shadow: 0 14px 30px rgba(42, 36, 64, .14); }
+.educard.is-sel { border-color: var(--accent, var(--primary)); box-shadow: var(--selected-shadow); }
+.educard__visual { display: grid; place-items: center; }
+.educard__label {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: var(--ink); text-align: center; line-height: 1.2;
+}
+.educard__speak {
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
+  background: var(--accent, var(--primary)); color: #fff; cursor: pointer;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--accent, var(--primary)) 40%, transparent);
+  transition: transform .12s ease;
+}
+.educard__speak:active { transform: scale(.9); }
+
+/* ---------- الشاشات التشغيلية ---------- */
+.screen.op { gap: 0; }
+.op-top { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 2px 0; }
+.op-body {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 16px; padding: 24px 18px;
+}
+.op-icon {
+  width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center;
+  color: var(--accent, var(--primary)); background: color-mix(in srgb, var(--accent, var(--primary)) 12%, #fff);
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent, var(--primary)) 24%, #fff);
+}
+.op-icon--spin { animation: op-spin 1s linear infinite; }
+@keyframes op-spin { to { transform: rotate(360deg); } }
+.op-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.4rem, 4.2vw, 1.9rem); color: var(--ink); }
+.op-msg { font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; color: var(--ink-soft); max-width: 30ch; line-height: 1.7; }
+.op-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 320px; margin-top: 4px; }
+.op-btn {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: #fff; border: none;
+  border-radius: 16px; padding: 14px 22px; cursor: pointer; box-shadow: 0 8px 20px rgba(124, 58, 237, .28);
+  transition: transform .12s ease;
+}
+.op-btn:active { transform: scale(.97); }
+.op-btn--ghost { background: var(--primary-50) !important; color: var(--primary-600); box-shadow: none; border: 2px solid var(--primary-100); }
+.no-motion .op-icon--spin { animation: none; }
+
+/* ===================================================================
+   v0.6.1 — شاشة الحروف (Scroll كامل أ→ي): بطاقات حروف موحّدة
+=================================================================== */
+.letters-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+  gap:14px; padding:6px 2px 12px;
+}
+.lettercard{
+  background:#fff; border:1px solid var(--line); border-radius:20px; padding:16px 12px 14px;
+  display:flex; flex-direction:column; align-items:center; gap:11px;
+  box-shadow:0 6px 18px rgba(38,52,92,.07);
+}
+.lettercard__glyph{
+  width:clamp(72px,18vw,92px); height:clamp(72px,18vw,92px); border-radius:50%;
+  display:grid; place-items:center; line-height:1;
+  font-family:var(--font-display); font-weight:900; font-size:clamp(2.2rem,7vw,2.8rem);
+  color:var(--lt); background:color-mix(in srgb, var(--lt) 14%, #fff);
+  box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--lt) 30%, #fff);
+}
+.lettercard__ex{ display:flex; flex-direction:column; align-items:center; gap:6px; min-height:74px; justify-content:center; }
+.lettercard__img{ display:grid; place-items:center; }
+.lettercard__word{ font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--ink); }
+.lettercard__btns{ display:flex; gap:8px; width:100%; }
+.lettercard__sound{
+  flex:1; display:inline-flex; align-items:center; justify-content:center; gap:5px;
+  font-family:var(--font-display); font-weight:700; font-size:.92rem;
+  color:#fff; background:var(--lt); border:none; border-radius:12px; padding:9px 6px; cursor:pointer;
+  transition:transform .12s ease, filter .12s;
+}
+.lettercard__sound:active{ transform:scale(.95); }
+.lettercard__sound.is-on{ filter:brightness(.95); }
+.lettercard__sound--soft{ background:color-mix(in srgb, var(--lt) 15%, #fff); color:var(--lt); }

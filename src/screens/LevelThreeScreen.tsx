@@ -1,15 +1,12 @@
 import { useState } from 'react'
-import { useChildren, progressStats, statsForPrefix } from '@/store/useChildrenStore'
+import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSettings } from '@/store/useSettingsStore'
 import { useHaptics } from '@/hooks/useHaptics'
 import { LevelHeader } from '@/components/LevelHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { PhraseCard } from '@/components/PhraseCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
-import { ProgressCard } from '@/components/ProgressCard'
 import { mediaVisual } from '@/components/Media'
 import { Disclaimer } from '@/components/Disclaimer'
-import { formatSession } from '@/lib/format'
 import { levelById } from '@/data/levelMeta'
 import { L3_PHRASES } from '@/data/levelContent'
 import { profileOf } from '@/data/dialects'
@@ -25,7 +22,6 @@ export function LevelThreeScreen() {
 
   const profile = profileOf(child, fallback)
   const stars = progressStats(prog).stars
-  const ls = statsForPrefix(prog, 'l3_')
 
   const selItem = L3_PHRASES.find((p) => p.key === sel) ?? L3_PHRASES[0]
 
@@ -58,17 +54,9 @@ export function LevelThreeScreen() {
             accent={level.accent}
             visual={mediaVisual(selItem.media, 64)}
           />
-          <ProgressCard
-            accent={level.accent}
-            percent={ls.percent}
-            mastered={ls.mastered}
-            inTraining={ls.inTraining}
-            lastSession={formatSession(prog?.lastSessionAt ?? null)}
-          />
         </div>
       </div>
 
-      <LevelNav levelId="level3" accent={level.accent} />
       <Disclaimer />
     </div>
   )

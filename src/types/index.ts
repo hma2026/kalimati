@@ -101,6 +101,29 @@ export type ScreenName =
   | 'calm'
   | 'report'
   | 'settings'
+  // ===== شاشات تعليمية جديدة =====
+  | 'dailyPhrases'
+  | 'bodyParts'
+  | 'hygieneRoutine'
+  | 'familyPhotos'
+  | 'dialectSelect'
+  // ===== إعدادات فرعية =====
+  | 'voiceSettings'
+  | 'notificationSettings'
+  | 'privacySettings'
+  | 'aboutHelp'
+  // ===== شاشات تشغيلية =====
+  | 'loading'
+  | 'offline'
+  | 'error'
+  | 'emptyState'
+  | 'success'
+  | 'confirmDelete'
+  | 'micPermission'
+  | 'cameraPermission'
+  | 'customPhoto'
+  | 'editPhoto'
+  | 'photoSaved'
 
 export interface NavState {
   screen: ScreenName

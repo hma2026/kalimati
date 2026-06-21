@@ -1,20 +1,49 @@
 import type { Letter } from '@/types'
 
-// المرحلة 6: تدريب الحروف ومخارج الأصوات — نبدأ بحرف الشين
+/**
+ * الحروف الهجائية كاملة (أ → ي) لشاشة الحروف (Scroll طويل، بلا pagination).
+ * كل حرف: الاسم المنطوق (say) + كلمة مثال. media = مفتاح أصل حقيقي إن وُجد، وإلا '' ⇒ بديل SVG مؤقت.
+ * Temporary visuals: words without a real asset fall back to an SVG placeholder (no emoji).
+ */
+const mk = (
+  id: string, glyph: string, say: string, word: string, media = '',
+): Letter => ({
+  id,
+  glyph,
+  sound: say,
+  say,
+  examples: [{ id: `${id}_ex`, label: word, image: '', media }],
+})
+
 export const letters: Letter[] = [
-  {
-    id: 'l_sheen',
-    glyph: 'ش',
-    sound: 'ششش',
-    say: 'شِين',
-    examples: [
-      { id: 'lx_sun', label: 'شمس', image: '', media: 'sun' },
-      { id: 'lx_tea', label: 'شاي', image: '', media: 'tea' },
-      { id: 'lx_chips', label: 'شبس', image: '', media: 'chips' },
-      { id: 'lx_candle', label: 'شمعة', image: '', media: 'candle' },
-    ],
-  },
-  // قابل للتوسع: س، ص، ر، ل، ك، ق، ج ...
+  mk('l_alif', 'أ', 'أَلِف', 'أسد', 'lion'),
+  mk('l_baa', 'ب', 'بَاء', 'بطة', 'duck'),
+  mk('l_taa', 'ت', 'تَاء', 'تفاح'),
+  mk('l_thaa', 'ث', 'ثَاء', 'ثعلب'),
+  mk('l_jeem', 'ج', 'جِيم', 'جزر'),
+  mk('l_haa1', 'ح', 'حَاء', 'حصان', 'horse'),
+  mk('l_khaa', 'خ', 'خَاء', 'خروف', 'sheep'),
+  mk('l_dal', 'د', 'دَال', 'دجاجة', 'chicken'),
+  mk('l_thal', 'ذ', 'ذَال', 'ذئب'),
+  mk('l_raa', 'ر', 'رَاء', 'رمان'),
+  mk('l_zay', 'ز', 'زَاي', 'زرافة'),
+  mk('l_seen', 'س', 'سِين', 'سمكة'),
+  mk('l_sheen', 'ش', 'شِين', 'شبس', 'chips'),
+  mk('l_sad', 'ص', 'صَاد', 'صقر'),
+  mk('l_dad', 'ض', 'ضَاد', 'ضفدع'),
+  mk('l_taa2', 'ط', 'طَاء', 'طائر', 'bird'),
+  mk('l_zaa', 'ظ', 'ظَاء', 'ظبي'),
+  mk('l_ayn', 'ع', 'عَيْن', 'عصير', 'juice'),
+  mk('l_ghayn', 'غ', 'غَيْن', 'غيمة'),
+  mk('l_faa', 'ف', 'فَاء', 'فيل', 'elephant'),
+  mk('l_qaf', 'ق', 'قَاف', 'قطة', 'cat'),
+  mk('l_kaf', 'ك', 'كَاف', 'كلب', 'dog'),
+  mk('l_lam', 'ل', 'لَام', 'لبن', 'milk'),
+  mk('l_meem', 'م', 'مِيم', 'ماء', 'water'),
+  mk('l_noon', 'ن', 'نُون', 'نجمة', 'star'),
+  mk('l_haa2', 'هـ', 'هَاء', 'هدية'),
+  mk('l_waw', 'و', 'وَاو', 'وردة'),
+  mk('l_yaa', 'ي', 'يَاء', 'يد'),
 ]
 
 export const defaultLetter = letters[0]

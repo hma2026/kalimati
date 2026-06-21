@@ -4,7 +4,6 @@ import { useSettings } from '@/store/useSettingsStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
 import { LevelHeader } from '@/components/LevelHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { CategoryTabs } from '@/components/CategoryTabs'
 import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
@@ -72,7 +71,7 @@ export function LevelSixScreen() {
               onClick={() => pick(d)}
             />
           ))}
-          {list.length === 0 && <p className="muted-note">لا توجد عبارات بهذا المستوى. غيّر مستوى الصعوبة من الإعدادات.</p>}
+          {list.length === 0 && <p className="muted-note">لا توجد عبارات بهذه الدرجة. غيّر درجة الصعوبة من الإعدادات.</p>}
         </div>
 
         <div className="l6-bottom">
@@ -90,7 +89,7 @@ export function LevelSixScreen() {
           )}
 
           <aside className="card guide-card">
-            <div className="guide-card__title">إرشادات مستوى الصعوبة</div>
+            <div className="guide-card__title">إرشادات درجة الصعوبة</div>
             {GUIDANCE.map((g) => (
               <div className="guide-row" key={g.label}>
                 <span className="guide-row__ex">{g.examples}</span>
@@ -101,7 +100,6 @@ export function LevelSixScreen() {
         </div>
       </div>
 
-      <LevelNav levelId="level6" accent={level.accent} />
       <Disclaimer />
     </div>
   )

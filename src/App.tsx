@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNav } from '@/store/useNavStore'
 import { useSettings } from '@/store/useSettingsStore'
+import type { ScreenName } from '@/types'
 
 import { SplashScreen } from '@/screens/SplashScreen'
 import { ChildSelectScreen } from '@/screens/ChildSelectScreen'
@@ -18,6 +19,27 @@ import { MatchingGameScreen } from '@/screens/MatchingGameScreen'
 import { CalmScreen } from '@/screens/CalmScreen'
 import { ReportScreen } from '@/screens/ReportScreen'
 import { SettingsScreen } from '@/screens/SettingsScreen'
+import { AppBottomNav } from '@/components/AppBottomNav'
+
+// شاشات تعليمية جديدة
+import {
+  DailyPhrasesScreen, BodyPartsScreen, HygieneRoutineScreen,
+  FamilyPhotosScreen, DialectSelectScreen,
+} from '@/screens/educational/NewEducationalScreens'
+// شاشات تشغيلية + إعدادات فرعية
+import {
+  LoadingScreen, OfflineScreen, ErrorScreen, EmptyStateScreen, SuccessScreen,
+  ConfirmDeleteScreen, MicPermissionScreen, CameraPermissionScreen,
+  CustomPhotoScreen, EditPhotoScreen, PhotoSavedScreen,
+  VoiceSettingsScreen, NotificationSettingsScreen, PrivacySettingsScreen, AboutHelpScreen,
+} from '@/screens/system/SystemScreens'
+
+/** الشاشات التي يظهر فيها الشريط السفلي الموحّد (شاشات الطفل التعليمية + الرئيسية). */
+const BOTTOM_NAV_SCREENS: ReadonlySet<ScreenName> = new Set<ScreenName>([
+  'home', 'deck', 'level2', 'level3', 'level4', 'level5', 'level6',
+  'letters', 'animals', 'games', 'match', 'calm',
+  'dailyPhrases', 'bodyParts', 'hygieneRoutine', 'familyPhotos', 'dialectSelect',
+])
 
 export default function App() {
   const screen = useNav((s) => s.screen)
@@ -45,12 +67,40 @@ export default function App() {
     case 'calm': view = <CalmScreen />; break
     case 'report': view = <ReportScreen />; break
     case 'settings': view = <SettingsScreen />; break
+    // ===== شاشات تعليمية جديدة =====
+    case 'dailyPhrases': view = <DailyPhrasesScreen />; break
+    case 'bodyParts': view = <BodyPartsScreen />; break
+    case 'hygieneRoutine': view = <HygieneRoutineScreen />; break
+    case 'familyPhotos': view = <FamilyPhotosScreen />; break
+    case 'dialectSelect': view = <DialectSelectScreen />; break
+    // ===== إعدادات فرعية =====
+    case 'voiceSettings': view = <VoiceSettingsScreen />; break
+    case 'notificationSettings': view = <NotificationSettingsScreen />; break
+    case 'privacySettings': view = <PrivacySettingsScreen />; break
+    case 'aboutHelp': view = <AboutHelpScreen />; break
+    // ===== شاشات تشغيلية =====
+    case 'loading': view = <LoadingScreen />; break
+    case 'offline': view = <OfflineScreen />; break
+    case 'error': view = <ErrorScreen />; break
+    case 'emptyState': view = <EmptyStateScreen />; break
+    case 'success': view = <SuccessScreen />; break
+    case 'confirmDelete': view = <ConfirmDeleteScreen />; break
+    case 'micPermission': view = <MicPermissionScreen />; break
+    case 'cameraPermission': view = <CameraPermissionScreen />; break
+    case 'customPhoto': view = <CustomPhotoScreen />; break
+    case 'editPhoto': view = <EditPhotoScreen />; break
+    case 'photoSaved': view = <PhotoSavedScreen />; break
     default: view = <SplashScreen />
   }
 
+  const showNav = BOTTOM_NAV_SCREENS.has(screen)
+
   return (
     <div className="app">
-      <div className="viewport">{view}</div>
+      <div className="viewport">
+        <div className="screen-host">{view}</div>
+        {showNav && <AppBottomNav screen={screen} />}
+      </div>
     </div>
   )
 }

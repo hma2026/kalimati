@@ -2,7 +2,6 @@ import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useHaptics } from '@/hooks/useHaptics'
 import { SectionHeader } from '@/components/SectionHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { ColorBlob } from '@/components/Glyphs'
 import { AssetIcon } from '@/components/AssetIcon'
 import { Disclaimer } from '@/components/Disclaimer'
@@ -58,7 +57,6 @@ export function GamesScreen() {
         </div>
       </div>
 
-      <LevelNav levelId="__none__" accent={ACCENT} />
       <Disclaimer />
     </div>
   )

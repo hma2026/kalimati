@@ -3,7 +3,6 @@ import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSettings } from '@/store/useSettingsStore'
 import { useHaptics } from '@/hooks/useHaptics'
 import { LevelHeader } from '@/components/LevelHeader'
-import { LevelNav } from '@/components/LevelNav'
 import { StepIndicator } from '@/components/StepIndicator'
 import { PictureCard } from '@/components/PictureCard'
 import { SelectedPracticePanel } from '@/components/SelectedPracticePanel'
@@ -74,7 +73,6 @@ export function LevelTwoScreen() {
         </section>
       </div>
 
-      <LevelNav levelId="level2" accent={level.accent} />
       <Disclaimer />
     </div>
   )

@@ -1,61 +1,61 @@
-import { useState } from 'react'
-import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
-import { AppHeader } from '@/components/AppHeader'
-import { WordCard } from '@/components/WordCard'
-import { SoundButton } from '@/components/SoundButton'
-import { RecordPanel } from '@/components/RecordPanel'
+import { EducationalScreenShell } from '@/components/EducationalScreenShell'
+import { PlaceholderVisual } from '@/components/PlaceholderVisual'
+import { mediaVisual } from '@/components/Media'
+import { getAsset } from '@/assets/assetRegistry'
+import { VolumeIcon } from '@/lib/icons'
 import { letters } from '@/data/letters'
 
-/** Simple, calm mouth illustration (lips rounded forward for ش). */
-function Mouth() {
-  return (
-    <div className="mouth" aria-hidden>
-      <svg viewBox="0 0 120 80">
-        <ellipse cx="60" cy="40" rx="42" ry="26" fill="#d6486a" />
-        <ellipse cx="60" cy="44" rx="30" ry="15" fill="#7a1f38" />
-        <path d="M22 36 Q60 20 98 36" fill="none" stroke="#b03a5b" strokeWidth="6" strokeLinecap="round" />
-        <rect x="44" y="30" width="32" height="8" rx="3" fill="#fff" opacity="0.9" />
-      </svg>
-    </div>
-  )
-}
+/** ألوان تمييز تدور على البطاقات (هادئة). */
+const TINTS = ['#7c3aed', '#2F9B5F', '#1477DD', '#E84C68', '#D99A1E', '#0EA5A0', '#C2410C', '#9333EA']
 
+/**
+ * شاشة الحروف — Scroll طويل من الألف إلى الياء (بلا pagination).
+ * كل بطاقة: حرف كبير + صورة حقيقية أو بديل SVG مؤقت + كلمة مثال + زر صوت للحرف وزر صوت للكلمة.
+ */
 export function LetterScreen() {
   const { speak, speaking } = useSpeech()
   const haptic = useHaptics()
-  const prog = useChildren((s) => (s.activeId ? s.progress[s.activeId] : undefined))
-  const stats = progressStats(prog)
-
-  const [letterIdx] = useState(0)
-  const letter = letters[letterIdx]
 
   return (
-    <div className="screen">
-      <AppHeader title="الحروف" stars={stats.stars} />
+    <EducationalScreenShell title="الحروف" subtitle="من الألف إلى الياء — اسمع الحرف والكلمة">
+      <div className="letters-grid">
+        {letters.map((l, i) => {
+          const tint = TINTS[i % TINTS.length]
+          const ex = l.examples[0]
+          const hasImg = !!(ex?.media && getAsset(ex.media))
+          return (
+            <div className="lettercard" key={l.id} style={{ ['--lt' as string]: tint }}>
+              <div className="lettercard__glyph">{l.glyph}</div>
 
-      <div className="screen__scroll stack">
-        <div className="card" style={{ textAlign: 'center' }}>
-          <div className="letter-glyph-wrap">
-            <span className="letter-glyph">{letter.glyph}</span>
-            <SoundButton playing={speaking} label="انطق الحرف" onClick={() => { haptic('letter'); speak(letter.say) }} />
-          </div>
-          <Mouth />
-          <p className="muted-note" style={{ marginTop: 8 }}>شكل الفم عند نطق الحرف — كرّر: «{letter.sound}»</p>
-        </div>
+              <div className="lettercard__ex">
+                <span className="lettercard__img">
+                  {hasImg ? mediaVisual(ex!.media!, 52) : <PlaceholderVisual size={52} accent={tint} />}
+                </span>
+                <span className="lettercard__word">{ex?.label}</span>
+              </div>
 
-        <div>
-          <h3 style={{ marginBottom: 10, fontSize: '1.1rem' }}>كلمات تبدأ بحرف {letter.glyph}</h3>
-          <div className="card-grid" data-cols={4}>
-            {letter.examples.map((ex) => (
-              <WordCard key={ex.id} card={ex} onClick={() => { haptic('tap'); speak(ex.label) }} />
-            ))}
-          </div>
-        </div>
-
-        <RecordPanel itemId={letter.id} />
+              <div className="lettercard__btns">
+                <button
+                  className={'lettercard__sound' + (speaking ? ' is-on' : '')}
+                  aria-label={`انطق حرف ${l.say}`}
+                  onClick={() => { haptic('letter'); speak(l.say) }}
+                >
+                  <VolumeIcon size={18} /> الحرف
+                </button>
+                <button
+                  className="lettercard__sound lettercard__sound--soft"
+                  aria-label={`انطق كلمة ${ex?.label ?? ''}`}
+                  onClick={() => { haptic('tap'); if (ex) speak(ex.label) }}
+                >
+                  <VolumeIcon size={18} /> الكلمة
+                </button>
+              </div>
+            </div>
+          )
+        })}
       </div>
-    </div>
+    </EducationalScreenShell>
   )
 }

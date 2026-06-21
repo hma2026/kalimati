@@ -162,7 +162,7 @@ export function MatchingGameScreen() {
       {phase === 'setup' && (
         <div className="screen__scroll stack">
           <button className="btn btn--ghost" style={{ alignSelf: 'flex-start' }} onClick={() => nav.go('games')}><ChevLeft size={18} /> رجوع</button>
-          <h3 className="settings-h" style={{ marginInline: 0 }}>اختر مستوى الصعوبة</h3>
+          <h3 className="settings-h" style={{ marginInline: 0 }}>اختر درجة الصعوبة</h3>
           <div className="diff-grid">
             {DIFFS.map((d) => (
               <button key={d.id} className={`diff-card${difficulty === d.id ? ' is-on' : ''}`}
