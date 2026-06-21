@@ -2054,3 +2054,104 @@ img, svg { max-width: 100%; }
 .wgrid.wgrid--4{ grid-template-columns:repeat(4,1fr); }
 @media (max-width:760px){ .wgrid.wgrid--4{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:480px){ .wgrid.wgrid--4{ grid-template-columns:repeat(2,1fr); } }
+
+/* ===================================================================
+   v0.9.0 — شاشة كلمات مفردة (pixel-perfect مطابِق للنموذج)
+   شارة فئة جانبية + شبكة 8 أعمدة + تنقّل سفلي
+   خط العناوين: Baloo Bhaijaan 2 | النصوص: Noto Kufi Arabic
+   ui-ux-pro-max: تباعد 8dp، أهداف لمس ≥44px، border-radius 999/20/16
+=================================================================== */
+.sw{ display:flex; flex-direction:column; height:100%; background:#FAF8FD; overflow:hidden; }
+
+/* الرأس */
+.sw__hdr{
+  flex:0 0 auto; display:flex; align-items:center; gap:10px;
+  padding:clamp(10px,1.6vw,16px) clamp(12px,2vw,20px);
+}
+.sw__gear,.sw__back{
+  width:44px; height:44px; border-radius:50%; border:none; cursor:pointer;
+  background:#fff; color:#7c3aed; display:grid; place-items:center;
+  box-shadow:0 4px 12px rgba(38,52,92,.08); flex:0 0 auto;
+}
+.sw__stars{
+  display:inline-flex; align-items:center; gap:6px; background:#fff; border-radius:999px;
+  padding:7px 14px; font-family:var(--font-display); font-weight:900; color:#26345c;
+  font-size:clamp(.9rem,1.4vw,1.05rem); box-shadow:0 4px 12px rgba(38,52,92,.08); flex:0 0 auto;
+}
+.sw__title{
+  flex:1; text-align:center; margin:0; font-family:var(--font-title,'Baloo Bhaijaan 2',sans-serif);
+  font-weight:800; font-size:clamp(1.3rem,3.2vw,2rem); color:#6d28d9; line-height:1;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+}
+
+/* المحتوى المتمرّر */
+.sw__scroll{
+  flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  display:flex; flex-direction:column; gap:clamp(6px,1vw,12px);
+  padding:clamp(4px,1vw,10px) clamp(8px,1.4vw,16px) 8px;
+}
+
+/* القسم: شارة + شبكة */
+.sw__sec{
+  display:flex; align-items:flex-start; gap:clamp(6px,1vw,10px);
+}
+
+/* شارة الفئة الجانبية */
+.sw__badge{
+  flex:0 0 auto; writing-mode:horizontal-tb;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--bt,#7c3aed); color:#fff; border-radius:999px;
+  padding:8px 14px 8px 10px; font-family:var(--font-display); font-weight:800;
+  font-size:clamp(.78rem,1.2vw,1rem); white-space:nowrap;
+  box-shadow:0 4px 14px color-mix(in srgb, var(--bt,#7c3aed) 35%, transparent);
+  margin-top:clamp(14px,2.5vw,28px);
+}
+.sw__badge-ico{ display:flex; align-items:center; }
+.sw__badge-ico svg{ width:18px; height:18px; }
+
+/* شبكة 8 أعمدة */
+.sw__grid{
+  flex:1; display:grid; grid-template-columns:repeat(8,1fr);
+  gap:clamp(6px,1vw,10px);
+}
+
+/* بطاقة الكلمة */
+.wc{
+  border:none; cursor:pointer; background:#fff; border-radius:clamp(12px,1.6vw,18px);
+  padding:clamp(6px,.8vw,10px) 4px clamp(4px,.6vw,7px);
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  box-shadow:0 3px 10px rgba(38,52,92,.06); transition:transform .12s ease;
+}
+.wc:active{ transform:scale(.95); }
+.wc__img{ width:100%; aspect-ratio:1; display:grid; place-items:center; }
+.wc__img :where(img,svg){ width:100%; height:100%; object-fit:contain; }
+.wc__bot{ display:flex; align-items:center; gap:3px; justify-content:center; width:100%; }
+.wc__lbl{
+  font-family:var(--font-display); font-weight:800; color:#26345c;
+  font-size:clamp(.68rem,.95vw,.88rem); line-height:1.1;
+}
+.wc__snd{
+  width:20px; height:20px; border-radius:50%; background:#ece4fb; color:#7c3aed;
+  display:grid; place-items:center; flex:0 0 auto;
+}
+.wc--empty{ opacity:.5; cursor:default; }
+
+/* التنقّل السفلي */
+.sw__nav{
+  flex:0 0 auto; display:flex; align-items:center; justify-content:space-between;
+  padding:clamp(8px,1.2vw,12px) clamp(12px,2vw,20px);
+  background:#fff; border-top:1px solid #eee; gap:10px;
+}
+.sw__navbtn{
+  display:inline-flex; align-items:center; gap:8px; border:2px solid #d4d0e8; border-radius:999px;
+  padding:10px 18px; background:#fff; color:#6d28d9; cursor:pointer;
+  font-family:var(--font-display); font-weight:800; font-size:clamp(.82rem,1.3vw,1rem);
+  transition:background .12s;
+}
+.sw__navbtn:active{ background:#f0ebfa; }
+.sw__navbtn--home{ background:#7c3aed; color:#fff; border-color:#7c3aed; }
+
+/* تجاوب */
+@media (max-width:900px){ .sw__grid{ grid-template-columns:repeat(6,1fr); } }
+@media (max-width:640px){ .sw__grid{ grid-template-columns:repeat(4,1fr); } .sw__badge{ font-size:.72rem; padding:6px 10px; } }
+@media (max-width:430px){ .sw__grid{ grid-template-columns:repeat(3,1fr); } }
