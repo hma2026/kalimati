@@ -13,6 +13,7 @@ export const categories: Category[] = [
   { id: 'level6',   label: 'العبارات اليومية',     icon: 'home/icon_daily',    screen: 'level6', available: true, tint: '#FB923C' },
   { id: 'letters',  label: 'الحروف',              icon: 'home/icon_letters',  screen: 'letters', available: true, tint: '#7C3AED' },
   { id: 'animals',  label: 'حيوانات وأصوات',      icon: 'home/icon_animals',  screen: 'animals', available: true, tint: '#0EA5A0' },
+  { id: 'bodyParts', label: 'أجزاء الجسم', icon: 'home/icon_words', screen: 'bodyParts', available: true, tint: '#3B82F6' },
   { id: 'games',    label: 'ألعاب تعليمية',       icon: 'home/icon_games',    screen: 'games', available: true, tint: '#EF4444' },
   { id: 'stories',  label: 'قصص',                 icon: 'home/icon_stories',  screen: 'stories', available: true, tint: '#6366F1' },
   { id: 'report',   label: 'تقرير التقدم',        icon: 'home/icon_progress', screen: 'report', available: true, tint: '#22C55E' },

@@ -100,6 +100,7 @@ export type ScreenName =
   | 'match'
   | 'calm'
   | 'report'
+  | 'bodyParts'
   | 'stories'
   | 'settings'
   | 'admin'

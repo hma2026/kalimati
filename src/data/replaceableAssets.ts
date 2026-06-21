@@ -130,4 +130,14 @@ export const replaceableAssets: ReplaceableAsset[] = [
   { key: 'elephant', label: 'فيل', group: 'حيوانات', path: 'src/assets/images/animals/elephant.png' },
 
   { key: 'duck', label: 'بطة', group: 'حيوانات', path: 'src/assets/images/animals/duck.png' },
+
+  { key: 'arm', label: 'ذراع', group: 'أجزاء الجسم', path: 'src/assets/images/body/arm.png' },
+
+  { key: 'chest', label: 'صدر', group: 'أجزاء الجسم', path: 'src/assets/images/body/chest.png' },
+
+  { key: 'belly', label: 'بطن', group: 'أجزاء الجسم', path: 'src/assets/images/body/belly.png' },
+
+  { key: 'back', label: 'ظهر', group: 'أجزاء الجسم', path: 'src/assets/images/body/back.png' },
+
+  { key: 'foot', label: 'قدم', group: 'أجزاء الجسم', path: 'src/assets/images/body/foot.png' },
 ]
