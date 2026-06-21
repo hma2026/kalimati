@@ -94,4 +94,18 @@ export const replaceableAssets: ReplaceableAsset[] = [
   { key: 'shampoo', label: 'شامبو', group: 'كلمات · نظافة', path: 'src/assets/images/words/shampoo.png' },
   { key: 'towel', label: 'منشفة', group: 'كلمات · نظافة', path: 'src/assets/images/words/towel.png' },
   { key: 'tissues', label: 'مناديل', group: 'كلمات · نظافة', path: 'src/assets/images/words/tissues.png' },
+
+  // ===== المشاعر والاحتياجات: ألم + تهدئة (قابلة للاستبدال) =====
+  { key: 'stomachPain', label: 'بطني', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/stomachPain.png' },
+  { key: 'headPain', label: 'راسي', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/headPain.png' },
+  { key: 'toothPain', label: 'أسناني', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/toothPain.png' },
+  { key: 'earPain', label: 'أذني', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/earPain.png' },
+  { key: 'handPain', label: 'يدي', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/handPain.png' },
+  { key: 'legPain', label: 'رجلي', group: 'المشاعر · ألم', path: 'src/assets/images/emotions/legPain.png' },
+  { key: 'loudSound', label: 'الصوت عالي', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/loudSound.png' },
+  { key: 'quietPlace', label: 'مكان هادي', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/quietPlace.png' },
+  { key: 'doNotTouch', label: 'لا تلمسني', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/doNotTouch.png' },
+  { key: 'help', label: 'ساعدني', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/help.png' },
+  { key: 'stop', label: 'أوقف', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/stop.png' },
+  { key: 'goOut', label: 'أطلع', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/goOut.png' },
 ]
