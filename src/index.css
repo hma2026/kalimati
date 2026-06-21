@@ -1538,46 +1538,68 @@ img, svg { max-width: 100%; }
 }
 
 /* ============================================================
-   v0.5.x — شاشة البداية الجديدة (كلمة كلمة) — مطابقة للتصميم
+   v0.7.3 — شاشة البداية (نصّية): خلفية متدرّجة + عنوان كلمة كلمة (Baloo)
+   + عنوان فرعي نصّ + صورة الطفلين المعزولة + زخارف. (لا نصّ مخبوز بصورة)
    ============================================================ */
 .splash{
-  min-height:100%; box-sizing:border-box;
+  position:relative; min-height:100%; box-sizing:border-box; overflow:hidden auto;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:18px; padding:24px 20px 28px; text-align:center;
-  background:#FEFEFE;
+  gap:clamp(8px,1.6vw,16px); padding:clamp(18px,4vw,32px) 20px clamp(18px,3vw,26px); text-align:center;
+  background:radial-gradient(135% 95% at 50% 22%, #faf8fe 0%, #f0e9fb 55%, #e8def6 100%);
 }
-.splash__hero{
-  width:min(86%, 600px); height:auto; display:block; user-select:none;
-  -webkit-user-drag:none;
+/* الزخارف */
+.splash-deco{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+.splash-deco>*{ position:absolute; }
+.sd-star{ color:#F6C84C; } .sd-star--p{ color:#b9a4ee; }
+.sd-dot{ width:10px; height:10px; border-radius:50%; }
+.sd-dot--pink{ background:#f4b8c6; } .sd-dot--blue{ background:#a7c8ee; } .sd-dot--purple{ background:#c9b8f0; }
+.sd-bubble--p{ color:#a78bfa; } .sd-bubble--b{ color:#9fc3ee; }
+.sd-plane{ color:#b9a4ee; }
+
+/* العنوان النصّي (Baloo، متدرّج بنفسجي مع لمسة برتقالية) */
+.splash__title{
+  position:relative; z-index:1; margin:0; line-height:1.05; letter-spacing:.5px; font-weight:800;
+  font-size:clamp(2.6rem, 9vw, 4.4rem);
+  font-family:var(--font-title, 'Baloo Bhaijaan 2', 'Noto Kufi Arabic', sans-serif);
+  background:linear-gradient(100deg, #f5a623 0%, #7c3aed 32%, #6d28d9 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
+/* العنوان الفرعي النصّي */
+.splash__sub{
+  position:relative; z-index:1; margin:0; max-width:24ch; color:#6d28d9; font-weight:800;
+  font-family:var(--font-display); font-size:clamp(1.02rem,2.6vw,1.45rem); line-height:1.5;
+}
+/* صورة الطفلين فقط */
+.splash__kids{
+  position:relative; z-index:1; width:min(70%, 440px); height:auto; display:block;
+  user-select:none; -webkit-user-drag:none;
+  filter:drop-shadow(0 12px 18px rgba(80,50,140,.16));
+}
+
 .splash__actions{
-  width:min(92%, 600px); display:flex; flex-direction:column; gap:14px; margin-top:2px;
+  position:relative; z-index:1; width:min(92%, 560px); display:flex; flex-direction:column; gap:13px; margin-top:4px;
 }
 .splash__btn{
   display:flex; align-items:center; justify-content:center; gap:14px;
-  height:66px; border-radius:999px; font-weight:900; font-size:1.55rem;
-  cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; font-family:inherit;
+  height:clamp(58px,8vw,68px); border-radius:999px; font-weight:900; font-size:clamp(1.3rem,3.4vw,1.55rem);
+  cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; font-family:var(--font-display);
 }
 .splash__btn--start{
-  color:#fff; border:none;
-  background:linear-gradient(180deg,#8b66e6 0%,#6f43d6 100%);
+  color:#fff; border:none; background:linear-gradient(180deg,#8b66e6 0%,#6f43d6 100%);
   box-shadow:0 10px 22px rgba(111,67,214,.34);
 }
 .splash__btn--start:active{ transform:scale(.985); }
-.splash__btn--teacher{
-  color:#6f43d6; background:#fff; border:2px solid #ddccf7;
-}
+.splash__btn--teacher{ color:#6f43d6; background:#fff; border:2px solid #ddccf7; }
 .splash__btn--teacher:active{ transform:scale(.985); }
 .splash__btn-ic{ display:grid; place-items:center; width:38px; height:38px; border-radius:50%; }
 .splash__btn--start .splash__btn-ic{ background:rgba(255,255,255,.22); }
 .splash__btn-ic--teacher{ color:#6f43d6; }
 .splash__safe{
-  display:flex; align-items:center; gap:8px; margin:6px 0 0;
-  color:#8779ab; font-weight:700; font-size:1rem;
+  position:relative; z-index:1; display:flex; align-items:center; gap:8px; margin:4px 0 0;
+  color:#8779ab; font-weight:700; font-size:clamp(.9rem,2vw,1rem); font-family:var(--font-body);
 }
 @media (max-width:767px){
-  .splash__hero{ width:94%; }
-  .splash__btn{ height:60px; font-size:1.35rem; }
+  .splash__kids{ width:82%; }
 }
 
 /* ===================================================================
