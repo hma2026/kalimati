@@ -108,4 +108,26 @@ export const replaceableAssets: ReplaceableAsset[] = [
   { key: 'help', label: 'ساعدني', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/help.png' },
   { key: 'stop', label: 'أوقف', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/stop.png' },
   { key: 'goOut', label: 'أطلع', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/goOut.png' },
+
+  { key: 'cat', label: 'قطة', group: 'حيوانات', path: 'src/assets/images/animals/cat.png' },
+
+  { key: 'dog', label: 'كلب', group: 'حيوانات', path: 'src/assets/images/animals/dog.png' },
+
+  { key: 'rabbit', label: 'أرنب', group: 'حيوانات', path: 'src/assets/images/animals/rabbit.png' },
+
+  { key: 'bird', label: 'عصفور', group: 'حيوانات', path: 'src/assets/images/animals/bird.png' },
+
+  { key: 'cow', label: 'بقرة', group: 'حيوانات', path: 'src/assets/images/animals/cow.png' },
+
+  { key: 'sheep', label: 'خروف', group: 'حيوانات', path: 'src/assets/images/animals/sheep.png' },
+
+  { key: 'horse', label: 'حصان', group: 'حيوانات', path: 'src/assets/images/animals/horse.png' },
+
+  { key: 'chicken', label: 'دجاجة', group: 'حيوانات', path: 'src/assets/images/animals/chicken.png' },
+
+  { key: 'lion', label: 'أسد', group: 'حيوانات', path: 'src/assets/images/animals/lion.png' },
+
+  { key: 'elephant', label: 'فيل', group: 'حيوانات', path: 'src/assets/images/animals/elephant.png' },
+
+  { key: 'duck', label: 'بطة', group: 'حيوانات', path: 'src/assets/images/animals/duck.png' },
 ]

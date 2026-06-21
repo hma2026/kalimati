@@ -1,27 +1,15 @@
 import { useState } from 'react'
 import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
-import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
 import { TeacherGate } from '@/components/TeacherGate'
+import { AppBottomNav } from '@/components/AppBottomNav'
 import { categories } from '@/data/categories'
 import type { Category } from '@/types'
-import { StarIcon, ChatDotsIcon, BurstIcon } from '@/lib/icons'
+import { StarIcon, BurstIcon } from '@/lib/icons'
 import { AssetIcon } from '@/components/AssetIcon'
 
-const Chevron = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-const Shield = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-    <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" fill="#7C4DD6" />
-    <path d="M8.5 12l2.3 2.3L15.5 9.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-/* أيقونات SVG ثلاثية الأبعاد للبطاقات البيضاء التي يتعذّر عزلها من النموذج (فقاعة/ساعة/رسم) */
+/* أيقونات SVG للبطاقات البيضاء (فقاعة/ساعة/رسم) */
 const IconBubble = () => (
   <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
     <ellipse cx="50" cy="84" rx="28" ry="5" fill="#26345c" opacity="0.07" />
@@ -35,22 +23,16 @@ const RAYS = Array.from({ length: 12 }, (_, i) => {
 })
 const IconClock = () => (
   <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
-    <g stroke="#f4b53a" strokeWidth="6" strokeLinecap="round">
-      {RAYS.map((r, i) => <line key={i} x1={r.x1} y1={r.y1} x2={r.x2} y2={r.y2} />)}
-    </g>
-    <circle cx="50" cy="50" r="32" fill="#ffd76b" stroke="#f4b53a" strokeWidth="3" />
-    <circle cx="50" cy="50" r="23" fill="#fff" />
+    <g stroke="#f4b53a" strokeWidth="6" strokeLinecap="round">{RAYS.map((r, i) => <line key={i} x1={r.x1} y1={r.y1} x2={r.x2} y2={r.y2} />)}</g>
+    <circle cx="50" cy="50" r="32" fill="#ffd76b" stroke="#f4b53a" strokeWidth="3" /><circle cx="50" cy="50" r="23" fill="#fff" />
     <line x1="50" y1="50" x2="50" y2="33" stroke="#5a4a2a" strokeWidth="4" strokeLinecap="round" />
-    <line x1="50" y1="50" x2="62" y2="55" stroke="#5a4a2a" strokeWidth="4" strokeLinecap="round" />
-    <circle cx="50" cy="50" r="3.2" fill="#5a4a2a" />
+    <line x1="50" y1="50" x2="62" y2="55" stroke="#5a4a2a" strokeWidth="4" strokeLinecap="round" /><circle cx="50" cy="50" r="3.2" fill="#5a4a2a" />
   </svg>
 )
 const IconChart = () => (
   <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
     <ellipse cx="50" cy="88" rx="30" ry="4" fill="#26345c" opacity="0.06" />
-    <rect x="20" y="58" width="17" height="28" rx="4" fill="#8b5cf6" />
-    <rect x="42" y="46" width="17" height="40" rx="4" fill="#34c759" />
-    <rect x="63" y="32" width="17" height="54" rx="4" fill="#f5b942" />
+    <rect x="20" y="58" width="17" height="28" rx="4" fill="#8b5cf6" /><rect x="42" y="46" width="17" height="40" rx="4" fill="#34c759" /><rect x="63" y="32" width="17" height="54" rx="4" fill="#f5b942" />
     <path d="M18 42 L40 30 L58 37 L84 15" stroke="#3b9ae8" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M73 15 L84 15 L84 26" stroke="#3b9ae8" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
@@ -61,7 +43,6 @@ export function HomeScreen() {
   const nav = useNav()
   const child = useChildren((s) => s.children.find((c) => c.id === s.activeId) ?? null)
   const prog = useChildren((s) => (s.activeId ? s.progress[s.activeId] : undefined))
-  const speak = useSpeech().speak
   const haptic = useHaptics()
   const [gate, setGate] = useState(false)
   const stats = progressStats(prog)
@@ -73,10 +54,10 @@ export function HomeScreen() {
     if (cat.screen === 'deck' && cat.deck) nav.go('deck', { deck: cat.deck, title: cat.label })
     else nav.go(cat.screen, { title: cat.label, ...(cat.params ?? {}) })
   }
-  const help = () => { haptic('success'); speak('ساعدني') }
 
   return (
     <div className="home">
+      {/* الهيدر الموحّد */}
       <header className="home-bar">
         <span className="home-stars"><StarIcon size={20} style={{ color: 'var(--star, #F6C84C)' }} /> {stats.stars}</span>
         <h1 className="home-title">
@@ -90,12 +71,7 @@ export function HomeScreen() {
         </button>
       </header>
 
-      <button className="home-help" onClick={help}>
-        <span className="home-help__arrow"><Chevron size={18} /></span>
-        <span className="home-help__bubble"><ChatDotsIcon size={22} /></span>
-        <span className="home-help__txt">ساعدني</span>
-      </button>
-
+      {/* شبكة ٤×٣ بطاقات (بدون ساعدني) */}
       <div className="home-grid screen__scroll">
         {categories.map((cat) => {
           const Svg = SVG_ICONS[cat.id]
@@ -108,7 +84,8 @@ export function HomeScreen() {
         })}
       </div>
 
-      <p className="home-safe"><Shield size={18} /> أداة مساعدة للتواصل والتدريب على النطق، ولا تغني عن المختصين.</p>
+      {/* الفوتر الموحّد */}
+      <AppBottomNav screen="home" />
 
       {gate && (
         <TeacherGate onCancel={() => setGate(false)} onUnlock={() => { setGate(false); nav.go('settings') }} />

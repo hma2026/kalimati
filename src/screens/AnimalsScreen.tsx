@@ -1,73 +1,56 @@
-import { useState } from 'react'
+import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
-import { useSettings } from '@/store/useSettingsStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
-import { SectionHeader } from '@/components/SectionHeader'
-import { AnimalPracticePanel } from '@/components/AnimalPracticePanel'
-import { Disclaimer } from '@/components/Disclaimer'
 import { mediaVisual } from '@/components/Media'
-import { VolumeIcon } from '@/lib/icons'
-import { ANIMALS } from '@/data/animals'
-import { getAnimalLabel, getAnimalSound, profileOf } from '@/data/dialects'
+import { AssetIcon } from '@/components/AssetIcon'
+import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
+import { AppBottomNav } from '@/components/AppBottomNav'
+import { getAnimalLabel, profileOf } from '@/data/dialects'
+import { useSettings } from '@/store/useSettingsStore'
 
-const ACCENT = '#7B3FF2'
+const SECTIONS = [
+  { id: 'pets', label: 'حيوانات أليفة', tint: '#8B5CF6', keys: ['cat','dog','rabbit','bird'] },
+  { id: 'farm', label: 'حيوانات مزرعة', tint: '#34C759', keys: ['cow','sheep','horse','chicken'] },
+  { id: 'wild', label: 'حيوانات برية', tint: '#F59E0B', keys: ['lion','elephant','duck','bird'] },
+]
 
 export function AnimalsScreen() {
+  const nav = useNav()
   const child = useChildren((s) => s.children.find((c) => c.id === s.activeId) ?? null)
   const prog = useChildren((s) => (s.activeId ? s.progress[s.activeId] : undefined))
   const fallback = useSettings((s) => s.selectedDialect)
   const { speak } = useSpeech()
   const haptic = useHaptics()
-  const [sel, setSel] = useState<string | null>(null)
-
-  const profile = profileOf(child, fallback)
   const stars = progressStats(prog).stars
-  const selAnimal = ANIMALS.find((a) => a.key === sel)
-
-  const sayName = (key: string) => { haptic('tap'); speak(getAnimalLabel(key, profile)) }
+  const profile = profileOf(child, fallback)
+  const say = (key: string) => { haptic('tap'); speak(getAnimalLabel(key, profile)) }
 
   return (
-    <div className="screen level" style={{ ['--accent' as string]: ACCENT, background: '#F7F5FD' }}>
-      <SectionHeader title="حيوانات وأصوات" desc="تعلم أسماء الحيوانات وأصواتها" accent={ACCENT} stars={stars} />
-
-      <div className="screen__scroll stack">
-        <div className="card-grid" data-cols={3}>
-          {ANIMALS.map((a) => (
-            <button
-              key={a.key}
-              className={`pcard${sel === a.key ? ' is-on' : ''}`}
-              style={sel === a.key ? { borderColor: ACCENT, boxShadow: `0 0 0 3px ${ACCENT}33` } : undefined}
-              onClick={() => { setSel(a.key); sayName(a.key) }}
-            >
-              <span className="pcard__emoji" aria-hidden>{mediaVisual(a.key, 104)}</span>
-              <span className="pcard__label">{getAnimalLabel(a.key, profile)}</span>
-              <span
-                role="button"
-                tabIndex={0}
-                aria-label="اسمع الاسم"
-                className="pcard__speak pcard__speak--name"
-                onClick={(e) => { e.stopPropagation(); sayName(a.key) }}
-                onKeyDown={(e) => { if (e.key === 'Enter') { e.stopPropagation(); sayName(a.key) } }}
-              >
-                <VolumeIcon size={18} />
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {selAnimal && (
-          <AnimalPracticePanel
-            itemId={`anim_${selAnimal.key}`}
-            mediaKey={selAnimal.key}
-            name={getAnimalLabel(selAnimal.key, profile)}
-            sound={getAnimalSound(selAnimal.key)}
-            accent={ACCENT}
-          />
-        )}
+    <div className="sw">
+      <header className="sw__hdr">
+        <span className="sw__stars"><StarIcon size={16} style={{color:'#F6C84C'}} /> {stars}</span>
+        <h1 className="sw__title"><BurstIcon size={10} /> حيوانات وأصوات <BurstIcon size={10} /></h1>
+        <button className="sw__welcome" onClick={() => nav.back()} aria-label="رجوع">
+          مرحباً {child?.name ?? ''}
+          <span className="sw__ava"><AssetIcon refKey={child?.avatar ?? 'avatars/child_boy_01'} size={34} /></span>
+        </button>
+      </header>
+      <p className="sw__sub">استمع لاسم الحيوان وصوته</p>
+      <div className="sw__scroll">
+        {SECTIONS.map((sec) => (
+          <section className="sw__sec" key={sec.id}>
+            <span className="sw__badge" style={{['--bt' as never]: sec.tint}}>{sec.label}</span>
+            <div className="sw__grid">{sec.keys.map((key) => (
+              <button className="wc" key={key} onClick={() => say(key)}>
+                <span className="wc__img">{mediaVisual(key, 96)}</span>
+                <span className="wc__bot"><span className="wc__lbl">{getAnimalLabel(key, profile)}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+              </button>
+            ))}</div>
+          </section>
+        ))}
       </div>
-
-      <Disclaimer />
+      <AppBottomNav screen="animals" />
     </div>
   )
 }
