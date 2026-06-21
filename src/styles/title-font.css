@@ -1,0 +1,20 @@
+/* ===================================================================
+   خط العناوين الكبيرة = Baloo Bhaijaan 2 (مدوّر مرح كالصورة).
+   النصوص والأسماء والأزرار تبقى Noto Kufi (سميكة وواضحة).
+   ملف إضافي غير متلِف: لا يمسّ index.css ولا تصميم أي شاشة.
+=================================================================== */
+:root {
+  --font-title: 'Baloo Bhaijaan 2', 'Noto Kufi Arabic', system-ui, sans-serif;
+}
+
+/* العناوين الكبيرة فقط عبر كل الشاشات */
+.cs-title,
+.splash__title,
+.edu-title,
+.op-title,
+.level-title strong,
+.reward__text,
+.practice__text,
+.match-celebrate__label {
+  font-family: var(--font-title) !important;
+}

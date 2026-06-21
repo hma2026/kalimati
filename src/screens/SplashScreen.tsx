@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNav } from '@/store/useNavStore'
 import { TeacherGate } from '@/components/TeacherGate'
-import { PlayIcon } from '@/lib/icons'
-import heroUrl from '@/assets/images/brand/splash_hero.png'
+import { PlayIcon, StarIcon, ChatDotsIcon, PaperPlaneIcon } from '@/lib/icons'
+import kidsUrl from '@/assets/images/brand/splash_kids.png'
 
 const UserGlyph = ({ size = 22 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -17,12 +17,47 @@ const ShieldGlyph = ({ size = 18 }: { size?: number }) => (
   </svg>
 )
 
+/* نجوم ونقاط زخرفية (مطابِقة للنموذج) */
+const DECOR = [
+  { t: 'star', cls: 'sd-star', x: '79%', y: '7%', s: 26 },
+  { t: 'star', cls: 'sd-star--p', x: '20%', y: '20%', s: 18 },
+  { t: 'star', cls: 'sd-star', x: '13%', y: '30%', s: 20 },
+  { t: 'star', cls: 'sd-star--p', x: '85%', y: '28%', s: 18 },
+  { t: 'star', cls: 'sd-star', x: '88%', y: '60%', s: 22 },
+  { t: 'star', cls: 'sd-star', x: '14%', y: '64%', s: 16 },
+  { t: 'dot', cls: 'sd-dot--pink', x: '24%', y: '34%' },
+  { t: 'dot', cls: 'sd-dot--purple', x: '83%', y: '20%' },
+  { t: 'dot', cls: 'sd-dot--blue', x: '90%', y: '48%' },
+  { t: 'dot', cls: 'sd-dot--blue', x: '12%', y: '48%' },
+  { t: 'dot', cls: 'sd-dot--pink', x: '78%', y: '54%' },
+]
+
 export function SplashScreen() {
   const nav = useNav()
   const [gate, setGate] = useState(false)
+
   return (
     <div className="splash">
-      <img className="splash__hero" src={heroUrl} alt="كلمة كلمة — أداة مساعدة للتواصل والتدريب على النطق، ولا تغني عن المختصين" draggable={false} />
+      {/* الزخارف */}
+      <div className="splash-deco" aria-hidden>
+        <span className="sd-bubble sd-bubble--p" style={{ left: '17%', top: '7%' }}><ChatDotsIcon size={30} /></span>
+        <span className="sd-bubble sd-bubble--b" style={{ right: '9%', top: '32%' }}><ChatDotsIcon size={28} /></span>
+        <span className="sd-plane" style={{ left: '7%', top: '45%' }}><PaperPlaneIcon size={34} /></span>
+        {DECOR.map((d, i) =>
+          d.t === 'star' ? (
+            <span key={i} className={d.cls} style={{ left: d.x, top: d.y }}><StarIcon size={d.s} /></span>
+          ) : (
+            <span key={i} className={'sd-dot ' + d.cls} style={{ left: d.x, top: d.y }} />
+          ),
+        )}
+      </div>
+
+      {/* العنوان والنصّ — كتابة فعلية */}
+      <h1 className="splash__title">كلمة كلمة</h1>
+      <p className="splash__sub">أداة مساعدة للتواصل والتدريب على النطق، ولا تغني عن المختصين.</p>
+
+      {/* صورة الطفلين فقط (معزولة) */}
+      <img className="splash__kids" src={kidsUrl} alt="طفلان يلوّحان" draggable={false} />
 
       <div className="splash__actions">
         <button className="splash__btn splash__btn--start" onClick={() => nav.go('children')}>

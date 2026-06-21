@@ -100,6 +100,7 @@ export type ScreenName =
   | 'match'
   | 'calm'
   | 'report'
+  | 'stories'
   | 'settings'
   | 'admin'
   // ===== شاشات تعليمية جديدة =====
