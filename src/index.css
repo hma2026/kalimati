@@ -1581,105 +1581,124 @@ img, svg { max-width: 100%; }
 }
 
 /* ===================================================================
-   v0.5.2 — شاشة اختيار الطفل (مطابِقة للشاشة المرجعية 02)
-   ترويسة نظيفة: رجوع (يسار) + عنوان داكن (وسط) + إعدادات (يمين).
-   شبكة 2×2: دوائر بستيلية ملوّنة + شرائح أسماء ملوّنة + بطاقة إضافة بنفسجية.
-   بلا زخارف/عنوان فرعي/طائرة/شريط سفلي.
+   v0.7.2 — شاشة اختيار الطفل (مزخرفة، مطابِقة للنموذج)
+   عنوان متدرّج (Baloo) + فقاعة + عنوان فرعي + شبكة 4 بطاقات بيضاء +
+   بطاقة إضافة منقّطة + طائرة ورقية + نجوم/نقاط + شريط مساعدة سفلي.
 =================================================================== */
 .cs {
   position: relative; flex: 1; display: flex; flex-direction: column;
-  gap: clamp(14px, 2.4vw, 26px);
-  padding: clamp(10px, 1.8vw, 18px) clamp(16px, 3.2vw, 30px) clamp(16px, 2vw, 24px);
-  background: #FCFDFF;
-  overflow: hidden;
+  gap: clamp(8px, 1.4vw, 14px);
+  padding: clamp(12px, 2vw, 20px) clamp(16px, 3vw, 30px) clamp(12px, 1.8vw, 18px);
+  background: #FCFBFE; overflow: hidden;
 }
+/* طبقة الزخارف */
+.cs-deco { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.cs-deco > * { position: absolute; }
+.cs-deco .st { color: #F6C84C; }
+.cs-deco .st--p { color: #b9a4ee; }
+.cs-deco .dot { width: 9px; height: 9px; border-radius: 50%; }
+.cs-deco .dot--pink { background: #f4b8c6; }
+.cs-deco .dot--blue { background: #a7c8ee; }
+.cs-deco .dot--purple { background: #c9b8f0; }
 
-/* الشريط العلوي */
+/* الترويسة */
 .cs-bar {
-  position: relative; z-index: 1; flex: 0 0 auto;
+  position: relative; z-index: 2; flex: 0 0 auto;
   display: flex; align-items: center; justify-content: center;
-  min-height: clamp(48px, 6.4vw, 60px);
+  min-height: clamp(50px, 7vw, 66px);
 }
+.cs-titlewrap { position: relative; display: inline-flex; align-items: center; gap: 10px; }
 .cs-title {
-  margin: 0; text-align: center;
-  font-family: var(--font-display); font-weight: 800; line-height: 1;
-  color: #26345c; font-size: clamp(1.5rem, 3.6vw, 2.1rem); letter-spacing: .2px;
+  margin: 0; text-align: center; line-height: 1.1; font-weight: 800; letter-spacing: .5px;
+  font-size: clamp(1.7rem, 4.6vw, 2.7rem);
+  background: linear-gradient(180deg, #8b5cf6, #6d28d9);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  font-family: var(--font-title, 'Baloo Bhaijaan 2', 'Noto Kufi Arabic', sans-serif);
 }
+.cs-title__bubble { color: #a78bfa; display: inline-grid; place-items: center; transform: translateY(-8px); }
 .cs-bar__btn {
   position: absolute; top: 50%; transform: translateY(-50%);
-  width: clamp(44px, 5.6vw, 54px); height: clamp(44px, 5.6vw, 54px);
+  width: clamp(44px, 5.4vw, 54px); height: clamp(44px, 5.4vw, 54px);
   display: grid; place-items: center; border: none; cursor: pointer;
-  background: transparent; color: #26345c; border-radius: 50%;
-  transition: transform .12s ease, box-shadow .12s, background .12s;
+  background: #fff; color: #6d28d9; border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(109, 40, 217, .14); transition: transform .12s, box-shadow .12s;
 }
-.cs-bar__btn--back {
-  left: 0; background: #fff;
-  box-shadow: 0 4px 14px rgba(38, 52, 92, .12);
-}
-.cs-bar__btn--back:hover { box-shadow: 0 6px 18px rgba(38, 52, 92, .18); }
-.cs-bar__btn--settings { right: 0; }
-.cs-bar__btn--settings:hover { background: rgba(38, 52, 92, .06); }
 .cs-bar__btn:active { transform: translateY(-50%) scale(.92); }
+.cs-bar__btn--settings { left: 0; }
+.cs-bar__btn--back { right: 0; color: #26345c; }
 
+/* العنوان الفرعي */
+.cs-sub {
+  position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 12px;
+  color: #8b6fd6; font-weight: 700; font-size: clamp(.92rem, 2vw, 1.15rem); font-family: var(--font-display);
+}
+.cs-sub__b { color: #b9a4ee; }
+
+/* التمرير */
 .cs__scroll {
-  flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
-  display: flex; flex-direction: column; justify-content: center;
-  gap: clamp(14px, 2.4vw, 26px); position: relative; z-index: 1;
+  position: relative; z-index: 1; flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column; gap: clamp(14px, 2.2vw, 22px); padding-top: clamp(8px, 1.4vw, 14px);
 }
-
-/* شبكة الأطفال 2×2 */
+/* شبكة 4 بطاقات */
 .cs-grid {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 3.6vw, 44px) clamp(22px, 4.2vw, 52px);
-  width: 100%; max-width: 600px; margin-inline: auto;
-  justify-items: center; align-items: start;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.8vw, 20px);
+  width: 100%; max-width: 1000px; margin-inline: auto;
 }
-
-/* بطاقة الطفل + بطاقة الإضافة (هيكل موحّد) */
-.cs-card, .cs-add {
-  border: none; cursor: pointer; background: transparent;
-  display: flex; flex-direction: column; align-items: center;
-  gap: clamp(10px, 1.6vw, 16px); width: 100%;
-  transition: transform .14s ease;
-}
-.cs-card:active, .cs-add:active { transform: scale(.96); }
-.cs-card:hover .cs-card__ava, .cs-add:hover .cs-add__circle { transform: translateY(-3px); }
-
-.cs-card__ava {
-  width: clamp(120px, 26vw, 200px); height: clamp(120px, 26vw, 200px);
-  border-radius: 50%; overflow: hidden; display: block; flex: 0 0 auto;
-  background: var(--cbg, #eef);
-  box-shadow: inset 0 0 0 4px var(--ring, #ccd), 0 8px 20px rgba(38, 52, 92, .10);
+.cs-card {
+  position: relative; border: none; cursor: pointer; background: #fff; border-radius: 22px;
+  padding: clamp(12px, 1.6vw, 18px) clamp(8px, 1.2vw, 14px) clamp(14px, 1.8vw, 18px);
+  box-shadow: 0 8px 22px rgba(38, 52, 92, .08);
+  display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.4vw, 14px);
   transition: transform .14s ease, box-shadow .14s;
 }
+.cs-card:active { transform: scale(.97); }
+.cs-card:hover { box-shadow: 0 12px 28px rgba(38, 52, 92, .14); }
+.cs-card__ava {
+  position: relative; width: clamp(96px, 12vw, 150px); aspect-ratio: 1; border-radius: 50%;
+  overflow: hidden; flex: 0 0 auto; background: var(--cbg, #eef);
+  box-shadow: inset 0 0 0 3px var(--ring, #ccd);
+}
 .cs-card__ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cs-card__ph { width: 100%; height: 100%; display: grid; place-items: center; color: var(--ptx, #667); }
 .cs-card__name {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
-  color: var(--ptx, #26345c); background: var(--pill, #eef);
-  border-radius: 999px; padding: clamp(6px, 1vw, 11px) clamp(16px, 2.6vw, 28px);
-  min-width: clamp(96px, 18vw, 140px); text-align: center;
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(.95rem, 1.5vw, 1.3rem);
+  color: var(--ptx, #26345c); background: var(--pill, #eef); border-radius: 999px;
+  padding: clamp(6px, .9vw, 10px) clamp(14px, 2vw, 26px); min-width: clamp(80px, 9vw, 130px); text-align: center;
 }
-.cs-card--active .cs-card__ava {
-  box-shadow: inset 0 0 0 5px var(--ring), 0 0 0 4px rgba(38, 52, 92, .14), 0 10px 24px rgba(38, 52, 92, .16);
-}
+.cs-card--active { outline: 3px solid var(--ring); outline-offset: 2px; }
 
-/* بطاقة إضافة طفل (بنفسجي فاتح) */
+/* الإضافة + الطائرة */
+.cs-addrow { position: relative; display: flex; justify-content: center; padding: clamp(4px,1vw,10px) 0; }
+.cs-plane { position: absolute; right: calc(50% + clamp(150px, 20vw, 240px)); top: 50%; transform: translateY(-50%); color: #b9a4ee; }
+.cs-add {
+  border: 2px dashed #c9b8f0; cursor: pointer; background: rgba(124,58,237,.02); border-radius: 22px;
+  padding: clamp(16px,2vw,24px) clamp(28px,4vw,56px);
+  display: flex; flex-direction: column; align-items: center; gap: 10px; transition: transform .14s, background .14s;
+}
+.cs-add:active { transform: scale(.97); }
 .cs-add__circle {
-  width: clamp(120px, 26vw, 200px); height: clamp(120px, 26vw, 200px);
-  border-radius: 50%; display: grid; place-items: center; color: #4a3f7a;
-  background: #ece4fb; box-shadow: inset 0 0 0 4px #cdbcf2, 0 8px 20px rgba(91, 70, 160, .12);
-  transition: transform .14s ease;
+  width: clamp(58px, 7vw, 84px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(180deg, #9166f0, #7c3aed); box-shadow: 0 8px 18px rgba(124, 58, 237, .3);
 }
-.cs-add__txt {
-  font-family: var(--font-display); font-weight: 800; color: #26345c;
-  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
-}
-.cs-add--span { grid-column: 1 / -1; }
+.cs-add__txt { font-family: var(--font-display); font-weight: 800; color: #26345c; font-size: clamp(1rem,1.6vw,1.3rem); }
 
-@media (max-width: 480px) {
-  .cs-grid { gap: clamp(18px, 6vw, 30px) clamp(16px, 6vw, 28px); max-width: 430px; }
+/* الشريط السفلي */
+.cs-foot {
+  margin-top: auto; flex: 0 0 auto; position: relative; z-index: 1; display: flex; align-items: center; gap: 14px;
+  background: #fff; border-radius: 18px; padding: clamp(10px,1.4vw,16px) clamp(14px,2vw,22px);
+  box-shadow: 0 6px 18px rgba(38, 52, 92, .07);
+}
+.cs-foot__ic {
+  width: clamp(40px,4.4vw,52px); aspect-ratio: 1; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center;
+  color: #fff; background: linear-gradient(180deg, #9166f0, #7c3aed);
+}
+.cs-foot__txt { flex: 1; text-align: start; color: #6b6486; font-weight: 600; font-size: clamp(.9rem,1.5vw,1.05rem); font-family: var(--font-body); }
+
+/* تجاوب الجوال: عمودان */
+@media (max-width: 640px) {
+  .cs-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 460px; }
+  .cs-card__ava { width: clamp(110px, 34vw, 170px); }
+  .cs-plane { display: none; }
+  .cs-title { font-size: clamp(1.7rem, 8vw, 2.3rem); }
 }
 
 /* ===================================================================
