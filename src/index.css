@@ -1578,3 +1578,105 @@ img, svg { max-width: 100%; }
   .splash__hero{ width:94%; }
   .splash__btn{ height:60px; font-size:1.35rem; }
 }
+
+/* ===================================================================
+   v0.5.2 — شاشة اختيار الطفل (مطابِقة للشاشة المرجعية 02)
+   ترويسة نظيفة: رجوع (يسار) + عنوان داكن (وسط) + إعدادات (يمين).
+   شبكة 2×2: دوائر بستيلية ملوّنة + شرائح أسماء ملوّنة + بطاقة إضافة بنفسجية.
+   بلا زخارف/عنوان فرعي/طائرة/شريط سفلي.
+=================================================================== */
+.cs {
+  position: relative; flex: 1; display: flex; flex-direction: column;
+  gap: clamp(14px, 2.4vw, 26px);
+  padding: clamp(10px, 1.8vw, 18px) clamp(16px, 3.2vw, 30px) clamp(16px, 2vw, 24px);
+  background: #FCFDFF;
+  overflow: hidden;
+}
+
+/* الشريط العلوي */
+.cs-bar {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  min-height: clamp(48px, 6.4vw, 60px);
+}
+.cs-title {
+  margin: 0; text-align: center;
+  font-family: var(--font-display); font-weight: 800; line-height: 1;
+  color: #26345c; font-size: clamp(1.5rem, 3.6vw, 2.1rem); letter-spacing: .2px;
+}
+.cs-bar__btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: clamp(44px, 5.6vw, 54px); height: clamp(44px, 5.6vw, 54px);
+  display: grid; place-items: center; border: none; cursor: pointer;
+  background: transparent; color: #26345c; border-radius: 50%;
+  transition: transform .12s ease, box-shadow .12s, background .12s;
+}
+.cs-bar__btn--back {
+  left: 0; background: #fff;
+  box-shadow: 0 4px 14px rgba(38, 52, 92, .12);
+}
+.cs-bar__btn--back:hover { box-shadow: 0 6px 18px rgba(38, 52, 92, .18); }
+.cs-bar__btn--settings { right: 0; }
+.cs-bar__btn--settings:hover { background: rgba(38, 52, 92, .06); }
+.cs-bar__btn:active { transform: translateY(-50%) scale(.92); }
+
+.cs__scroll {
+  flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(14px, 2.4vw, 26px); position: relative; z-index: 1;
+}
+
+/* شبكة الأطفال 2×2 */
+.cs-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3.6vw, 44px) clamp(22px, 4.2vw, 52px);
+  width: 100%; max-width: 600px; margin-inline: auto;
+  justify-items: center; align-items: start;
+}
+
+/* بطاقة الطفل + بطاقة الإضافة (هيكل موحّد) */
+.cs-card, .cs-add {
+  border: none; cursor: pointer; background: transparent;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(10px, 1.6vw, 16px); width: 100%;
+  transition: transform .14s ease;
+}
+.cs-card:active, .cs-add:active { transform: scale(.96); }
+.cs-card:hover .cs-card__ava, .cs-add:hover .cs-add__circle { transform: translateY(-3px); }
+
+.cs-card__ava {
+  width: clamp(120px, 26vw, 200px); height: clamp(120px, 26vw, 200px);
+  border-radius: 50%; overflow: hidden; display: block; flex: 0 0 auto;
+  background: var(--cbg, #eef);
+  box-shadow: inset 0 0 0 4px var(--ring, #ccd), 0 8px 20px rgba(38, 52, 92, .10);
+  transition: transform .14s ease, box-shadow .14s;
+}
+.cs-card__ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cs-card__ph { width: 100%; height: 100%; display: grid; place-items: center; color: var(--ptx, #667); }
+.cs-card__name {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  color: var(--ptx, #26345c); background: var(--pill, #eef);
+  border-radius: 999px; padding: clamp(6px, 1vw, 11px) clamp(16px, 2.6vw, 28px);
+  min-width: clamp(96px, 18vw, 140px); text-align: center;
+}
+.cs-card--active .cs-card__ava {
+  box-shadow: inset 0 0 0 5px var(--ring), 0 0 0 4px rgba(38, 52, 92, .14), 0 10px 24px rgba(38, 52, 92, .16);
+}
+
+/* بطاقة إضافة طفل (بنفسجي فاتح) */
+.cs-add__circle {
+  width: clamp(120px, 26vw, 200px); height: clamp(120px, 26vw, 200px);
+  border-radius: 50%; display: grid; place-items: center; color: #4a3f7a;
+  background: #ece4fb; box-shadow: inset 0 0 0 4px #cdbcf2, 0 8px 20px rgba(91, 70, 160, .12);
+  transition: transform .14s ease;
+}
+.cs-add__txt {
+  font-family: var(--font-display); font-weight: 800; color: #26345c;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+}
+.cs-add--span { grid-column: 1 / -1; }
+
+@media (max-width: 480px) {
+  .cs-grid { gap: clamp(18px, 6vw, 30px) clamp(16px, 6vw, 28px); max-width: 430px; }
+}

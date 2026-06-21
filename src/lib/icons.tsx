@@ -128,3 +128,44 @@ export const TrashIcon = (p: IconProps) => (
 export const SparkleIcon = (p: IconProps) => (
   <Svg {...p}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor" stroke="none" /></Svg>
 )
+
+/* ===== v0.5.2 — أيقونات شاشة اختيار الطفل (مرسومة، تدعم التعبئة) ===== */
+export const ChatDotsIcon = ({ size = 38 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      d="M5 4h14a3 3 0 0 1 3 3v6.4a3 3 0 0 1-3 3h-7.6l-4.2 3.1A1 1 0 0 1 5.4 19v-2.6A3 3 0 0 1 2 13.4V7a3 3 0 0 1 3-3z"
+      fill="currentColor"
+    />
+    <circle cx="8.4" cy="10.2" r="1.45" fill="#fff" />
+    <circle cx="12" cy="10.2" r="1.45" fill="#fff" />
+    <circle cx="15.6" cy="10.2" r="1.45" fill="#fff" />
+  </svg>
+)
+
+export const PaperPlaneIcon = ({ size = 40 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M21.4 3.1 2.7 10.4c-.7.3-.6 1.3.1 1.5l5.5 1.7 1.7 5.6c.2.7 1.2.8 1.5.1l2.2-4.1 4 3.1c.5.4 1.2.1 1.3-.5L22.3 4c.1-.7-.6-1.2-1.2-.9Z" fill="currentColor" />
+    <path d="M9 13.5 21 4" stroke="#fff" strokeWidth="1" strokeLinecap="round" opacity=".55" fill="none" />
+    <path d="m9 13.5-.7 4.2 2.6-2.7Z" fill="currentColor" opacity=".8" />
+  </svg>
+)
+
+export const CareHandsIcon = ({ size = 30 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M12 6.7c.95-1.65 4.25-1.6 4.6 1 .28 2.05-2 4.05-4.6 5.75C9.4 11.75 7.12 9.75 7.4 7.7c.35-2.6 3.65-2.65 4.6-1Z"
+      fill="#fff"
+    />
+    <path
+      d="M4.4 14.2c1.7 0 2.7 1.15 3.75 2.3 1.05 1.1 2.1 1.9 3.85 1.9s2.8-.8 3.85-1.9c1.05-1.15 2.05-2.3 3.75-2.3"
+      stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const BurstIcon = ({ size = 22 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
+    <path d="M7 12h5M8 7l4.5 2.6M8 17l4.5-2.6" />
+  </svg>
+)
