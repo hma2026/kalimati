@@ -101,6 +101,7 @@ export type ScreenName =
   | 'calm'
   | 'report'
   | 'settings'
+  | 'admin'
   // ===== شاشات تعليمية جديدة =====
   | 'dailyPhrases'
   | 'bodyParts'

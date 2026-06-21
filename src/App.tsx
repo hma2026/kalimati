@@ -19,6 +19,7 @@ import { MatchingGameScreen } from '@/screens/MatchingGameScreen'
 import { CalmScreen } from '@/screens/CalmScreen'
 import { ReportScreen } from '@/screens/ReportScreen'
 import { SettingsScreen } from '@/screens/SettingsScreen'
+import { AdminScreen } from '@/screens/AdminScreen'
 import { AppBottomNav } from '@/components/AppBottomNav'
 
 // شاشات تعليمية جديدة
@@ -67,6 +68,7 @@ export default function App() {
     case 'calm': view = <CalmScreen />; break
     case 'report': view = <ReportScreen />; break
     case 'settings': view = <SettingsScreen />; break
+    case 'admin': view = <AdminScreen />; break
     // ===== شاشات تعليمية جديدة =====
     case 'dailyPhrases': view = <DailyPhrasesScreen />; break
     case 'bodyParts': view = <BodyPartsScreen />; break

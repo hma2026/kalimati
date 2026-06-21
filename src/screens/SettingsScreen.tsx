@@ -275,6 +275,13 @@ export function SettingsScreen() {
             </button>
           </div>
 
+          <div className="card stack">
+            <h3 style={{ fontSize: '1.05rem' }}>إدارة الموقع</h3>
+            <button className="btn btn--primary btn--block" onClick={() => nav.go('admin')}>
+              إدارة الموقع والتحديثات
+            </button>
+          </div>
+
           <button className="btn btn--soft btn--block" onClick={() => nav.reset('children')}>
             العودة لاختيار الطفل
           </button>

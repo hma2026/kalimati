@@ -1,6 +1,6 @@
 {
   "name": "kalimati",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "description": "كلمة كلمة — أداة مساعدة للتواصل والتدريب على النطق (PWA). لا تغني عن المختصين.",
@@ -13,6 +13,7 @@
     "check:no-emoji-ui": "node tools/extract-assets/check_no_emoji_ui.mjs"
   },
   "dependencies": {
+    "fflate": "^0.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.5"
