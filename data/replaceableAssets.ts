@@ -1,0 +1,97 @@
+/**
+ * الأصول القابلة للاستبدال من شاشة الإدارة (تبويب الأيقونات والصور).
+ * كل عنصر: مفتاح assetRegistry + المسار الذي تُلتزم إليه الصورة في المستودع.
+ * عند رفع صورة لمفتاح، تُلتزم إلى path → بعد إعادة النشر يلتقطها assetRegistry تلقائياً
+ * وتحلّ محلّ البديل المؤقت دون أي تعديل في منطق الشاشات.
+ */
+export interface ReplaceableAsset {
+  key: string
+  label: string
+  group: string
+  path: string
+}
+
+export const replaceableAssets: ReplaceableAsset[] = [
+  // حروف بلا صورة بعد (بديل SVG مؤقت)
+  { key: 'apple', label: 'تفاح', group: 'حروف', path: 'src/assets/images/food/apple.png' },
+  { key: 'carrot', label: 'جزر', group: 'حروف', path: 'src/assets/images/food/carrot.png' },
+  { key: 'pomegranate', label: 'رمان', group: 'حروف', path: 'src/assets/images/food/pomegranate.png' },
+  { key: 'fox', label: 'ثعلب', group: 'حروف', path: 'src/assets/images/animals/fox.png' },
+  { key: 'wolf', label: 'ذئب', group: 'حروف', path: 'src/assets/images/animals/wolf.png' },
+  { key: 'giraffe', label: 'زرافة', group: 'حروف', path: 'src/assets/images/animals/giraffe.png' },
+  { key: 'fish', label: 'سمكة', group: 'حروف', path: 'src/assets/images/animals/fish.png' },
+  { key: 'falcon', label: 'صقر', group: 'حروف', path: 'src/assets/images/animals/falcon.png' },
+  { key: 'frog', label: 'ضفدع', group: 'حروف', path: 'src/assets/images/animals/frog.png' },
+  { key: 'deer', label: 'ظبي', group: 'حروف', path: 'src/assets/images/animals/deer.png' },
+  { key: 'cloud', label: 'غيمة', group: 'حروف', path: 'src/assets/images/extra/cloud.png' },
+  { key: 'gift', label: 'هدية', group: 'حروف', path: 'src/assets/images/extra/gift.png' },
+  { key: 'rose', label: 'وردة', group: 'حروف', path: 'src/assets/images/extra/rose.png' },
+  { key: 'hand', label: 'يد', group: 'حروف', path: 'src/assets/images/extra/hand.png' },
+
+  // ===== كلمات شاشة "كلمات مفردة" (قابلة للاستبدال بأعلى جودة) =====
+  { key: 'mother', label: 'ماما', group: 'كلمات · أشخاص', path: 'src/assets/images/people/mother.png' },
+  { key: 'father', label: 'بابا', group: 'كلمات · أشخاص', path: 'src/assets/images/people/father.png' },
+  { key: 'brother', label: 'أخوي', group: 'كلمات · أشخاص', path: 'src/assets/images/words/brother.png' },
+  { key: 'sister', label: 'أختي', group: 'كلمات · أشخاص', path: 'src/assets/images/words/sister.png' },
+  { key: 'grandpa', label: 'جدّو', group: 'كلمات · أشخاص', path: 'src/assets/images/words/grandpa.png' },
+  { key: 'grandma', label: 'جدّتي', group: 'كلمات · أشخاص', path: 'src/assets/images/words/grandma.png' },
+  { key: 'water', label: 'مويه', group: 'كلمات · مشروبات', path: 'src/assets/images/drinks/water.png' },
+  { key: 'milk', label: 'حليب', group: 'كلمات · مشروبات', path: 'src/assets/images/drinks/milk.png' },
+  { key: 'juice', label: 'عصير', group: 'كلمات · مشروبات', path: 'src/assets/images/drinks/juice.png' },
+  { key: 'laban', label: 'لبن', group: 'كلمات · مشروبات', path: 'src/assets/images/words/laban.png' },
+  { key: 'meal', label: 'أكل', group: 'كلمات · مأكولات', path: 'src/assets/images/words/meal.png' },
+  { key: 'bread', label: 'خبز', group: 'كلمات · مأكولات', path: 'src/assets/images/food/bread.png' },
+  { key: 'rice', label: 'رز', group: 'كلمات · مأكولات', path: 'src/assets/images/words/rice.png' },
+  { key: 'dates', label: 'تمر', group: 'كلمات · مأكولات', path: 'src/assets/images/words/dates.png' },
+  { key: 'egg', label: 'بيض', group: 'كلمات · مأكولات', path: 'src/assets/images/words/egg.png' },
+  { key: 'cheese', label: 'جبن', group: 'كلمات · مأكولات', path: 'src/assets/images/words/cheese.png' },
+  { key: 'chicken_food', label: 'دجاج', group: 'كلمات · مأكولات', path: 'src/assets/images/words/chicken_food.png' },
+  { key: 'cake', label: 'حلا', group: 'كلمات · مأكولات', path: 'src/assets/images/words/cake.png' },
+  { key: 'banana', label: 'موز', group: 'كلمات · فواكه', path: 'src/assets/images/words/banana.png' },
+  { key: 'apple', label: 'تفاح', group: 'كلمات · فواكه', path: 'src/assets/images/words/apple.png' },
+  { key: 'orange_fruit', label: 'برتقال', group: 'كلمات · فواكه', path: 'src/assets/images/words/orange_fruit.png' },
+  { key: 'grapes', label: 'عنب', group: 'كلمات · فواكه', path: 'src/assets/images/words/grapes.png' },
+  { key: 'watermelon', label: 'بطيخ', group: 'كلمات · فواكه', path: 'src/assets/images/words/watermelon.png' },
+  { key: 'tomato', label: 'طماطم', group: 'كلمات · خضار', path: 'src/assets/images/words/tomato.png' },
+  { key: 'cucumber', label: 'خيار', group: 'كلمات · خضار', path: 'src/assets/images/words/cucumber.png' },
+  { key: 'carrot', label: 'جزر', group: 'كلمات · خضار', path: 'src/assets/images/words/carrot.png' },
+  { key: 'potato', label: 'بطاطس', group: 'كلمات · خضار', path: 'src/assets/images/words/potato.png' },
+  { key: 'house', label: 'بيت', group: 'كلمات · أماكن', path: 'src/assets/images/words/house.png' },
+  { key: 'bathroom_room', label: 'حمام', group: 'كلمات · أماكن', path: 'src/assets/images/words/bathroom_room.png' },
+  { key: 'mosque', label: 'مسجد', group: 'كلمات · أماكن', path: 'src/assets/images/words/mosque.png' },
+  { key: 'school', label: 'مدرسة', group: 'كلمات · أماكن', path: 'src/assets/images/words/school.png' },
+  { key: 'kitchen', label: 'مطبخ', group: 'كلمات · أماكن', path: 'src/assets/images/words/kitchen.png' },
+  { key: 'bedroom', label: 'غرفتي', group: 'كلمات · أماكن', path: 'src/assets/images/words/bedroom.png' },
+  { key: 'garden', label: 'حديقة', group: 'كلمات · أماكن', path: 'src/assets/images/words/garden.png' },
+  { key: 'shirt', label: 'لبس', group: 'كلمات · ملابس', path: 'src/assets/images/words/shirt.png' },
+  { key: 'boots', label: 'جزمة', group: 'كلمات · ملابس', path: 'src/assets/images/words/boots.png' },
+  { key: 'sock', label: 'شراب', group: 'كلمات · ملابس', path: 'src/assets/images/words/sock.png' },
+  { key: 'cap', label: 'طاقية', group: 'كلمات · ملابس', path: 'src/assets/images/words/cap.png' },
+  { key: 'jacket', label: 'جاكيت', group: 'كلمات · ملابس', path: 'src/assets/images/words/jacket.png' },
+  { key: 'phone', label: 'جوال', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/phone.png' },
+  { key: 'tv', label: 'تلفزيون', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/tv.png' },
+  { key: 'car', label: 'سيارة', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/car.png' },
+  { key: 'book_obj', label: 'كتاب', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/book_obj.png' },
+  { key: 'clock_obj', label: 'ساعة', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/clock_obj.png' },
+  { key: 'key', label: 'مفتاح', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/key.png' },
+  { key: 'bag', label: 'شنطة', group: 'كلمات · أشياء يومية', path: 'src/assets/images/words/bag.png' },
+  { key: 'ball', label: 'كرة', group: 'كلمات · ألعاب', path: 'src/assets/images/words/ball.png' },
+  { key: 'blocks', label: 'مكعبات', group: 'كلمات · ألعاب', path: 'src/assets/images/words/blocks.png' },
+  { key: 'doll', label: 'دمية', group: 'كلمات · ألعاب', path: 'src/assets/images/words/doll.png' },
+  { key: 'bike', label: 'دراجة', group: 'كلمات · ألعاب', path: 'src/assets/images/words/bike.png' },
+  { key: 'puzzle_toy', label: 'بازل', group: 'كلمات · ألعاب', path: 'src/assets/images/words/puzzle_toy.png' },
+  { key: 'head', label: 'راس', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/head.png' },
+  { key: 'eye', label: 'عين', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/eye.png' },
+  { key: 'ear', label: 'أذن', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/ear.png' },
+  { key: 'nose', label: 'أنف', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/nose.png' },
+  { key: 'mouth', label: 'فم', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/mouth.png' },
+  { key: 'hand', label: 'يد', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/hand.png' },
+  { key: 'leg', label: 'رجل', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/leg.png' },
+  { key: 'tummy', label: 'بطن', group: 'كلمات · أجزاء الجسم', path: 'src/assets/images/words/tummy.png' },
+  { key: 'toothbrush', label: 'فرشاة', group: 'كلمات · نظافة', path: 'src/assets/images/words/toothbrush.png' },
+  { key: 'toothpaste', label: 'معجون', group: 'كلمات · نظافة', path: 'src/assets/images/words/toothpaste.png' },
+  { key: 'soap', label: 'صابون', group: 'كلمات · نظافة', path: 'src/assets/images/words/soap.png' },
+  { key: 'shampoo', label: 'شامبو', group: 'كلمات · نظافة', path: 'src/assets/images/words/shampoo.png' },
+  { key: 'towel', label: 'منشفة', group: 'كلمات · نظافة', path: 'src/assets/images/words/towel.png' },
+  { key: 'tissues', label: 'مناديل', group: 'كلمات · نظافة', path: 'src/assets/images/words/tissues.png' },
+]
