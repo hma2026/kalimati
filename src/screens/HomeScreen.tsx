@@ -6,8 +6,56 @@ import { useHaptics } from '@/hooks/useHaptics'
 import { TeacherGate } from '@/components/TeacherGate'
 import { categories } from '@/data/categories'
 import type { Category } from '@/types'
-import { HeartIcon, StarIcon } from '@/lib/icons'
+import { StarIcon, ChatDotsIcon, BurstIcon } from '@/lib/icons'
 import { AssetIcon } from '@/components/AssetIcon'
+
+const Chevron = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
+    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+const Shield = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
+    <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" fill="#7C4DD6" />
+    <path d="M8.5 12l2.3 2.3L15.5 9.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+/* أيقونات SVG ثلاثية الأبعاد للبطاقات البيضاء التي يتعذّر عزلها من النموذج (فقاعة/ساعة/رسم) */
+const IconBubble = () => (
+  <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
+    <ellipse cx="50" cy="84" rx="28" ry="5" fill="#26345c" opacity="0.07" />
+    <path d="M24 18h52a13 13 0 0 1 13 13v24a13 13 0 0 1-13 13H45L29 82V68h-5a13 13 0 0 1-13-13V31a13 13 0 0 1 13-13z" fill="#fff" stroke="#e0e6f0" strokeWidth="2.5" />
+    <circle cx="35" cy="43" r="5.5" fill="#5b9bf0" /><circle cx="50" cy="43" r="5.5" fill="#5b9bf0" /><circle cx="65" cy="43" r="5.5" fill="#5b9bf0" />
+  </svg>
+)
+const RAYS = Array.from({ length: 12 }, (_, i) => {
+  const a = (i * 30 * Math.PI) / 180
+  return { x1: 50 + 33 * Math.cos(a), y1: 50 + 33 * Math.sin(a), x2: 50 + 44 * Math.cos(a), y2: 50 + 44 * Math.sin(a) }
+})
+const IconClock = () => (
+  <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
+    <g stroke="#f4b53a" strokeWidth="6" strokeLinecap="round">
+      {RAYS.map((r, i) => <line key={i} x1={r.x1} y1={r.y1} x2={r.x2} y2={r.y2} />)}
+    </g>
+    <circle cx="50" cy="50" r="32" fill="#ffd76b" stroke="#f4b53a" strokeWidth="3" />
+    <circle cx="50" cy="50" r="23" fill="#fff" />
+    <line x1="50" y1="50" x2="50" y2="33" stroke="#5a4a2a" strokeWidth="4" strokeLinecap="round" />
+    <line x1="50" y1="50" x2="62" y2="55" stroke="#5a4a2a" strokeWidth="4" strokeLinecap="round" />
+    <circle cx="50" cy="50" r="3.2" fill="#5a4a2a" />
+  </svg>
+)
+const IconChart = () => (
+  <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-hidden>
+    <ellipse cx="50" cy="88" rx="30" ry="4" fill="#26345c" opacity="0.06" />
+    <rect x="20" y="58" width="17" height="28" rx="4" fill="#8b5cf6" />
+    <rect x="42" y="46" width="17" height="40" rx="4" fill="#34c759" />
+    <rect x="63" y="32" width="17" height="54" rx="4" fill="#f5b942" />
+    <path d="M18 42 L40 30 L58 37 L84 15" stroke="#3b9ae8" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M73 15 L84 15 L84 26" stroke="#3b9ae8" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+const SVG_ICONS: Record<string, () => JSX.Element> = { level2: IconBubble, level6: IconClock, report: IconChart }
 
 export function HomeScreen() {
   const nav = useNav()
@@ -16,55 +64,51 @@ export function HomeScreen() {
   const speak = useSpeech().speak
   const haptic = useHaptics()
   const [gate, setGate] = useState(false)
-
   const stats = progressStats(prog)
 
   const openTile = (cat: Category) => {
     if (!cat.available) return
     haptic('tap')
-    if (cat.id === 'settings') { setGate(true); return }            // settings is behind the teacher gate
+    if (cat.id === 'settings') { setGate(true); return }
     if (cat.screen === 'deck' && cat.deck) nav.go('deck', { deck: cat.deck, title: cat.label })
     else nav.go(cat.screen, { title: cat.label, ...(cat.params ?? {}) })
   }
-
-  const emergency = () => { haptic('success'); speak('أحتاج مساعدة') }
+  const help = () => { haptic('success'); speak('ساعدني') }
 
   return (
-    <div className="screen">
-      <header className="appbar">
-        <button className="iconbtn" aria-label="تبديل الطفل" onClick={() => nav.reset('children')}>
-          <AssetIcon refKey={child?.avatar ?? 'avatars/child_boy_01'} size={34} />
+    <div className="home">
+      <header className="home-bar">
+        <span className="home-stars"><StarIcon size={20} style={{ color: 'var(--star, #F6C84C)' }} /> {stats.stars}</span>
+        <h1 className="home-title">
+          <span className="home-title__b" aria-hidden><BurstIcon size={14} /></span>
+          الصفحة الرئيسية
+          <span className="home-title__b" aria-hidden><BurstIcon size={14} /></span>
+        </h1>
+        <button className="home-welcome" onClick={() => nav.reset('children')} aria-label="تبديل الطفل">
+          <span className="home-welcome__txt">مرحباً {child?.name ?? ''}</span>
+          <span className="home-welcome__ava"><AssetIcon refKey={child?.avatar ?? 'avatars/child_boy_01'} size={40} /></span>
         </button>
-        <h1 className="appbar__title">{child ? `أهلاً ${child.name}` : 'كلمة كلمة'}</h1>
-        <span className="appbar__stars"><StarIcon size={18} style={{ color: 'var(--star)' }} /> {stats.stars}</span>
       </header>
 
-      <button className="btn btn--lg" onClick={emergency}
-        style={{ background: '#FFF3E0', color: '#9A4B00', border: '2px solid #FFE0B2', boxShadow: 'none' }}>
-        <HeartIcon size={22} style={{ color: '#F08C00' }} /> أحتاج مساعدة
+      <button className="home-help" onClick={help}>
+        <span className="home-help__arrow"><Chevron size={18} /></span>
+        <span className="home-help__bubble"><ChatDotsIcon size={22} /></span>
+        <span className="home-help__txt">ساعدني</span>
       </button>
 
-      <div className="tiles screen__scroll" style={{ alignContent: 'start', paddingBottom: 4 }}>
+      <div className="home-grid screen__scroll">
         {categories.map((cat) => {
-          const desc = cat.params?.desc as string | undefined
-          if (cat.tint) {
-            return (
-              <button key={cat.id} className="tile tile--level" style={{ background: cat.tint, color: '#fff' }} onClick={() => openTile(cat)}>
-                <span className="tile__num" aria-hidden>{cat.icon}</span>
-                <span className="tile__label" style={{ color: '#fff' }}>{cat.label}</span>
-                {desc && <span className="tile__desc">{desc}</span>}
-              </button>
-            )
-          }
+          const Svg = SVG_ICONS[cat.id]
           return (
-            <button key={cat.id} className={`tile${cat.available ? '' : ' tile--soon'}`} onClick={() => openTile(cat)} aria-disabled={!cat.available}>
-              {!cat.available && <span className="badge-soon">قريباً</span>}
-              {cat.icon.includes('/') ? <AssetIcon refKey={cat.icon} size={52} className="tile__img" /> : <span className="tile__icon" aria-hidden>{cat.icon}</span>}
-              <span className="tile__label">{cat.label}</span>
+            <button key={cat.id} className="hcard" style={{ ['--ct' as never]: cat.tint ?? '#7c3aed' }} onClick={() => openTile(cat)}>
+              <span className="hcard__icon">{Svg ? <Svg /> : <AssetIcon refKey={cat.icon} size={78} />}</span>
+              <span className="hcard__label">{cat.label}</span>
             </button>
           )
         })}
       </div>
+
+      <p className="home-safe"><Shield size={18} /> أداة مساعدة للتواصل والتدريب على النطق، ولا تغني عن المختصين.</p>
 
       {gate && (
         <TeacherGate onCancel={() => setGate(false)} onUnlock={() => { setGate(false); nav.go('settings') }} />

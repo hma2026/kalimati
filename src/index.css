@@ -1927,3 +1927,83 @@ img, svg { max-width: 100%; }
 .assetcell__lbl{ font-family:var(--font-display); font-weight:700; color:#26345c; font-size:.95rem; }
 .assetcell__btn{ font-family:var(--font-display); font-weight:700; font-size:.85rem; color:#fff; background:#7c3aed; border:none; border-radius:10px; padding:7px 14px; cursor:pointer; }
 .assetcell__btn:disabled{ filter:grayscale(.4) opacity(.6); }
+
+/* ===================================================================
+   v0.7.4 — الصفحة الرئيسية (مطابِقة للنموذج): شريط علوي + ساعدني +
+   شبكة 4×3 بطاقات بيضاء بأيقونات مقصوصة + شريط أمان.
+=================================================================== */
+.home{
+  position:relative; flex:1; display:flex; flex-direction:column;
+  gap:clamp(10px,1.6vw,16px); padding:clamp(12px,2vw,20px) clamp(14px,2.6vw,26px) clamp(10px,1.6vw,16px);
+  background:#FAF8FD; overflow:hidden;
+}
+/* الشريط العلوي */
+.home-bar{ flex:0 0 auto; display:flex; align-items:center; gap:12px; }
+.home-stars{
+  display:inline-flex; align-items:center; gap:8px; background:#fff; border-radius:999px;
+  padding:9px 18px; font-family:var(--font-display); font-weight:900; color:#26345c; font-size:1.1rem;
+  box-shadow:0 4px 12px rgba(38,52,92,.08); flex:0 0 auto;
+}
+.home-title{
+  flex:1; text-align:center; margin:0; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--font-title, 'Baloo Bhaijaan 2', sans-serif); font-weight:800;
+  font-size:clamp(1.4rem,3.4vw,2.1rem); color:#6d28d9; line-height:1;
+}
+.home-title__b{ color:#b9a4ee; }
+.home-welcome{
+  display:inline-flex; align-items:center; gap:10px; background:#fff; border:none; cursor:pointer;
+  border-radius:999px; padding:6px 8px 6px 18px; box-shadow:0 4px 12px rgba(38,52,92,.08); flex:0 0 auto;
+  transition:transform .12s;
+}
+.home-welcome:active{ transform:scale(.97); }
+.home-welcome__txt{ font-family:var(--font-display); font-weight:800; color:#26345c; font-size:clamp(.95rem,1.6vw,1.15rem); }
+.home-welcome__ava{ width:42px; height:42px; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:#eee; flex:0 0 auto; }
+.home-welcome__ava :where(img,svg){ width:100%; height:100%; object-fit:cover; }
+
+/* زر ساعدني */
+.home-help{
+  align-self:flex-start; display:inline-flex; align-items:center; gap:12px; cursor:pointer;
+  background:#ece4fb; border:1.5px solid #d9ccf5; border-radius:18px; padding:10px 14px;
+  font-family:var(--font-display); transition:transform .12s, background .12s;
+}
+.home-help:active{ transform:scale(.97); }
+.home-help__txt{ font-weight:900; color:#6d28d9; font-size:clamp(1.05rem,2vw,1.35rem); order:3; }
+.home-help__bubble{ width:42px; height:42px; border-radius:14px; background:#a78bfa; color:#fff; display:grid; place-items:center; order:2; }
+.home-help__arrow{ width:32px; height:32px; border-radius:50%; background:#fff; color:#7c3aed; display:grid; place-items:center; order:1; }
+
+/* شبكة البطاقات (LTR لمطابقة ترتيب النموذج) */
+.home-grid{
+  direction:ltr; flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.8vw,20px);
+  align-content:start; padding:2px 2px 6px;
+}
+.hcard{
+  border:none; cursor:pointer; border-radius:22px; padding:clamp(14px,1.8vw,20px) 10px clamp(12px,1.5vw,16px);
+  background:color-mix(in srgb, var(--ct, #7c3aed) 8%, #fff);
+  box-shadow:0 6px 18px rgba(38,52,92,.07);
+  display:flex; flex-direction:column; align-items:center; gap:clamp(8px,1.2vw,12px);
+  transition:transform .14s ease, box-shadow .14s;
+}
+.hcard:active{ transform:scale(.96); }
+.hcard:hover{ box-shadow:0 12px 26px rgba(38,52,92,.14); transform:translateY(-2px); }
+.hcard__icon{ width:clamp(64px,8vw,92px); height:clamp(64px,8vw,92px); display:grid; place-items:center; }
+.hcard__icon :where(img,svg){ width:100%; height:100%; object-fit:contain; }
+.hcard__label{
+  direction:rtl; font-family:var(--font-display); font-weight:800; color:#3a3357;
+  font-size:clamp(.92rem,1.5vw,1.18rem); text-align:center; line-height:1.2;
+}
+
+/* شريط الأمان */
+.home-safe{
+  flex:0 0 auto; margin:0; display:flex; align-items:center; justify-content:center; gap:8px;
+  background:#f0ebfa; border-radius:14px; padding:clamp(9px,1.3vw,13px) 16px;
+  color:#7a7299; font-weight:600; font-family:var(--font-body); font-size:clamp(.82rem,1.4vw,.98rem);
+  text-align:center; line-height:1.5;
+}
+
+@media (max-width:780px){ .home-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:520px){
+  .home-grid{ grid-template-columns:repeat(2,1fr); }
+  .home-title{ font-size:1.3rem; }
+  .home-welcome__txt{ display:none; }
+}
