@@ -7,6 +7,7 @@ import { AssetIcon } from '@/components/AssetIcon'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
 import { getAnimalLabel, profileOf } from '@/data/dialects'
 import { useSettings } from '@/store/useSettingsStore'
+import { useLabels } from '@/hooks/useLabels'
 
 const SECTIONS = [
   { id: 'pets', label: 'حيوانات أليفة', tint: '#8B5CF6', keys: ['cat','dog','rabbit','bird'] },
@@ -23,7 +24,8 @@ export function AnimalsScreen() {
   const haptic = useHaptics()
   const stars = progressStats(prog).stars
   const profile = profileOf(child, fallback)
-  const say = (key: string) => { haptic('tap'); speak(getAnimalLabel(key, profile)) }
+  const { getLabel } = useLabels()
+  const say = (key: string) => { haptic('tap'); speak(getLabel(key, getAnimalLabel(key, profile))) }
 
   return (
     <div className="sw">
@@ -43,7 +45,7 @@ export function AnimalsScreen() {
             <div className="sw__grid">{sec.keys.map((key) => (
               <button className="wc" key={key} onClick={() => say(key)}>
                 <span className="wc__img">{mediaVisual(key, 96)}</span>
-                <span className="wc__bot"><span className="wc__lbl">{getAnimalLabel(key, profile)}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+                <span className="wc__bot"><span className="wc__lbl">{getLabel(key, getAnimalLabel(key, profile))}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
               </button>
             ))}</div>
           </section>

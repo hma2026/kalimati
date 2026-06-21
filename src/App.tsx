@@ -1,5 +1,7 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useNav } from '@/store/useNavStore'
+import { useLabels } from '@/hooks/useLabels'
 import { useSettings } from '@/store/useSettingsStore'
 import type { ScreenName } from '@/types'
 
@@ -44,6 +46,8 @@ const BOTTOM_NAV_SCREENS: ReadonlySet<ScreenName> = new Set<ScreenName>([
 ])
 
 export default function App() {
+  const loadLabels = useLabels((s) => s.load)
+  React.useEffect(() => { loadLabels() }, [loadLabels])
   const screen = useNav((s) => s.screen)
   const fontScale = useSettings((s) => s.fontScale)
   const reduceMotion = useSettings((s) => s.reduceMotion)

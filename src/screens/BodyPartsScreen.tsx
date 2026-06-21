@@ -2,6 +2,7 @@ import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
+import { useLabels } from '@/hooks/useLabels'
 import { mediaVisual } from '@/components/Media'
 import { PlaceholderVisual } from '@/components/PlaceholderVisual'
 import { AssetIcon } from '@/components/AssetIcon'
@@ -32,6 +33,7 @@ export function BodyPartsScreen() {
   const { speak } = useSpeech()
   const haptic = useHaptics()
   const stars = progressStats(prog).stars
+  const { getLabel } = useLabels()
   const say = (t: string) => { haptic('tap'); speak(t) }
 
   return (
@@ -53,7 +55,7 @@ export function BodyPartsScreen() {
               <button className="wc" key={bp.id} onClick={() => say(bp.label)}>
                 <span className="wc__img">{has ? mediaVisual(bp.media, 96) : <PlaceholderVisual size={56} accent={bp.textColor} />}</span>
                 <span className="wc__bot">
-                  <span className="wc__lbl" style={{color: bp.textColor}}>{bp.label}</span>
+                  <span className="wc__lbl" style={{color: bp.textColor}}>{getLabel(bp.id, bp.label)}</span>
                   <span className="wc__snd"><VolumeIcon size={13} /></span>
                 </span>
               </button>

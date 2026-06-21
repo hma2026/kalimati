@@ -105,8 +105,8 @@ export const replaceableAssets: ReplaceableAsset[] = [
   { key: 'loudSound', label: 'الصوت عالي', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/loudSound.png' },
   { key: 'quietPlace', label: 'مكان هادي', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/quietPlace.png' },
   { key: 'doNotTouch', label: 'لا تلمسني', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/doNotTouch.png' },
-  { key: 'help', label: 'ساعدني', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/help.png' },
-  { key: 'stop', label: 'أوقف', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/stop.png' },
+  { key: 'calm_help', label: 'ساعدني (تهدئة)', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/calm_help.png' },
+  { key: 'calm_stop', label: 'أوقف (تهدئة)', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/calm_stop.png' },
   { key: 'goOut', label: 'أطلع', group: 'المشاعر · تهدئة', path: 'src/assets/images/emotions/goOut.png' },
 
   { key: 'cat', label: 'قطة', group: 'حيوانات', path: 'src/assets/images/animals/cat.png' },

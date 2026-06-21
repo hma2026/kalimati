@@ -2,6 +2,7 @@ import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
+import { useLabels } from '@/hooks/useLabels'
 import { PlaceholderVisual } from '@/components/PlaceholderVisual'
 import { mediaVisual } from '@/components/Media'
 import { getAsset } from '@/assets/assetRegistry'
@@ -18,6 +19,7 @@ export function CardGridScreen() {
   const stars = progressStats(prog).stars
   const { speak } = useSpeech()
   const haptic = useHaptics()
+  const { getLabel } = useLabels()
   const say = (t: string) => { haptic('tap'); speak(t) }
 
   const renderCard = (c: { id: string; label: string; media?: string; say?: string }, tint: string) => {
@@ -25,7 +27,7 @@ export function CardGridScreen() {
     return (
       <button className="wc" key={c.id} onClick={() => say(c.say ?? c.label)}>
         <span className="wc__img">{has ? mediaVisual(c.media!, 96) : <PlaceholderVisual size={56} accent={tint} />}</span>
-        <span className="wc__bot"><span className="wc__lbl">{c.label}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+        <span className="wc__bot"><span className="wc__lbl">{getLabel(c.id, c.label)}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
       </button>
     )
   }

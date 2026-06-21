@@ -30,8 +30,8 @@ export const L3_PHRASES: L3Item[] = [
   { key: 'go_bathroom', media: 'bathroom', build: (p) => `${D.getRequestWord(p)} ${D.go(p)} الحمام` },
   { key: 'tired', media: 'tired', build: (p) => D.buildEmotionPhrase('tired', p) },
   { key: 'tummy', media: 'stomachPain', build: (p) => D.buildPainPhrase('tummy', p) },
-  { key: 'want_mom', media: 'mother', build: (p) => `${D.getRequestWord(p)} أمي` },
-  { key: 'want_dad', media: 'father', build: (p) => `${D.getRequestWord(p)} بابا` },
+  { key: 'want_mom', media: 'calm_mother', build: (p) => `${D.getRequestWord(p)} أمي` },
+  { key: 'want_dad', media: 'calm_father', build: (p) => `${D.getRequestWord(p)} بابا` },
   { key: 'sleep_now', media: 'sleep', build: (p) => `${D.buildRequestPhrase('sleep', p)} ${D.now(p)}` },
 ]
 
@@ -58,8 +58,8 @@ export const L4_CALM: L4Card[] = [
   { key: 'loud', media: 'loudSound' },
   { key: 'quiet', media: 'quietPlace' },
   { key: 'notouch', media: 'doNotTouch' },
-  { key: 'mom', media: 'mother' },
-  { key: 'dad', media: 'father' },
+  { key: 'mom', media: 'calm_mother' },
+  { key: 'dad', media: 'calm_father' },
   { key: 'help', media: 'help' },
   { key: 'stop', media: 'stop' },
   { key: 'out', media: 'goOut' },

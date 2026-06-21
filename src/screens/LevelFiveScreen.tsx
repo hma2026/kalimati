@@ -2,6 +2,7 @@ import { useNav } from '@/store/useNavStore'
 import { useChildren, progressStats } from '@/store/useChildrenStore'
 import { useSpeech } from '@/hooks/useSpeech'
 import { useHaptics } from '@/hooks/useHaptics'
+import { useLabels } from '@/hooks/useLabels'
 import { mediaVisual } from '@/components/Media'
 import { AssetIcon } from '@/components/AssetIcon'
 import { StarIcon, BurstIcon, VolumeIcon } from '@/lib/icons'
@@ -23,6 +24,7 @@ export function LevelFiveScreen() {
   const { speak } = useSpeech()
   const haptic = useHaptics()
   const stars = progressStats(prog).stars
+  const { getLabel } = useLabels()
   const say = (t: string) => { haptic('tap'); speak(t) }
 
   return (
@@ -41,12 +43,12 @@ export function LevelFiveScreen() {
           <div className="sw__grid">{COLORS.map((c) => (
             <button className="wc" key={c.key} onClick={() => say(c.label)}>
               <span className="wc__img">{mediaVisual(c.key, 96, 'lesson')}</span>
-              <span className="wc__bot"><span className="wc__lbl">{c.label}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+              <span className="wc__bot"><span className="wc__lbl">{getLabel(c.key, c.label)}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
             </button>
           ))}</div></section>
         <section className="sw__sec"><span className="sw__badge" style={{['--bt' as never]:'#3B82F6'}}>أشكال</span>
           <div className="sw__grid">{SHAPES.map((s) => (
-            <button className="wc" key={s.key} onClick={() => say(s.label)}>
+            <button className="wc" key={s.key} onClick={() => say(getLabel(s.key, s.label))}>
               <span className="wc__img">{mediaVisual(s.key, 96)}</span>
               <span className="wc__bot"><span className="wc__lbl">{s.label}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
             </button>
