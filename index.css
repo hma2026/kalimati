@@ -2049,3 +2049,8 @@ img, svg { max-width: 100%; }
 .wgrid.wgrid--5{ grid-template-columns:repeat(5,1fr); }
 .wgrid.wgrid--3{ grid-template-columns:repeat(3,1fr); }
 @media (max-width:600px){ .wgrid.wgrid--5{ grid-template-columns:repeat(3,1fr); } }
+
+/* v0.7.8 — المستوى 4 (المشاعر والاحتياجات): شبكة 4 أعمدة لقسم التهدئة */
+.wgrid.wgrid--4{ grid-template-columns:repeat(4,1fr); }
+@media (max-width:760px){ .wgrid.wgrid--4{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:480px){ .wgrid.wgrid--4{ grid-template-columns:repeat(2,1fr); } }
