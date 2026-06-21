@@ -2037,3 +2037,15 @@ img, svg { max-width: 100%; }
 @media (max-width:900px){ .wgrid{ grid-template-columns:repeat(6,1fr); } }
 @media (max-width:760px){ .wgrid{ grid-template-columns:repeat(4,1fr); } }
 @media (max-width:430px){ .wgrid{ grid-template-columns:repeat(3,1fr); } }
+
+/* ===================================================================
+   v0.7.6 — المستوى 5 (الألوان والأشكال): قسمان بنمط بطاقات الكلمات
+=================================================================== */
+.l5{ background:#FAF8FD; }
+.l5-bar{ flex-wrap:wrap; }
+.l5-left{ display:inline-flex; align-items:center; gap:10px; flex:0 0 auto; }
+.l5-gear{ width:44px; height:44px; border-radius:50%; border:none; cursor:pointer; background:#fff; color:#7c3aed; display:grid; place-items:center; box-shadow:0 4px 12px rgba(38,52,92,.08); }
+.l5-sub{ margin:0; text-align:center; color:#8b6fd6; font-weight:700; font-family:var(--font-display); font-size:clamp(.95rem,2vw,1.2rem); padding:2px 0 2px; }
+.wgrid.wgrid--5{ grid-template-columns:repeat(5,1fr); }
+.wgrid.wgrid--3{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:600px){ .wgrid.wgrid--5{ grid-template-columns:repeat(3,1fr); } }
