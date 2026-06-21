@@ -18,6 +18,32 @@ const SHAPES = [
   { key: 'rectangle', label: 'مستطيل' }, { key: 'star', label: 'نجمة' }, { key: 'heart', label: 'قلب' },
 ]
 
+/* كرات لامعة ثلاثية الأبعاد (SVG) للصفّ الأول من الألوان — مطابِقة للنموذج */
+const BALLS: Record<string, { c: string; hi: string; sh: string }> = {
+  red: { c: '#e8362a', hi: '#ff8f80', sh: '#a81c14' },
+  blue: { c: '#2b7de0', hi: '#84bbf6', sh: '#19529b' },
+  yellow: { c: '#f5c518', hi: '#fde986', sh: '#c89708' },
+  green: { c: '#5cb82e', hi: '#abe17c', sh: '#3a8616' },
+  orange: { c: '#f08c1c', hi: '#ffc270', sh: '#c06006' },
+}
+const ColorBall = ({ k }: { k: string }) => {
+  const p = BALLS[k]
+  return (
+    <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden>
+      <defs>
+        <radialGradient id={`cb-${k}`} cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stopColor={p.hi} />
+          <stop offset="55%" stopColor={p.c} />
+          <stop offset="100%" stopColor={p.sh} />
+        </radialGradient>
+      </defs>
+      <ellipse cx="50" cy="91" rx="27" ry="5" fill="#26345c" opacity="0.1" />
+      <circle cx="50" cy="48" r="39" fill={`url(#cb-${k})`} />
+      <ellipse cx="37" cy="33" rx="13" ry="9" fill="#fff" opacity="0.5" />
+    </svg>
+  )
+}
+
 /** المستوى 5 — الألوان والأشكال (مطابِق للنموذج: قسمان معاً، صور حقيقية + كلمة + زر نطق). */
 export function LevelFiveScreen() {
   const nav = useNav()
@@ -54,7 +80,7 @@ export function LevelFiveScreen() {
           <div className="wgrid wgrid--5">
             {COLORS.map((c) => (
               <button className="wcell" key={c.key} onClick={() => say(c.label)}>
-                <span className="wcell__img">{mediaVisual(c.key, 96, 'lesson')}</span>
+                <span className="wcell__img">{BALLS[c.key] ? <ColorBall k={c.key} /> : mediaVisual(c.key, 96, 'lesson')}</span>
                 <span className="wcell__row"><span className="wcell__word">{c.label}</span><span className="wcell__snd" aria-hidden><VolumeIcon size={15} /></span></span>
               </button>
             ))}
