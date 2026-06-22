@@ -45,7 +45,7 @@ export function AnimalsScreen() {
             <div className="sw__grid">{sec.keys.map((key) => (
               <button className="wc" key={key} onClick={() => say(key)}>
                 <span className="wc__img">{mediaVisual(key, 96)}</span>
-                <span className="wc__bot"><span className="wc__lbl">{getLabel(key, getAnimalLabel(key, profile))}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+                <span className="wc__bot"><span className="wc__lbl">{getLabel(key, getAnimalLabel(key, profile))}</span><span className="wc__snd"><VolumeIcon size={22} /></span></span>
               </button>
             ))}</div>
           </section>

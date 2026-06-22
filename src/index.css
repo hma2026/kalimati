@@ -2123,23 +2123,25 @@ img, svg { max-width: 100%; }
 
 /* بطاقة الكلمة */
 .wc{
-  border:none; cursor:pointer; background:#fff; border-radius:clamp(12px,1.6vw,18px);
-  padding:clamp(6px,.8vw,10px) 4px clamp(4px,.6vw,7px);
-  display:flex; flex-direction:column; align-items:center; gap:4px;
-  box-shadow:0 3px 10px rgba(38,52,92,.06); transition:transform .12s ease;
+  border:1px solid #ece8f4; cursor:pointer; background:#fff; border-radius:clamp(16px,2vw,22px);
+  padding:clamp(12px,1.6vw,18px) clamp(8px,1vw,12px) clamp(10px,1.3vw,14px);
+  display:flex; flex-direction:column; align-items:center; gap:clamp(8px,1.1vw,12px);
+  box-shadow:0 4px 14px rgba(38,52,92,.07); transition:transform .12s ease, box-shadow .12s ease;
 }
 .wc:active{ transform:scale(.95); }
-.wc__img{ width:100%; aspect-ratio:1; display:grid; place-items:center; padding:4px; }
+.wc__img{ width:100%; aspect-ratio:1; display:grid; place-items:center; }
 .wc__img :where(img,svg){ width:100%; height:100%; object-fit:contain; }
-.wc__bot{ display:flex; align-items:center; gap:3px; justify-content:center; width:100%; }
+.wc__bot{ display:flex; flex-direction:column; align-items:center; gap:clamp(6px,.9vw,10px); justify-content:center; width:100%; }
 .wc__lbl{
-  font-family:var(--font-display); font-weight:800; color:#26345c;
-  font-size:clamp(.68rem,.95vw,.88rem); line-height:1.1;
+  font-family:var(--font-display); font-weight:800; color:#3D2A87;
+  font-size:clamp(.95rem,1.5vw,1.2rem); line-height:1.15; text-align:center;
 }
 .wc__snd{
-  width:20px; height:20px; border-radius:50%; background:#ece4fb; color:#7c3aed;
-  display:grid; place-items:center; flex:0 0 auto;
+  width:clamp(38px,4.5vw,46px); height:clamp(38px,4.5vw,46px); border-radius:50%;
+  background:#7c3aed; color:#fff; display:grid; place-items:center; flex:0 0 auto;
+  box-shadow:0 3px 10px rgba(124,58,237,.32);
 }
+.wc__snd svg{ width:55%; height:55%; }
 .wc--empty{ opacity:.5; cursor:default; }
 
 /* التنقّل السفلي */

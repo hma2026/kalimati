@@ -56,7 +56,7 @@ export function BodyPartsScreen() {
                 <span className="wc__img">{has ? mediaVisual(bp.media, 96) : <PlaceholderVisual size={56} accent={bp.textColor} />}</span>
                 <span className="wc__bot">
                   <span className="wc__lbl" style={{color: bp.textColor}}>{getLabel(bp.id, bp.label)}</span>
-                  <span className="wc__snd"><VolumeIcon size={13} /></span>
+                  <span className="wc__snd"><VolumeIcon size={22} /></span>
                 </span>
               </button>
             )

@@ -27,7 +27,7 @@ export function CardGridScreen() {
     return (
       <button className="wc" key={c.id} onClick={() => say(c.say ?? c.label)}>
         <span className="wc__img">{has ? mediaVisual(c.media!, 96) : <PlaceholderVisual size={56} accent={tint} />}</span>
-        <span className="wc__bot"><span className="wc__lbl">{getLabel(c.id, c.label)}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+        <span className="wc__bot"><span className="wc__lbl">{getLabel(c.id, c.label)}</span><span className="wc__snd"><VolumeIcon size={22} /></span></span>
       </button>
     )
   }

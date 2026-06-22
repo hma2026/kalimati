@@ -70,7 +70,7 @@ export function LevelFourScreen() {
                 return (
                   <button className="wc" key={c.key} onClick={() => say(label)}>
                     <span className="wc__img">{has ? mediaVisual(c.media, 96) : <PlaceholderVisual size={56} accent={sec.tint} />}</span>
-                    <span className="wc__bot"><span className="wc__lbl">{label}</span><span className="wc__snd"><VolumeIcon size={13} /></span></span>
+                    <span className="wc__bot"><span className="wc__lbl">{label}</span><span className="wc__snd"><VolumeIcon size={22} /></span></span>
                   </button>
                 )
               })}
