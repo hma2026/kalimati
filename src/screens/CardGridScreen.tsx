@@ -10,7 +10,6 @@ import { VolumeIcon, StarIcon, BurstIcon } from '@/lib/icons'
 import { AssetIcon } from '@/components/AssetIcon'
 import { wordCategories } from '@/data/words'
 
-const COLS = 4
 
 export function CardGridScreen() {
   const nav = useNav()
@@ -55,8 +54,8 @@ export function CardGridScreen() {
       {/* الأقسام (عنوان وسط + شبكة ٤ أعمدة) */}
       <div className="sw__scroll">
         {wordCategories.map((g) => {
-          const remainder = g.words.length % COLS
-          const pad = remainder === 0 ? 0 : COLS - remainder
+          // 8 بطاقات لكل قسم (صفّان × 4)، حشو بالفارغ عند النقص
+          const pad = Math.max(0, 8 - g.words.length)
           return (
             <section className="sw__sec" key={g.id}>
               <span className="sw__badge" style={{['--bt' as never]: g.tint}}>{g.label}</span>
